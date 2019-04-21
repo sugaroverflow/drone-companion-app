@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/common/Header';
+import HomePage from './pages/Home';
+import AboutPage from './pages/About';
+import ListPage from './pages/List';
 import './app.css';
-import ReactImage from './react.png';
 
-export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
-  }
-
-  render() {
-    const { username } = this.state;
-    return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="container-fluid">
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/list" component={ListPage} />
+      </Switch>
+    </div>
+  );
 }
+
+export default App;
