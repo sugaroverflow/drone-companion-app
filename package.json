@@ -13,10 +13,10 @@
     "precommit": "lint-staged && npm test"
   },
   "lint-staged": {
-      "*.js": [
-          "npm run pretty",
-          "git add"
-      ]
+    "*.js": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "dependencies": {
     "@gctools-components/aurora-ds": "0.3.3",

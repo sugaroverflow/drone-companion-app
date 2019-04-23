@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/common/Header';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
-import ListPage from './pages/List';
 import './app.css';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
-        <Route path="/list" component={ListPage} />
       </Switch>
     </div>
   );

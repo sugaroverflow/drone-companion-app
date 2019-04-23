@@ -1,0 +1,85 @@
+{"checklistItems": 
+    [
+        {
+            "id": "1",
+            "type": "category",
+            "titleEng": "Conducting a Site Survey",
+            "titleFra": "(fr) Conducting a Site Survey",
+            "descEng": "This set of tasks will guide you through completing a site survey.",
+            "descFra": "(fr) This set of tasks will guide you through completing a site survey.",
+            "relatedID": ""
+          },
+          {
+            "id": "2",
+            "type": "category",
+            "titleEng": "Writing Standard Operating Procedures",
+            "titleFra": "(fr) Writing Standard Operating Procedures",
+            "descEng": "This set of tasks will guide you through writing standard operating procedures.",
+            "descFra": "(fr) This set of tasks will guide you through writing standard operating procedures.",
+            "relatedID": ""
+          },
+          {
+            "id": "3",
+            "type": "section",
+            "titleEng": "Site Research",
+            "titleFra": "(fr) Site Research",
+            "descEng": "This guides you through researching your site ahead of time to ensure safety and legality.",
+            "descFra": "(fr) This guides you through researching your site ahead of time to ensure safety and legality.",
+            "relatedID": "1"
+          },
+          {
+            "id": "4",
+            "type": "section",
+            "titleEng": "Before You Leave",
+            "titleFra": "(fr) Before You Leave",
+            "descEng": "This guides you through the day-of, pre-flight requirements, like checking the weather.",
+            "descFra": "(fr) This guides you through the day-of, pre-flight requirements, like checking the weather.",
+            "relatedID": "1"
+          },
+          {
+            "id": "5",
+            "type": "subtask",
+            "titleEng": "Determine where to fly",
+            "titleFra": "(fr) Determine where to fly",
+            "descEng": "",
+            "descFra": "",
+            "relatedID": "3"
+          },
+          {
+            "id": "6",
+            "type": "subtask",
+            "titleEng": "Define your flight boundary",
+            "titleFra": "(fr) Define your flight boundary",
+            "descEng": "",
+            "descFra": "",
+            "relatedID": "3"
+          },
+          {
+            "id": "7",
+            "type": "checklistItem",
+            "titleEng": "Create a file where you keep all the details of your research and surveying.",
+            "titleFra": "(fr) Create a file where you keep all the details of your research and surveying.",
+            "descEng": "",
+            "descFra": "",
+            "relatedID": "3"
+          },
+          {
+            "id": "8",
+            "type": "checklistItem",
+            "titleEng": "Use Canadian airspace data to determine a location for your flight that is outside of airspace.",
+            "titleFra": "(fr) Use Canadian airspace data to determine a location for your flight that is outside of airspace.",
+            "descEng": "",
+            "descFra": "",
+            "relatedID": "3"
+          },
+          {
+            "id": "9",
+            "type": "guidanceItem",
+            "titleEng": "There are two recommended tools for this CFS and RPAS Site Selection.",
+            "titleFra": "(fr) There are two recommended tools for this CFS and RPAS Site Selection.",
+            "descEng": "",
+            "descFra": "",
+            "relatedID": "8"
+          }
+    ] 
+}
