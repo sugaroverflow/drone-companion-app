@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 const os = require('os');
 
 const app = express();
@@ -13,17 +12,24 @@ app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().use
 // Use route for siteSurvey api.
 app.use('/api/siteSurvey', ssRouter);
 
-
-// An api endpoint that returns siteSurvey related items
-// app.get('/siteSurvey', (req, res) => {
-//   const fileContents = fs.readFileSync(`${__dirname}/api/checklistItemData.json`, 'utf8');
-//   const data = JSON.parse(fileContents);
-//   // console.log(data.checklistItems);
-//   res.send(data.checklistItems);
-// });
+/* @todo React router routes to implement here or with the router */
+/*
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/sitesurvey" component={SiteSurveyPage} />
+        <Route path="/category/:id" component={CategoryPage} />
+        <Route path="/phase/:id" component={PhasePage} />
+        <Route path="/task/:id" component={TaskPage} />
+        <Route path="/subtask/:id" component={SubtaskPage} />
+        <Route path="/about" component={AboutPage} />
+        <Redirect from="/about-us" to="/about" />
+        <Redirect from="/about/*" to="/about" />
+        <Route component={PageNotFound} />
+      </Switch>
+*/
 
 // For 404 errors?
-// app.use('*', (req, res) => { 
+// app.use('*', (req, res) => {
 //   res.status(404).send({ error: 'Not found' });
 // });
 
