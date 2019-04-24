@@ -1,5 +1,7 @@
 # drone companion app
 
+[![Build Status](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)
+
 This application is a collaboration between Code for Canada + Transport Canada. 
 
 This project serves to build the alpha of an application that helps Canadian drone pilots fly safely and legally by guiding them through the site survey process. 
