@@ -1,6 +1,6 @@
-# drone companionn app
+# drone companion app
 
-This application is a collaboration between Code for Canada and Transport Canada. 
+This application is a collaboration between Code for Canada + Transport Canada. 
 
 This project serves to build the alpha of an application that helps Canadian drone pilots fly safely and legally by guiding them through the site survey process. 
 
