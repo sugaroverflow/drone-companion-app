@@ -1,9 +1,8 @@
-/* @todo whats the difference between this and the category page?
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import React from "react";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-const CategoryApi = require("../../API/SiteSurveyApi").CategoryApi;
+const { CategoryApi } = require('../../backend/api/siteSurveyAPI');
 
 class SiteSurveyPage extends React.Component {
   constructor(props) {
@@ -13,9 +12,11 @@ class SiteSurveyPage extends React.Component {
       categories: []
     };
   }
+
   componentDidMount() {
     this.setState({ categories: CategoryApi.getAllCategories() });
   }
+
   render() {
     return (
       <div>
@@ -33,15 +34,15 @@ function CreateCategoryRow(category) {
         <div className="card-body">
           <img
             className="card-img-top"
-            src="../images/pluralsight-logo.png"
-            alt="Card image cap"
+            src="../images/placeholder.png"
+            alt="Logo"
           />
           <p className="card-text">{category.titleEng}</p>
           <p className="card-text">{category.descEng}</p>
           <h2 className="card-title h5">
             <NavLink
               className="card-link"
-              to={"/category/" + category.category_id}
+              to={`/category/${category.category_id}`}
             >
               View
             </NavLink>
