@@ -1,10 +1,9 @@
-/* @todo create a phase card component instead? 
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import React from "react";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-const PhaseApi = require("../../API/SiteSurveyApi").PhaseApi;
-const TaskApi = require("../../API/SiteSurveyApi").TaskApi;
+const { PhaseApi } = require('../../backend/api/siteSurveyAPI');
+const { TaskApi } = require('../../backend/api/siteSurveyAPI');
 
 class PhasePage extends React.Component {
   constructor(props) {
@@ -15,8 +14,9 @@ class PhasePage extends React.Component {
       tasks: []
     };
   }
+
   componentWillMount() {
-    var phaseId = this.props.match.params.id;
+    const phaseId = this.props.match.params.id;
     if (phaseId) {
       this.setState({
         phase: PhaseApi.getPhaseById(phaseId),
@@ -24,6 +24,7 @@ class PhasePage extends React.Component {
       });
     }
   }
+
   // componentDidMount() {
   //   this.setState({ Phase: PhaseApi.getPhaseById() });
   // }
@@ -32,10 +33,9 @@ class PhasePage extends React.Component {
       <div>
         <h1>
           <NavLink to="/task" className="navbar-brand">
-            {"< Phase " +
-              this.state.phase.OrderNum +
-              " - " +
-              this.state.phase.titleEng}
+            {`< Phase ${this.state.phase.OrderNum} - ${
+              this.state.phase.titleEng
+            }`}
           </NavLink>
         </h1>
         <div>{this.state.tasks.map(CreateTaskRow, this)}</div>
@@ -51,7 +51,7 @@ function CreateTaskRow(task) {
         <div className="card-body">
           <p className="card-text">{task.titleEng}</p>
           <p className="card-text">
-            <NavLink className="card-link" to={"/Task/" + task.task_id}>
+            <NavLink className="card-link" to={`/Task/${task.task_id}`}>
               VIEW
             </NavLink>
           </p>

@@ -1,9 +1,8 @@
-/* @todo is there a way to have one list page and have a subTask card component?
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+// import PropTypes from "prop-types";
+const { SubtaskApi } = require('../../backend/api/siteSurveyAPI');
 
-import React from "react";
-import { NavLink } from "react-router-dom";
-//import PropTypes from "prop-types";
-const SubtaskApi = require("../../API/SiteSurveyApi").SubtaskApi;
 
 class SubtaskPage extends React.Component {
   constructor(props) {
@@ -13,9 +12,11 @@ class SubtaskPage extends React.Component {
       subtasks: []
     };
   }
+
   componentDidMount() {
     this.setState({ subtasks: SubtaskApi.getAllSubtasks() });
   }
+
   render() {
     return (
       <div>

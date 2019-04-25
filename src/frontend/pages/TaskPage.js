@@ -1,9 +1,7 @@
-/* @todo is there a way to have one list page and have a taskCard component instead?
-
-import React from "react";
-import { NavLink } from "react-router-dom";
-//import PropTypes from "prop-types";
-const TaskApi = require("../../API/SiteSurveyApi").TaskApi;
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+// import PropTypes from "prop-types";
+const { TaskApi } = require('../../backend/api/siteSurveyAPI');
 
 class TaskPage extends React.Component {
   constructor(props) {
@@ -13,9 +11,11 @@ class TaskPage extends React.Component {
       tasks: []
     };
   }
+
   componentDidMount() {
     this.setState({ categories: TaskApi.getAllChecklistitems() });
   }
+
   render() {
     return (
       <div>
