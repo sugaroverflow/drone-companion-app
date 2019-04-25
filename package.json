@@ -10,7 +10,8 @@
     "server": "nodemon src/backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
-    "precommit": "lint-staged && npm test"
+    "precommit": "lint-staged && npm test",
+    "next-update": "next-update -k true --tldr"
   },
   "lint-staged": {
     "*.js": [
@@ -24,6 +25,7 @@
     "@material-ui/icons": "3.0.2",
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
+    "next-update": "3.6.0",
     "prop-types": "15.7.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
