@@ -1,54 +1,55 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import PropTypes from "prop-types";
-const { TaskApi } = require('../../backend/api/siteSurveyAPI');
+import PropTypes from 'prop-types';
+import SubtaskCard from './SubtaskCard';
+
+const { SiteSurveyApi } = require('../../backend/api/siteSurveyAPI');
 
 class TaskPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tasks: []
+      task: null,
+      subtasks: []
     };
   }
 
   componentDidMount() {
-    this.setState({ categories: TaskApi.getAllChecklistitems() });
+    const taskId = this.props.match.params.id;
+
+    this.setState({
+      task: SiteSurveyApi.getTaskById(taskId),
+      subtasks: SiteSurveyApi.getSubtasksByTaskId(taskId)
+    });
   }
 
   render() {
-    return (
-      <div>
-        <h1>Categories</h1>
+    if (this.state.task) {
+      return (
         <div>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>{this.state.tasks.map(CreateTaskRow, this)}</tbody>
-          </table>
+          <h1>
+            <NavLink
+              to={`/phase/${this.state.task.phase_id}`}
+              className="navbar-brand"
+            >
+              {`< ${this.state.task.titleEng}`}
+            </NavLink>
+          </h1>
+          <div>
+            {this.state.subtasks.map(subtask => (
+              <SubtaskCard key={subtask.subtask_id} subtask={subtask} />
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    return <div>No item found!</div>;
   }
 }
 
-function CreateTaskRow(task) {
-  return (
-    <tr key={task.id}>
-      <td>
-        <NavLink to="TasksPage" params={{ id: task.id }}>
-          {task.id}
-        </NavLink>
-      </td>
-      <td>{task.titleEng}</td>
-      <td>{task.descEng}</td>
-    </tr>
-  );
-}
+TaskPage.propTypes = {
+  match: PropTypes.object.isRequired
+};
 
 export default TaskPage;

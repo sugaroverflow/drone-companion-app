@@ -1,31 +1,28 @@
 // This file is mocking a web API by hitting hard coded data.
-import { categories } from './CategoryData';
-import { phases } from './PhaseData';
-import { tasks } from './TaskData';
-import { subtasks } from './SubTaskData';
+const _ = require('lodash');
+const categories = require('../api/categoryData.json').categoryData;
+const phases = require('../api/phaseData.json').phaseData;
+const tasks = require('../api/taskData.json').taskData;
+const subtasks = require('../api/subtaskData.json').subtaskData;
 
-const _ = require('lodash/head');
+// This would be performed on the server in a real app. Just stubbing in.
+const generateId = category => (
+  `${category.firstName.toLowerCase()}-${category.lastName.toLowerCase()}`
+);
 
-// eslint-disable-next-line no-underscore-dangle
-const _generateId = function (categorys) {
-  return (
-    `${category.firstName.toLowerCase()}-${category.lastName.toLowerCase()}`
-  );
-};
+// return cloned copy so that the item is passed by value instead of by reference
+const clone = item => (
+  JSON.parse(JSON.stringify(item))
+);
 
-// eslint-disable-next-line no-underscore-dangle
-const _clone = function (item) {
-  return JSON.parse(JSON.stringify(item)); // return cloned copy so that the item is passed by value instead of by reference
-};
-
-const CategoryApi = {
+const SiteSurveyApi = {
   getAllCategories() {
-    return _clone(categories.sort((a, b) => a.OrderNum - b.OrderNum));
+    return clone(categories.sort((a, b) => a.OrderNum - b.OrderNum));
   },
 
   getCategoryById(id) {
     const category = categories.find(item => item.category_id === id);
-    return _clone(category);
+    return clone(category);
   },
 
   saveCategory(category) {
@@ -35,58 +32,47 @@ const CategoryApi = {
     );
 
     if (category.id) {
-      const existingCategoryIndex = indexOf(
+      const existingCategoryIndex = _.indexOf(
         categories,
-        find(categories, { id: category.id })
+        _.find(categories, { id: category.id })
       );
       categories.splice(existingCategoryIndex, 1, category);
-    } else {
-      // Just simulating creation here.
-      // The server would generate ids for new categories in a real app.
-      // Cloning so copy returned is passed by value rather than by reference.
-      category.id = _generateId(category);
-      categories.push(category);
+      return clone(category);
     }
-
-    return _clone(category);
+    // Just simulating creation here.
+    // The server would generate ids for new categories in a real app.
+    // Cloning so copy returned is passed by value rather than by reference.
+    const newCategory = clone(category);
+    newCategory.id = generateId(newCategory);
+    categories.push(newCategory);
+    return clone(newCategory);
   },
 
   deleteCategory(id) {
     console.log(
       'Pretend this just deleted the category from the DB via an AJAX call...'
     );
-    remove(categories, { id });
-  }
-};
-
-const PhaseApi = {
+    _.remove(categories, { id });
+  },
+  // Phase Related API
   getAllPhases() {
-    return _clone(phases);
+    return clone(phases);
   },
 
   getAllPhasesByCategoryID(categoryId) {
     const phase = phases
       .filter(item => item.category_id === categoryId)
       .sort((a, b) => a.OrderNum - b.OrderNum);
-    return _clone(phase);
-  },
-
-  getCompletedSubtasksCount(phaseId) {
-    const completedSubtasksCount = 0;
-    let totalSubTasksCount = 0;
-    const totalTasks = tasks.filter(item => item.phase_id === phaseId);
-    for (var i = 0; i < totalTasks.length; i++) {
-      totalSubTasksCount += subtasks.filter(
-        s => s.task_id === totalTasks[i].task_id
-      ).length;
-    }
-
-    return `${completedSubtasksCount }/${totalSubTasksCount}`;
+    return clone(phase);
   },
 
   getPhaseById(phaseId) {
     const phase = phases.find(item => item.phase_id === phaseId);
-    return _clone(phase);
+    return clone(phase);
+  },
+
+  getCompletedSubtasksCount(phaseId) {
+    return 0;
   },
 
   savePhase(phase) {
@@ -94,58 +80,43 @@ const PhaseApi = {
     console.log('Pretend this just saved the phase to the DB via AJAX call...');
 
     if (phase.id) {
-      const existingPhaseIndex = indexOf(
+      const existingPhaseIndex = _.indexOf(
         phases,
-        find(phases, { id: phase.id })
+        _.find(phases, { id: phase.id })
       );
       phases.splice(existingPhaseIndex, 1, phase);
-    } else {
-      // Just simulating creation here.
-      // The server would generate ids for new phases in a real app.
-      // Cloning so copy returned is passed by value rather than by reference.
-      phase.id = _generateId(phase);
-      phases.push(phase);
+      return clone(phase);
     }
-
-    return _clone(phase);
+    // Just simulating creation here.
+    // The server would generate ids for new phases in a real app.
+    // Cloning so copy returned is passed by value rather than by reference.
+    const newPhase = clone(phase);
+    newPhase.id = generateId(newPhase);
+    phases.push(newPhase);
+    return newPhase;
   },
 
   deletePhase(id) {
     console.log(
       'Pretend this just deleted the phase from the DB via an AJAX call...'
     );
-    remove(phases, { id });
-  }
-};
-
-const TaskApi = {
+    _.remove(phases, { id });
+  },
+  // Task Related API
   getAllTasks() {
-    return _clone(tasks);
+    return clone(tasks);
   },
 
   getTaskById(taskId) {
-    const task = tasks.filter(item => item.task_id === taskId);
-    return _clone(task);
+    const task = tasks.find(item => item.task_id === taskId);
+    return clone(task);
   },
 
   getAllTasksByPhaseID(phaseId) {
     const task = tasks
       .filter(item => item.phase_id === phaseId)
       .sort((a, b) => a.OrderNum - b.OrderNum);
-    return _clone(task);
-  },
-
-  getCompletedSubtasksCount(phaseId) {
-    const completedSubtasksCount = 0;
-    let totalSubTasksCount = 0;
-    const totalTasks = tasks.filter(item => item.phase_id === phaseId);
-    for (var i = 0; i < totalTasks.length; i++) {
-      totalSubTasksCount += subtasks.filter(
-        s => s.task_id === totalTasks[i].task_id
-      ).length;
-    }
-
-    return `${completedSubtasksCount }/${totalSubTasksCount}`;
+    return clone(task);
   },
 
   saveTask(task) {
@@ -153,35 +124,50 @@ const TaskApi = {
     console.log('Pretend this just saved the task to the DB via AJAX call...');
 
     if (task.id) {
-      const existingTaskIndex = indexOf(tasks, find(tasks, { id: task.id }));
+      const existingTaskIndex = _.indexOf(
+        tasks,
+        _.find(tasks, { id: task.id })
+      );
       tasks.splice(existingTaskIndex, 1, task);
-    } else {
-      // Just simulating creation here.
-      // The server would generate ids for new tasks in a real app.
-      // Cloning so copy returned is passed by value rather than by reference.
-      task.id = _generateId(task);
-      tasks.push(task);
+      return clone(task);
     }
-
-    return _clone(task);
+    // Just simulating creation here.
+    // The server would generate ids for new tasks in a real app.
+    // Cloning so copy returned is passed by value rather than by reference.
+    const newTask = clone(task);
+    newTask.id = generateId(newTask);
+    tasks.push(newTask);
+    return clone(newTask);
   },
 
   deleteTask(id) {
     console.log(
       'Pretend this just deleted the task from the DB via an AJAX call...'
     );
-    remove(tasks, { id });
-  }
-};
-
-const SubtaskApi = {
+    _.remove(tasks, { id });
+  },
+  // Sub Related API
   getAllSubtasks() {
-    return _clone(subtasks);
+    return clone(subtasks);
   },
 
-  getSubtaskById(id) {
-    const subtask = subtasks.filter(item => item.id === id);
-    return _clone(subtask);
+  getSubtaskById(subtaskId) {
+    const subtask = subtasks.find(item => item.id === subtaskId);
+    return clone(subtask);
+  },
+
+  getSubtasksByTaskId(taskId) {
+    const subtask = subtasks
+      .filter(item => item.task_id === taskId)
+      .sort((a, b) => a.OrderNum - b.OrderNum);
+    return clone(subtask);
+  },
+
+  getCompletedSubtasksByTaskId(taskId) {
+    const subtask = subtasks
+      .filter(item => item.task_id === taskId) // Todo: add filter for completed subtasks.
+      .sort((a, b) => a.OrderNum - b.OrderNum);
+    return clone(subtask);
   },
 
   saveSubtask(subtask) {
@@ -191,35 +177,28 @@ const SubtaskApi = {
     );
 
     if (subtask.id) {
-      const existingSubtaskIndex = indexOf(
+      const existingSubtaskIndex = _.indexOf(
         subtasks,
-        find(subtasks, { id: subtask.id })
+        _.find(subtasks, { id: subtask.id })
       );
       subtasks.splice(existingSubtaskIndex, 1, subtask);
-    } else {
-      // Just simulating creation here.
-      // The server would generate ids for new subtasks in a real app.
-      // Cloning so copy returned is passed by value rather than by reference.
-      subtask.id = _generateId(subtask);
-      subtasks.push(subtask);
+      return clone(subtask);
     }
-
-    return _clone(subtask);
+    // Just simulating creation here.
+    // The server would generate ids for new subtasks in a real app.
+    // Cloning so copy returned is passed by value rather than by reference.
+    const newSubtask = clone(subtask);
+    newSubtask.id = generateId(newSubtask);
+    subtasks.push(newSubtask);
+    return clone(newSubtask);
   },
 
   deleteSubtask(id) {
     console.log(
       'Pretend this just deleted the subtask from the DB via an AJAX call...'
     );
-    remove(subtasks, { id });
+    _.remove(subtasks, { id });
   }
 };
 
-const _CategoryApi = CategoryApi;
-export { _CategoryApi as CategoryApi };
-const _PhaseApi = PhaseApi;
-export { _PhaseApi as PhaseApi };
-const _TaskApi = TaskApi;
-export { _TaskApi as TaskApi };
-const _SubtaskApi = SubtaskApi;
-export { _SubtaskApi as SubtaskApi };
+exports.SiteSurveyApi = SiteSurveyApi;

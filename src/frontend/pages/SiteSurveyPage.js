@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import CategoryCard from './CategoryCard';
 
-const { CategoryApi } = require('../../backend/api/siteSurveyAPI');
+const { SiteSurveyApi } = require('../../backend/api/siteSurveyAPI');
 
 class SiteSurveyPage extends React.Component {
   constructor(props) {
@@ -14,49 +13,21 @@ class SiteSurveyPage extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ categories: CategoryApi.getAllCategories() });
+    this.setState({ categories: SiteSurveyApi.getAllCategories() });
   }
 
   render() {
     return (
       <div>
         <h1>Categories</h1>
-        <div>{this.state.categories.map(CreateCategoryRow, this)}</div>
+        <div>
+          {this.state.categories.map(category => (
+            <CategoryCard key={category.category_id} category={category} />
+          ))}
+        </div>
       </div>
     );
   }
 }
-
-function CreateCategoryRow(category) {
-  return (
-    <div key={category.category_id}>
-      <div className="card mb-2 d-inline-block">
-        <div className="card-body">
-          <img
-            className="card-img-top"
-            src="../images/placeholder.png"
-            alt="Logo"
-          />
-          <p className="card-text">{category.titleEng}</p>
-          <p className="card-text">{category.descEng}</p>
-          <h2 className="card-title h5">
-            <NavLink
-              className="card-link"
-              to={`/category/${category.category_id}`}
-            >
-              View
-            </NavLink>
-          </h2>
-        </div>
-      </div>
-      <br />
-    </div>
-  );
-}
-
-SiteSurveyPage.propTypes = {
-  match: PropTypes.object.isRequired
-  // id: PropTypes.string.isRequired
-};
 
 export default SiteSurveyPage;
