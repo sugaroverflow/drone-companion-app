@@ -16,32 +16,34 @@ class PhasePage extends React.Component {
   }
 
   componentDidMount() {
-    const phaseId = this.props.match.params.id;
-    if (phaseId) {
+    const { match } = this.props;
+    const { id } = match.params;
+    if (id) {
       this.setState({
-        phase: SiteSurveyApi.getPhaseById(phaseId),
-        tasks: SiteSurveyApi.getAllTasksByPhaseID(phaseId)
+        phase: SiteSurveyApi.getPhaseById(id),
+        tasks: SiteSurveyApi.getAllTasksByPhaseID(id)
       });
     }
   }
 
   render() {
-    if (this.state.phase) {
+    const { phase, tasks } = this.state;
+    if (phase) {
       return (
         <div>
           <h1>
             <NavLink
-              to={`/category/${this.state.phase.category_id}`}
+              to={`/category/${phase.category_id}`}
               className="navbar-brand"
             >
               {`< Phase ${
-                this.state.phase.OrderNum
+                phase.OrderNum
               } - ${
-                this.state.phase.titleEng}`}
+                phase.titleEng}`}
             </NavLink>
           </h1>
           <div>
-            {this.state.tasks.map(task => (
+            {tasks.map(task => (
               <TaskCard key={task.task_id} task={task} />
             ))}
           </div>
@@ -53,7 +55,11 @@ class PhasePage extends React.Component {
 }
 
 PhasePage.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.node
+    }).isRequired,
+  }).isRequired
 };
 
 export default PhasePage;

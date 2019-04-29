@@ -27,6 +27,12 @@ function CategoryCard(props) {
   );
 }
 CategoryCard.propTypes = {
-  category: PropTypes.object.isRequired
+  category: PropTypes.shape({
+    category_id: PropTypes.string.isRequired,
+    titleEng: PropTypes.string.isRequired,
+    titleFra: PropTypes.string.isRequired,
+    descEng: PropTypes.string.isRequired,
+    descFra: PropTypes.string.isRequired,
+  }).isRequired
 };
 export default CategoryCard;

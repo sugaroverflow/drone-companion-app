@@ -37,6 +37,11 @@ function PhaseCard(props) {
   );
 }
 PhaseCard.propTypes = {
-  phase: PropTypes.object.isRequired
+  phase: PropTypes.shape({
+    phase_id: PropTypes.string.isRequired,
+    titleEng: PropTypes.string.isRequired,
+    titleFra: PropTypes.string.isRequired,
+    OrderNum: PropTypes.string.isRequired,
+  }).isRequired
 };
 export default PhaseCard;

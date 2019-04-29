@@ -16,28 +16,29 @@ class TaskPage extends React.Component {
   }
 
   componentDidMount() {
-    const taskId = this.props.match.params.id;
-
+    const { match } = this.props;
+    const { id } = match.params;
     this.setState({
-      task: SiteSurveyApi.getTaskById(taskId),
-      subtasks: SiteSurveyApi.getSubtasksByTaskId(taskId)
+      task: SiteSurveyApi.getTaskById(id),
+      subtasks: SiteSurveyApi.getSubtasksByTaskId(id)
     });
   }
 
   render() {
-    if (this.state.task) {
+    const { task, subtasks } = this.state;
+    if (task) {
       return (
         <div>
           <h1>
             <NavLink
-              to={`/phase/${this.state.task.phase_id}`}
+              to={`/phase/${task.phase_id}`}
               className="navbar-brand"
             >
-              {`< ${this.state.task.titleEng}`}
+              {`< ${task.titleEng}`}
             </NavLink>
           </h1>
           <div>
-            {this.state.subtasks.map(subtask => (
+            {subtasks.map(subtask => (
               <SubtaskCard key={subtask.subtask_id} subtask={subtask} />
             ))}
           </div>
@@ -49,7 +50,11 @@ class TaskPage extends React.Component {
 }
 
 TaskPage.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.node
+    }).isRequired,
+  }).isRequired
 };
 
 export default TaskPage;

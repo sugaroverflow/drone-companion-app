@@ -16,27 +16,29 @@ class CategoryPage extends React.Component {
   }
 
   componentDidMount() {
-    const categoryId = this.props.match.params.id;
+    const { match } = this.props;
+    const { id } = match.params;
 
-    if (categoryId) {
+    if (id) {
       this.setState({
-        category: SiteSurveyApi.getCategoryById(categoryId),
-        phases: SiteSurveyApi.getAllPhasesByCategoryID(categoryId)
+        category: SiteSurveyApi.getCategoryById(id),
+        phases: SiteSurveyApi.getAllPhasesByCategoryID(id)
       });
     }
   }
 
   render() {
-    if (this.state.phases.length > 0) {
+    const { category, phases } = this.state;
+    if (phases.length > 0) {
       return (
         <div>
           <h1>
             <NavLink to="/sitesurvey" className="navbar-brand">
-              {this.state.category.titleEng}
+              {category.titleEng}
             </NavLink>
           </h1>
           <div>
-            {this.state.phases.map(phase => (
+            {phases.map(phase => (
               <PhaseCard key={phase.phase_id} phase={phase} />
             ))}
           </div>
@@ -48,7 +50,11 @@ class CategoryPage extends React.Component {
 }
 
 CategoryPage.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.node,
+    }).isRequired,
+  }).isRequired
 };
 
 export default CategoryPage;

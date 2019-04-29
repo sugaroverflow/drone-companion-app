@@ -10,7 +10,6 @@
     "server": "nodemon src/backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
-    "precommit": "lint-staged && npm test",
     "next-update": "next-update -k true --tldr"
   },
   "lint-staged": {

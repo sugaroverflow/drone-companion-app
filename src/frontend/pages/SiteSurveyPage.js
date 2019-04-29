@@ -17,11 +17,12 @@ class SiteSurveyPage extends React.Component {
   }
 
   render() {
+    const { categories } = this.state;
     return (
       <div>
         <h1>Categories</h1>
         <div>
-          {this.state.categories.map(category => (
+          {categories.map(category => (
             <CategoryCard key={category.category_id} category={category} />
           ))}
         </div>

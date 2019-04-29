@@ -8,7 +8,6 @@ import SiteSurveyPage from './pages/SiteSurveyPage';
 import CategoryPage from './pages/CategoryPage';
 import PhasePage from './pages/PhasePage';
 import TaskPage from './pages/TaskPage';
-import SubtaskPage from './pages/SubtaskPage';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route path="/category/:id" component={CategoryPage} />
         <Route path="/phase/:id" component={PhasePage} />
         <Route path="/task/:id" component={TaskPage} />
-        <Route path="/subtask/:id" component={SubtaskPage} />
         <Route path="/about" component={AboutPage} />
         <Redirect from="/about-us" to="/about" />
         <Redirect from="/about/*" to="/about" />

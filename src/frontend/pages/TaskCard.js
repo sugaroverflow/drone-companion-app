@@ -25,6 +25,10 @@ function TaskCard(props) {
   );
 }
 TaskCard.propTypes = {
-  task: PropTypes.object.isRequired
+  task: PropTypes.shape({
+    task_id: PropTypes.string.isRequired,
+    titleEng: PropTypes.string.isRequired,
+    titleFra: PropTypes.string.isRequired,
+  }).isRequired
 };
 export default TaskCard;
