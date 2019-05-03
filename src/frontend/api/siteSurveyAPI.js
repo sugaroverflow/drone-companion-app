@@ -1,23 +1,42 @@
 // This file is mocking a web API by hitting hard coded data.
 const _ = require('lodash');
-const categories = require('../api/categoryData.json').categoryData;
-const phases = require('../api/phaseData.json').phaseData;
-const tasks = require('../api/taskData.json').taskData;
-const subtasks = require('../api/subtaskData.json').subtaskData;
+const axios = require('axios');
+const siteSurveyService = require('../services/siteSurveyService');
+
+// const { categoryData } = require('../../backend/api/categoryData.json');
+const dataUri = 'http://localhost:8080/api';
+let categories;
+
+
+const phases = require('../../backend/api/phaseData.json').phaseData;
+const tasks = require('../../backend/api/taskData.json').taskData;
+const subtasks = require('../../backend/api/subtaskData.json').subtaskData;
 
 // This would be performed on the server in a real app. Just stubbing in.
-const generateId = category => (
-  `${category.firstName.toLowerCase()}-${category.lastName.toLowerCase()}`
-);
+const generateId = category => `${category.firstName.toLowerCase()}-${category.lastName.toLowerCase()}`;
 
 // return cloned copy so that the item is passed by value instead of by reference
-const clone = item => (
-  JSON.parse(JSON.stringify(item))
-);
+const clone = item => JSON.parse(JSON.stringify(item));
 
 const SiteSurveyApi = {
+
   getAllCategories() {
-    return clone(categories.sort((a, b) => a.OrderNum - b.OrderNum));
+    // loadCategoryData();
+    return axios.get(`${dataUri}/categories/`);
+    // .then(
+    //   (response) => {
+    //     // handle success
+    //     categories = response.data;
+    //     console.log('before load');
+    //     console.log(categories);
+    //     console.log('after load');
+    //   }
+    // ).catch((error) => {
+    //   // handle error
+    //   console.log(error);
+    // });
+    // console.log(categories);
+    // return clone(categories.sort((a, b) => a.OrderNum - b.OrderNum));
   },
 
   getCategoryById(id) {

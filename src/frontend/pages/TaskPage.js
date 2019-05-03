@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SubtaskCard from './SubtaskCard';
 
-const { SiteSurveyApi } = require('../../backend/api/siteSurveyAPI');
+const { SiteSurveyApi } = require('../api/siteSurveyAPI');
 
 class TaskPage extends React.Component {
   constructor(props) {

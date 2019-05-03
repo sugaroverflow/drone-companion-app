@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-const { SiteSurveyApi } = require('../../backend/api/siteSurveyAPI');
+const { SiteSurveyApi } = require('../api/siteSurveyAPI');
 
 function TaskCard(props) {
   const { task } = props;
