@@ -17,13 +17,13 @@ const ModuleCard = ({ module }) => (
       <div className="card-body">
         <h3 className="card-title h5">{module.titleEng}</h3>
         <img className="card-img-top" src={module.bannerUrl} alt="Placeholder" />
-        <div className="card-subtitle text-muted">Introduction</div>
+        <div className="card-subtitle text-muted">Information</div>
         <p className="card-text">{module.descEng}</p>
       </div>
       <div className="card-footer">
         <button type="button" className="btn btn-primary">
           { /* @todo create proper NavLink */ }
-          <NavLink className="card-link" to={`/api/phases/${module.module_id}`}>
+          <NavLink className="card-link" to={`/phases/${module.module_id}`}>
             Begin Module
           </NavLink>
         </button>

@@ -16,21 +16,20 @@ app.get('/api/modules', (req, res) => {
 });
 
 app.get('/api/phases/:moduleId', (req, res) => {
-  // const contents = fs.readFileSync(path.resolve(__dirname, './data/phaseData.json'));
-  fs.readFile(path.resolve(__dirname, './data/phaseData.json'), (err, data) => {
-    const { moduleId } = req.params;
-    if (err) return console.error(err);
-    const jsonContent = JSON.parse(data);
-    const filtered = jsonContent.filter(item => item.module_id === moduleId);
-    res.json(filtered);
-  });
+  const contents = fs.readFileSync(path.resolve(__dirname, './data/phaseData.json'));
+  const { moduleId } = req.params;
+  const jsonContent = JSON.parse(contents);
+  const filtered = jsonContent.filter(item => item.module_id === moduleId);
+  res.json(filtered);
 });
 
-// app.get('/api/tasks', (req, res) => {
-//   const contents = fs.readFileSync(path.resolve(__dirname, './data/taskData.json'));
-//   const jsonContent = JSON.parse(contents);
-//   res.json(jsonContent);
-// });
+app.get('/api/tasks/:phaseId', (req, res) => {
+  const contents = fs.readFileSync(path.resolve(__dirname, './data/taskData.json'));
+  const { phaseId } = req.params;
+  const jsonContent = JSON.parse(contents);
+  const filtered = jsonContent.filter(item => item.phase_id === phaseId);
+  res.json(filtered);
+});
 
 
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));

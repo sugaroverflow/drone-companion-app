@@ -4,11 +4,11 @@ import PhaseCard from './PhaseCard';
 
 const getPhases = phases => (
   <Grid container spacing={24}>
-    {
-    phases.modules.map(phase => <PhaseCard key={phase.phase_id} phase={phase} />)
-    }
+    {phases.phases.map(phase => (
+      <PhaseCard key={phase.phase_id} phase={phase} />
+    ))}
   </Grid>
-);  
+);
 
 const PhaseList = phases => <div>{getPhases(phases)}</div>;
 
