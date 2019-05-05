@@ -30,5 +30,16 @@
         "bannerUrl": "/src/frontend/images/placeholder.png",
         "icon": "",
         "OrderNum": "3"
+    },
+    {
+        "phase_id": "4",
+        "module_id": "2",
+        "titleEng": "Module 2 Phase 1",
+        "titleFra": "Module 2 Phase 1 (fr)",
+        "descEng": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.",
+        "descFra": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.(fr)",
+        "bannerUrl": "/src/frontend/images/placeholder.png",
+        "icon": "",
+        "OrderNum": "1"
     }
 ]

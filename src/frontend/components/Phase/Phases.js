@@ -11,7 +11,7 @@ export default class Phases extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/phases/{module_id}')
+    fetch('/api/phases/{moduleId}')
       .then((res) => {
         res.json();
       })
