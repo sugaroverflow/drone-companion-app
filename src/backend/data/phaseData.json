@@ -1,0 +1,34 @@
+[{
+        "phase_id": "1",
+        "module_id": "1",
+        "titleEng": "Site Research",
+        "titleFra": "Site Research (fr)",
+        "descEng": "This guides you through researching your site ahead of time to ensure safety and legality.",
+        "descFra": "This guides you through researching your site ahead of time to ensure safety and legality. (fr)",
+        "bannerUrl": "/src/frontend/images/placeholder.png",
+        "icon": "",
+        "OrderNum": "1"
+    },
+    {
+        "phase_id": "2",
+        "module_id": "1",
+        "titleEng": "Before You Leave",
+        "titleFra": "Before You Leave (fr)",
+        "descEng": "This guides you through the day-of, pre-flight requirements, like checking the weather.",
+        "descFra": "This guides you through the day-of, pre-flight requirements, like checking the weather. (fr)",
+        "bannerUrl": "/src/frontend/images/placeholder.png",
+        "icon": "",
+        "OrderNum": "2"
+    },
+    {
+        "phase_id": "3",
+        "module_id": "1",
+        "titleEng": "On-site Survey",
+        "titleFra": "On-site Survey (fr)",
+        "descEng": "This guides you through the requirements before you take off.",
+        "descFra": "This guides you through the requirements before you take off. (fr)",
+        "bannerUrl": "/src/frontend/images/placeholder.png",
+        "icon": "",
+        "OrderNum": "3"
+    }
+]
