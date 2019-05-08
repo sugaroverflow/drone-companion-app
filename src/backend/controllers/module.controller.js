@@ -7,7 +7,6 @@ function controller() {
    * get all modules
    */
   function get(req, res) {
-    console.log('im in modules.js');
     const contents = fs.readFileSync(
       path.resolve(__dirname, '../data/moduleData.json')
     );
