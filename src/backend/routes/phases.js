@@ -1,16 +1,16 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
+/* Phase router */
 
-const router = express.Router();
+// const express = require('express');
+// const moduleController = require('../controllers/phase.controller');
 
-// return a list of all phases
-router.get('/', (req, res) => {
-  const contents = fs.readFileSync(path.resolve(__dirname, './data/phaseData.json'));
-  const { moduleId } = req.params;
-  const jsonContent = JSON.parse(contents);
-  const filtered = jsonContent.filter(item => item.module_id === moduleId);
-  res.json(filtered);
-});
+// function routes() {
+//   const router = express.Router();
+//   const controller = moduleController();
 
-module.exports = router;
+//   // get all modules
+//   router
+//     .route('/')
+//     .get(controller.get);
+// }
+
+// module.exports = routes;
