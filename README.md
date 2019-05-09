@@ -8,7 +8,7 @@ This project serves to build the alpha of an application that helps Canadian dro
 
 This is a full stack web application using React, Node.js, Express and Webpack. It is also configured with webpack-dev-server, eslint, prettier and babel.
 
-- [simple-react-full-stack](#simple-react-full-stack)
+- [drone companion app](#drone-companion-app)
   - [Introduction](#introduction)
     - [Development mode](#development-mode)
     - [Production mode](#production-mode)
@@ -24,6 +24,7 @@ This is a full stack web application using React, Node.js, Express and Webpack. 
     - [Concurrently](#concurrently)
     - [VSCode + ESLint + Prettier](#vscode--eslint--prettier)
       - [Installation guide](#installation-guide)
+      - [Project Structure (notes to be organized)](#project-structure-notes-to-be-organized)
 
 ## Introduction
 
@@ -246,4 +247,12 @@ This starts a server and listens on port 8080 for connections. The app responds 
     "editor.formatOnSave": true,
     "prettier.eslintIntegration": true
     ```
+
+#### Project Structure (notes to be organized)
+
+*backend structure*
+* Models - The schema definition of the Model
+* Routes - The API routes maps to the Controllers
+* Controllers - The controllers handles all the logic behind validating request parameters, query, Sending Responses with correct codes.
+* Services - The services contains the database queries and returning objects or throwing errors
 

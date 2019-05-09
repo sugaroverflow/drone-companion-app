@@ -1,31 +1,38 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import HomePage from './pages/Home';
-import AboutPage from './pages/About';
-import Header from './components/common/Header';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import ModuleHome from './components/Module/ModuleHome';
+import About from './pages/About';
+import Phase from './components/Phase/Phases';
+import Task from './components/Task/Tasks';
 import PageNotFound from './pages/PageNotFound';
-import SiteSurveyPage from './pages/SiteSurveyPage';
-import CategoryPage from './pages/CategoryPage';
-import PhasePage from './pages/PhasePage';
-import TaskPage from './pages/TaskPage';
+import '@gctools-components/aurora-ds/css/aurora.min.css';
 
-function App() {
-  return (
-    <div className="container-fluid">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/sitesurvey" component={SiteSurveyPage} />
-        <Route path="/category/:id" component={CategoryPage} />
-        <Route path="/phase/:id" component={PhasePage} />
-        <Route path="/task/:id" component={TaskPage} />
-        <Route path="/about" component={AboutPage} />
-        <Redirect from="/about-us" to="/about" />
-        <Redirect from="/about/*" to="/about" />
-        <Route component={PageNotFound} />
-      </Switch>
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      title: 'Drone Companion App'
+    };
+  }
+
+  render() {
+    const { title } = this.state;
+    return (
+      <div>
+        <Header title={title} />
+        <div className="container">
+          <Switch>
+            { /* @todo home currently = module home */ }
+            <Route exact path="/" component={ModuleHome} />
+            <Route exact path="/about" component={About} />
+            <Route path="/phases/:moduleId" component={Phase} />
+            <Route path="/tasks/:phaseId" component={Task} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;

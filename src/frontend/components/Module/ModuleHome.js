@@ -1,11 +1,12 @@
 import React from 'react';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+import Modules from './Modules';
 
-const Home = () => (
+const ModuleHome = () => (
   <div className="App">
     <h1>Welcome to the Drone Companion App</h1>
     <p>This app will help you fly safe!</p>
+    <Modules />
   </div>
 );
 
-export default Home;
+export default ModuleHome;
