@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PhaseCard from './PhaseCard';
 
-const { SiteSurveyApi } = require('../../backend/api/siteSurveyAPI');
+const { SiteSurveyApi } = require('../api/siteSurveyAPI');
 
 class CategoryPage extends React.Component {
   constructor(props) {
