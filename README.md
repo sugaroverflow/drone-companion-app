@@ -28,9 +28,7 @@ This is a full stack web application using React, Node.js, Express and Webpack. 
 
 ## Introduction
 
-[Create React App](https://github.com/facebook/create-react-app) is a quick way to get started with React development and it requires no build configuration. But it completely hides the build config which makes it difficult to extend. It also requires some additional work to integrate it with an existing Node.js/Express backend application.
-
-This is a simple full stack [React](https://reactjs.org/) application with a [Node.js](https://nodejs.org/en/) and [Express](https://expressjs.com/) backend. Client side code is written in React and the backend API is written using Express. This application is configured with [Airbnb's ESLint rules](https://github.com/airbnb/javascript) and formatted through [prettier](https://prettier.io/).
+This is a full stack [React](https://reactjs.org/) application with a [Node.js](https://nodejs.org/en/) and [Express](https://expressjs.com/) backend. Client side code is written in React and the backend API is written using Express. This application is configured with [Airbnb's ESLint rules](https://github.com/airbnb/javascript) and formatted through [prettier](https://prettier.io/).
 
 ### Development mode
 
@@ -44,10 +42,10 @@ In the production mode, we will have only 1 server running. All the client side 
 
 ```bash
 # Clone the repository
-git clone https://github.com/crsandeep/simple-react-full-stack
+git clone git@github.com:sugaroverflow/drone-companion-app.git
 
 # Go inside the directory
-cd simple-react-full-stack
+cd drone-companion-app
 
 # Install dependencies
 yarn (or npm install)
@@ -76,7 +74,13 @@ All the source code will be inside **src** directory. Inside src, there is clien
 
 ```javascript
 {
-    "presets": ["env", "react"]
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
 ```
 
@@ -90,6 +94,7 @@ Babel requires plugins to do the transformation. Presets are the set of plugins 
 
 ```javascript
 {
+  "parser": "babel-eslint",
   "extends": ["airbnb"],
   "env": {
     "browser": true,
@@ -112,55 +117,60 @@ Babel requires plugins to do the transformation. Presets are the set of plugins 
 [webpack.config.js](https://webpack.js.org/configuration/) file is used to describe the configurations required for webpack. Below is the webpack.config.js file which I am using.
 
 ```javascript
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = "dist";
+const outputDirectory = 'dist';
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/client/index.js"],
+  entry: ['babel-polyfill', './src/frontend/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: "bundle.js"
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
+        loader: 'url-loader?limit=100000'
       }
     ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   },
   devServer: {
     port: 3000,
     open: true,
     proxy: {
-      "/api": "http://localhost:8080"
-    }
+      '/api': 'http://localhost:8080'
+    },
+    historyApiFallback: true
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      favicon: "./public/favicon.ico"
+      template: './public/index.html',
+      favicon: './public/favicon.ico'
     })
   ]
 };
 ```
 
-1.  **entry:** entry: ./src/client/index.js is where the application starts executing and webpack starts bundling.
+1.  **entry:** entry: ./src/frontend/index.js is where the application starts executing and webpack starts bundling.
     Note: babel-polyfill is added to support async/await. Read more [here](https://babeljs.io/docs/en/babel-polyfill#usage-in-node-browserify-webpack).
 2.  **output path and filename:** the target directory and the filename for the bundled output
 3.  **module loaders:** Module loaders are transformations that are applied on the source code of a module. We pass all the js file through [babel-loader](https://github.com/babel/babel-loader) to transform JSX to Javascript. CSS files are passed through [css-loaders](https://github.com/webpack-contrib/css-loader) and [style-loaders](https://github.com/webpack-contrib/style-loader) to load and bundle CSS files. Fonts and images are loaded through url-loader.
@@ -174,13 +184,14 @@ module.exports = {
 The devServer section of webpack.config.js contains the configuration required to run webpack-dev-server which is given below.
 
 ```javascript
-devServer: {
+  devServer: {
     port: 3000,
     open: true,
     proxy: {
-        "/api": "http://localhost:8080"
-    }
-}
+      '/api': 'http://localhost:8080'
+    },
+    historyApiFallback: true
+  },
 ```
 
 [**Port**](https://webpack.js.org/configuration/dev-server/#devserver-port) specifies the Webpack dev server to listen on this particular port (3000 in this case). When [**open**](https://webpack.js.org/configuration/dev-server/#devserver-open) is set to true, it will automatically open the home page on startup. [Proxying](https://webpack.js.org/configuration/dev-server/#devserver-proxy) URLs can be useful when we have a separate API backend development server and we want to send API requests on the same domain. In our case, we have a Node.js/Express backend where we want to send the API requests to.
@@ -206,28 +217,34 @@ Express is a web application framework for Node.js. It is used to build our back
 src/server/index.js is the entry point to the server application. Below is the src/server/index.js file
 
 ```javascript
-const express = require("express");
-const os = require("os");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(express.static("dist"));
-app.get("/api/getUsername", (req, res) =>
-  res.send({ username: os.userInfo().username })
-);
-app.listen(8080, () => console.log("Listening on port 8080!"));
+//  Connect routes
+app.use('/api/modules', require('./routes/module.router'));
+app.use('/api/phases', require('./routes/phase.router'));
+app.use('/api/tasks', require('./routes/task.router'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static('dist'));
+
+app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
+
 ```
 
-This starts a server and listens on port 8080 for connections. The app responds with `{username: <username>}` for requests to the URL (/api/getUsername). It is also configured to serve the static files from **dist** directory.
+This starts a server and listens on port 8080 for connections. The app send api requests to their specific routers. 
 
 ### Concurrently
 
 [Concurrently](https://github.com/kimmobrunfeldt/concurrently) is used to run multiple commands concurrently. I am using it to run the webpack dev server and the backend node server concurrently in the development environment. Below are the npm/yarn script commands used.
 
 ```javascript
-"client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-"server": "nodemon src/server/index.js",
-"dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "server": "nodemon src/backend/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
 ```
 
 ### VSCode + ESLint + Prettier
@@ -248,9 +265,8 @@ This starts a server and listens on port 8080 for connections. The app responds 
     "prettier.eslintIntegration": true
     ```
 
-#### Project Structure (notes to be organized)
+#### Project Structure 
 
-*backend structure*
 * Models - The schema definition of the Model
 * Routes - The API routes maps to the Controllers
 * Controllers - The controllers handles all the logic behind validating request parameters, query, Sending Responses with correct codes.
