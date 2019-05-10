@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@gctools-components/aurora-ds": "0.3.3",
+    "@khanacademy/tota11y": "0.2.0",
     "@material-ui/core": "3.9.3",
     "@material-ui/icons": "3.0.2",
     "axios": "^0.18.0",
