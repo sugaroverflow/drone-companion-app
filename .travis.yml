@@ -5,7 +5,7 @@ node_js:
 
 script:
   # - npm run pretty
-  - npm run next-update
+  # - npm run next-update
   - npm run build
 
 branches:
