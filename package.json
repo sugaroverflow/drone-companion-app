@@ -9,8 +9,7 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
-    "next-update": "next-update -k true --tldr"
+    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\""
   },
   "lint-staged": {
     "*.js": [
