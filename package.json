@@ -4,11 +4,11 @@
   "description": "",
   "main": "src/backend/server.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "npm run build && node src/backend/server.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/backend/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
     "pretty": "prettier --write --tab-width 4 \"src/**/*.js\""
   },
   "lint-staged": {
@@ -41,6 +41,7 @@
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "concurrently": "4.1.0",
+    "cross-env": "5.2.0",
     "css-loader": "2.1.1",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
