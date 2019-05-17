@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withStyles, } from '@material-ui/core';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 
 const styles = {
   card: {
@@ -12,24 +12,22 @@ const styles = {
 };
 
 const ModuleCard = ({ module }) => (
-  <Grid item xs={4}>
-    <div className="module-card card mb-2 d-inline-block">
-      <div className="card-body">
-        <h3 className="card-title h5">{module.titleEng}</h3>
-        <img className="card-img-top" src={module.bannerUrl} alt="Placeholder" />
-        <div className="card-subtitle text-muted">Information</div>
-        <p className="card-text">{module.descEng}</p>
-      </div>
-      <div className="card-footer">
-        <button type="button" className="btn btn-primary">
-          { /* @todo create proper NavLink */ }
-          <NavLink className="card-link" to={`/phases/${module.module_id}`}>
-            Begin Module
-          </NavLink>
-        </button>
-      </div>
+  // <Grid item xs={4}>
+  <div className="task-card">
+    <h2 className="h6">{module.titleEng}</h2>
+    <div className="card-image-task">
+      <img className="card-task-img" src={module.bannerUrl} alt="Placeholder" />
+
     </div>
-  </Grid>
+    <p className="card-text">{module.descEng}</p>
+    { /* @todo create proper NavLink */ }
+    <div className="card-footer">
+      <NavLink className="btn btn-primary" to={`/phases/${module.module_id}`}>
+            Begin Module
+      </NavLink>
+    </div>
+  </div>
+  // </Grid>
 );
 
 ModuleCard.propTypes = {

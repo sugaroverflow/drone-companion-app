@@ -27,7 +27,26 @@ export default class Phases extends Component {
 
   render() {
     const { phases } = this.state;
-    return <PhaseList phases={phases} />;
+
+    return (
+      // Todo: Move the breadcrumb to create a component
+      <div>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="#">First Page</a>
+            </li>
+            <li className="breadcrumb-item">
+              <a href="#">Second Page</a>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Current Page
+            </li>
+          </ol>
+        </nav>
+        <PhaseList phases={phases} />
+      </div>
+    );
   }
 }
 

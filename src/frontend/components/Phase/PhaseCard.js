@@ -5,29 +5,28 @@ import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
-  card: {
-    maxWidth: '18rem'
-  }
+  // card: {
+  //   maxWidth: '18rem'
+  // }
 };
 
 const PhaseCard = ({ phase }) => (
-  <Grid item xs={4}>
-    <div className="phase-card card mb-2 d-inline-block">
-      <div className="card-body">
-        <h3 className="card-title h5">{phase.titleEng}</h3>
-        <img className="card-img-top" src={phase.bannerUrl} alt="Placeholder" />
-        <div className="card-subtitle text-muted">Information</div>
-        <p className="card-text">{phase.descEng}</p>
-      </div>
-      <div className="card-footer">
-        <button type="button" className="btn btn-primary">
-          <NavLink className="card-link" to={`/tasks/${phase.phase_id}`}>
-            Begin Phase
-          </NavLink>
-        </button>
-      </div>
+  // <Grid item xs={4}>
+
+  <div className="task-card">
+    <h2 className="h6">{phase.titleEng}</h2>
+    <div className="card-image-task">
+      <img className="card-task-img" src={phase.bannerUrl} alt="Placeholder" />
     </div>
-  </Grid>
+    <p className="card-text">{phase.descEng}</p>
+    {/* @todo create proper NavLink */}
+    <div className="card-footer">
+      <NavLink className="btn btn-primary" to={`/Tasks/${phase.phase_id}`}>
+        Begin Phase
+      </NavLink>
+    </div>
+  </div>
+  // </Grid>
 );
 
 PhaseCard.propTypes = {
