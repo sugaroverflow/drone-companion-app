@@ -10,10 +10,10 @@ const getModules = modules => (
   </Grid>
 );
 
-const ModuleList = modules => <div>{getModules(modules)}</div>;
+// const ModuleList = modules => <div>{getModules(modules)}</div>;
 
-ModuleList.defaultProps = {
+getModules.defaultProps = {
   modules: []
 };
 
-export default ModuleList;
+export default getModules;
