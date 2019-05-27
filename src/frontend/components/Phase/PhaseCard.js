@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
 
 const styles = {
   // card: {
@@ -15,49 +13,80 @@ const PhaseCard = ({ phase }) => (
   // needs to be updated and idk how - AP
 
   <div className="accordion">
-  {/* Accordion section 1 - need to add database calls for phase description and phase time estimate. I put placeholders there for testing.*/}
+    {/* Accordion section 1 - need to add database calls for phase description
+     and phase time estimate. I put placeholders there for testing. */}
     <details className="acc-group">
-      <summary className="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": ".acc-group"}'>{phase.titleEng}{phase.descEng}{phase.estimate}</summary>
-      
-        <div class="tgl-panel">
-        <img class="card-image-task" src="./src/frontend/images/steps-icon-default.png" alt="Progress indication, you're on the first task.">
-        <p className="card-text">{task.1}{task.2}etc</p>
-            {/* @todo create proper NavLink */}
-        </div>
-    </details>
+      <summary
+        className="wb-toggle tgl-tab"
+        data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
+      >
+        {phase.titleEng}
+        {phase.descEng}
+        {phase.estimate}
+      </summary>
 
-{/* Accordion section 2 - need to add database calls for phase description and phase time estimate. I put placeholders there for testing.*/}
-    <details className="acc-group">
-      <summary className="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": ".acc-group"}'>{phase.titleEng}{phase.descEng}{phase.estimate}</summary>
-      
-        <div class="tgl-panel">
-        <img class="card-image-task" src="./src/frontend/images/steps-icon-default.png" alt="Progress indication, you're on the first task.">
-        <p className="card-text">{task.1}{task.2}etc</p>
-            {/* @todo create proper NavLink */}
-        </div>
-    </details>
-
-    {/* Accordion section 3 - need to add database calls for phase description and phase time estimate. I put placeholders there for testing.*/}
-    <details className="acc-group">
-      <summary className="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": ".acc-group"}'>{phase.titleEng}{phase.descEng}{phase.estimate}</summary>
-      
-        <div class="tgl-panel">
-        <img class="card-image-task" src="./src/frontend/images/steps-icon-default.png" alt="Progress indication, you're on the first task.">
-        <p className="card-text">{task.1}{task.2}etc</p>
-            {/* @todo create proper NavLink */}
-        </div>
-    </details>
-  </div>
-
-// This will have to be changed to match the wireframe, but beyond my ability!
-      <div className="card-footer">
-        <NavLink className="btn btn-primary" to={`/Tasks/${phase.phase_id}`}>
-          Begin Phase
-      </NavLink>
+      <div className="tgl-panel">
+        <img
+          className="card-image-task"
+          src="./src/frontend/images/steps-icon-default.png"
+          alt="Progress indication, you're on the first task."
+        />
+        <p className="card-text">
+          Task etc
+        </p>
+        {/* @todo create proper NavLink */}
       </div>
- 
+    </details>
+
+    {/* Accordion section 2 - need to add database calls for phase description
+    and phase time estimate. I put placeholders there for testing. */}
+    <details className="acc-group">
+      <summary
+        className="wb-toggle tgl-tab"
+        data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
+      >
+        {phase.titleEng}
+        {phase.descEng}
+        {phase.estimate}
+      </summary>
+
+      <div className="tgl-panel">
+        <img
+          className="card-image-task"
+          src="./src/frontend/images/steps-icon-default.png"
+          alt="Progress indication, you're on the first task."
+        />
+        <p className="card-text">
+          Task etc
+        </p>
+        {/* @todo create proper NavLink */}
+      </div>
+    </details>
+
+    {/* Accordion section 3 - need to add database calls for phase description and phase time estimate. I put placeholders there for testing. */}
+    <details className="acc-group">
+      <summary
+        className="wb-toggle tgl-tab"
+        data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
+      >
+        {phase.titleEng}
+        {phase.descEng}
+        {phase.estimate}
+      </summary>
+
+      <div className="tgl-panel">
+        <img
+          className="card-image-task"
+          src="./src/frontend/images/steps-icon-default.png"
+          alt="Progress indication, you're on the first task."
+        />
+        <p className="card-text">
+          Task etc
+        </p>
+        {/* @todo create proper NavLink */}
+      </div>
+    </details>
   </div>
-  // </Grid>
 );
 
 PhaseCard.propTypes = {
