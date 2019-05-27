@@ -81,3 +81,13 @@
   font-weight: normal;
   margin-top: 1rem;
 }
+
+.module-card {
+  display: inline-block;
+  max-width: 18rem;
+  background: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,30%);
+  border-radius: 3px;
+}
