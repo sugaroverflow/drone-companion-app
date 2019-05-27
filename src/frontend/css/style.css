@@ -91,3 +91,39 @@
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,30%);
   border-radius: 3px;
 }
+
+/* Phase Accordion Styles */
+.phase-card .phase-desc { 
+  font-size: 16px;
+  font-weight: normal;
+}
+.phase-caption { 
+  font-weight: normal;
+  color: #0D467D;
+  font-size: 12px;
+}
+
+.phase-estimate { 
+  font-weight: 700;
+}
+.phase-card .step-indicator { 
+  height: inherit;
+}
+.phase-card .steps { 
+  display: flex;
+  flex-direction: column;
+}
+/* Remove the lines from the step indicator */
+.phase-card .step-indicator .steps li:after {
+  display: none;
+}
+
+.phase-card .step-indicator .steps li:before { 
+  margin: 0;
+}
+
+.phase-card .step-indicator .steps li { 
+  text-align: left;
+  float: none;
+  width: 0;
+}
