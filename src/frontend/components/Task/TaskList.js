@@ -1,11 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import TaskItem from './Task';
+import TaskCard from './TaskCard';
 
 const getTasks = tasks => (
   <Grid container spacing={24}>
     {tasks.tasks.map(task => (
-      <TaskItem key={task.task_id} task={task} />
+      <TaskCard key={task.task_id} task={task} />
     ))}
   </Grid>
 );
