@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import { withStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-
-const styles = {
-  // card: {
-  //   maxWidth: '18rem'
-  // }
-};
 
 const PhaseCard = ({ phase }) => (
-  // <Grid item xs={4}>
+  <div className="accordion phase-card">
+    <details className="acc-group">
+      <summary
+        className="wb-toggle tgl-tab"
+        data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
+      >
+        <div className="phase-summary">
+          <h6 className="phase-title">{phase.titleEng}</h6>
+          <p className="phase-desc">{phase.descEng}</p>
+          <p className="phase-caption">
+            Estimated time to complete:
+            <span className="phase-estimate"> phase.estimate</span>
+          </p>
+        </div>
+      </summary>
 
-  <div className="task-card">
-    <h2 className="h6">{phase.titleEng}</h2>
-    <div className="card-image-task">
-      <img className="card-task-img" src={phase.bannerUrl} alt="Placeholder" />
-    </div>
-    <p className="card-text">{phase.descEng}</p>
-    {/* @todo create proper NavLink */}
-    <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/Tasks/${phase.phase_id}`}>
-        Begin Phase
-      </NavLink>
-    </div>
+      <div className="tgl-panel">
+        <p className="card-text">
+          {/* @todo: replace with actual task description */}
+          <ol>
+            <li> Task one </li>
+            <li> Task two </li>
+            <li> Task three </li>
+          </ol>
+
+        </p>
+      </div>
+    </details>
   </div>
-  // </Grid>
 );
 
 PhaseCard.propTypes = {
@@ -38,4 +42,4 @@ PhaseCard.propTypes = {
     descFra: PropTypes.string.isRequired
   }).isRequired
 };
-export default withStyles(styles)(PhaseCard);
+export default PhaseCard;
