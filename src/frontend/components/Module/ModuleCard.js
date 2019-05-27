@@ -13,7 +13,7 @@ const styles = {
 
 const ModuleCard = ({ module }) => (
   // <Grid item xs={4}>
-  <div className="task-card">
+  <div className="module-card">
     <h2 className="h6">{module.titleEng}</h2>
     <div className="card-image-task">
       <img className="card-task-img" src={module.bannerUrl} alt="Placeholder" />
