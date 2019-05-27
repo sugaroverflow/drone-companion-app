@@ -1,4 +1,5 @@
-.task-card {
+/*Step card styles*/
+.step-card {
   display: inline-block;
   max-width: 18rem;
   background: #fff;
@@ -13,10 +14,6 @@
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 1rem;
-}
-
-.card-task-img {
-  width: 100%;
 }
 
 .btn {
@@ -58,11 +55,56 @@
     border-color: #002D42;
 }
 
+.btn-primary-small {
+    width: inherit;
+    background: #0D467D;
+    color: #fff;
+}
+
+/* Phase Accordion Styles */
+.phase-card .phase-desc { 
+  font-size: 16px;
+  font-weight: normal;
+}
+.phase-caption { 
+  font-weight: normal;
+  color: #0D467D;
+  font-size: 12px;
+}
+
+.phase-estimate { 
+  font-weight: 700;
+}
+
+.phase-card .step-indicator { 
+  height: inherit;
+}
+.phase-card .steps { 
+  display: flex;
+  flex-direction: column;
+}
+/* Remove the lines from the step indicator */
+.phase-card .step-indicator .steps li:after {
+  display: none;
+}
+
+.phase-card .step-indicator .steps li:before { 
+  margin: 0;
+}
+
+.phase-card .step-indicator .steps li { 
+  text-align: left;
+  float: none;
+  width: 0;
+}
+
+/*Guidance Accordion styles*/
 .accordion {
+  /* max-width: 25rem; */
   margin: 1rem;
   background:#EBEBEB;
   border: #ccc;
-  border-radius:1px;
+  border-radius:4px;
 }
 
 .acc-group {
@@ -70,19 +112,32 @@
   font-size: 1.5rem;
   font-weight: 700;
   padding: 1rem;
-}
-
-.wb-toggle {
-  display: inline;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 .tgl-panel {
   font-size: 1rem;
   font-weight: normal;
   margin-top: 1rem;
+  background: white;
+  border-top: 1px solid #ccc;
+  padding: 1rem;
 }
 
-.module-card {
+summary {
+  padding-left: 1rem;
+  display: flex;
+}
+
+details[open] {
+  border: 1px solid #ccc;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+/*Task card styles
+.task-card {
   display: inline-block;
   max-width: 18rem;
   background: #fff;
@@ -91,3 +146,40 @@
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,30%);
   border-radius: 3px;
 }
+
+.card-image-task-full-span {
+  padding: 0px;
+}
+*/
+.task-description {
+  color: #2E7991;
+  margin-bottom: 0.25rem;
+}
+
+.task-flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dynamic-step-counter {
+  margin: 0px;
+  color: #0D467D
+}
+.progress-check-circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #c7c7c7;
+    box-shadow: 1px 2px 2px #c7c7c7;
+    position: absolute;
+    margin: 1rem;
+    float: left;
+    margin-left: 14.5rem
+}
+
+.card-title {
+  margin-top:0.75rem;
+}
+
