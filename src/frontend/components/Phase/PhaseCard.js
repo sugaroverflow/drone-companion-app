@@ -1,17 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
-
-const styles = {
-  // card: {
-  //   maxWidth: '18rem'
-  // }
-};
 
 const PhaseCard = ({ phase }) => (
-  // <Grid item xs={4}>
-  // needs to be updated and idk how - AP
-
   <div className="accordion">
     {/* Accordion section 1 - need to add database calls for phase description
      and phase time estimate. I put placeholders there for testing. */}
