@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const PhaseCard = ({ phase }) => (
   <div className="accordion phase-card">
@@ -22,11 +23,20 @@ const PhaseCard = ({ phase }) => (
         <p className="card-text">
           {/* @todo: replace with actual task description */}
           <ol>
-            <li> Task one </li>
+            <li>
+              {' '}
+              Task one
+              <NavLink
+                className="btn btn-primary"
+                to={`/tasks/${phase.phase_id}`}
+              >
+                Begin Task
+              </NavLink>
+            </li>
+
             <li> Task two </li>
             <li> Task three </li>
           </ol>
-
         </p>
       </div>
     </details>
