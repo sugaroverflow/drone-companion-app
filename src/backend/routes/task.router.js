@@ -6,7 +6,11 @@ const router = express.Router();
 const taskController = require('../controllers/task.controller')();
 
 // define the main route
-router.get('/:phaseId', (req, res) => {
+router.get('/:taskId', (req, res) => {
+  taskController.getTaskbyId(req, res);
+});
+
+router.get('/', (req, res) => {
   taskController.get(req, res);
 });
 

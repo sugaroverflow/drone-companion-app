@@ -1,18 +1,17 @@
 import React from 'react';
+import PropTypes, { object } from 'prop-types';
 import PhaseCard from './PhaseCard';
 
-const getPhases = phases => (
+const getPhases = ({ phases }) => (
   <div className="phases-accordion">
-    {phases.phases.map(phase => (
+    {phases.map(phase => (
       <PhaseCard key={phase.phase_id} phase={phase} />
     ))}
   </div>
 );
 
-const PhaseList = phases => <div>{getPhases(phases)}</div>;
-
-PhaseList.defaultProps = {
-  phases: []
+getPhases.propTypes = {
+  phases: PropTypes.arrayOf(object).isRequired
 };
 
-export default PhaseList;
+export default getPhases;

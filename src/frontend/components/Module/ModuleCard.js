@@ -7,7 +7,7 @@ import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 const styles = {
   card: {
-    maxWidth: '18rem',
+    // maxWidth: '18rem',
   },
 };
 
@@ -22,7 +22,7 @@ const ModuleCard = ({ module }) => (
     <p className="card-text">{module.descEng}</p>
     { /* @todo create proper NavLink */ }
     <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/phases/${module.module_id}`}>
+      <NavLink className="btn btn-primary" to={`/modules/${module.module_id}`}>
             Begin Module
       </NavLink>
     </div>
