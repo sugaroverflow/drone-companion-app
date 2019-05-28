@@ -1,19 +1,18 @@
 import React from 'react';
+import PropTypes, { object } from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import ModuleCard from './ModuleCard';
 
-const getModules = modules => (
+const getModules = ({ modules }) => (
   <Grid container spacing={24}>
     {
-      modules.modules.map(module => <ModuleCard key={module.module_id} module={module} />)
+      modules.map(module => <ModuleCard key={module.module_id} module={module} />)
     }
   </Grid>
 );
 
-// const ModuleList = modules => <div>{getModules(modules)}</div>;
-
-getModules.defaultProps = {
-  modules: []
+getModules.propTypes = {
+  modules: PropTypes.arrayOf(object).isRequired
 };
 
 export default getModules;

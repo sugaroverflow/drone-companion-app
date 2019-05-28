@@ -7,6 +7,7 @@
         "descFra": "This guides you through researching your site ahead of time to ensure safety and legality. (fr)",
         "bannerUrl": "/src/frontend/images/placeholder-2.png",
         "icon": "",
+        "estimate": "30",
         "OrderNum": "1"
     },
     {
@@ -18,6 +19,7 @@
         "descFra": "This guides you through the day-of, pre-flight requirements, like checking the weather. (fr)",
         "bannerUrl": "/src/frontend/images/placeholder-2.png",
         "icon": "",
+        "estimate": "35",
         "OrderNum": "2"
     },
     {
@@ -29,6 +31,7 @@
         "descFra": "This guides you through the requirements before you take off. (fr)",
         "bannerUrl": "/src/frontend/images/placeholder-2.png",
         "icon": "",
+        "estimate": "40",
         "OrderNum": "3"
     },
     {
@@ -40,6 +43,7 @@
         "descFra": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.(fr)",
         "bannerUrl": "/src/frontend/images/placeholder-2.png",
         "icon": "",
+        "estimate": "25",
         "OrderNum": "1"
     }
 ]

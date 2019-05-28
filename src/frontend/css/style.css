@@ -1,3 +1,9 @@
+@media screen and (min-width: 800px){
+  .module-card {    
+    max-width: 18rem;
+  }
+}
+
 .task-card {
   display: inline-block;
   max-width: 18rem;
@@ -84,7 +90,7 @@
 
 .module-card {
   display: inline-block;
-  max-width: 18rem;
+  /* max-width: 18rem; */
   background: #fff;
   margin: 1rem;
   padding: 1rem;

@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
-import ModuleList from './ModuleList';
+import PropTypes from 'prop-types';
+import PhaseList from '../Phase/PhaseList';
 
 export default class Modules extends Component {
   constructor() {
     super();
-
     this.state = {
-      modules: []
+      module: null,
+      phases: []
     };
   }
 
   componentDidMount() {
-    fetch('/api/modules')
+    const { match } = this.props;
+    const { moduleId } = match.params;
+    if (moduleId) {
+      this.getModulebyId(moduleId);
+      this.getPhasesbyModuleId(moduleId);
+    }
+  }
+
+  getModulebyId = (moduleId) => {
+    fetch(`/api/modules/${moduleId}`)
       .then(res => res.json())
       .then((modules) => {
-        this.setState({ modules });
+        this.setState({ module: modules[0] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getPhasesbyModuleId = (moduleId) => {
+    fetch(`/api/phases?module_id=${moduleId}`)
+      .then(res => res.json())
+      .then((phases) => {
+        this.setState({ phases });
       })
       .catch((error) => {
         console.log(error);
@@ -22,7 +43,44 @@ export default class Modules extends Component {
   }
 
   render() {
-    const { modules } = this.state;
-    return <ModuleList modules={modules} />;
+    const { phases, module } = this.state;
+
+    return (
+      <div>
+        <DisplayModuleInfo module={module} />
+        <PhaseList phases={phases} />
+
+      </div>
+    );
   }
 }
+
+function DisplayModuleInfo({ module }) {
+  if (module !== null) {
+    return (
+      <h1>
+  Module:
+        {' '}
+        {module.titleEng}
+      </h1>
+    );
+  }
+  return '';
+}
+
+
+Modules.defaultProps = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      moduleId: null
+    })
+  })
+};
+
+Modules.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      moduleId: PropTypes.string.isRequired
+    })
+  })
+};

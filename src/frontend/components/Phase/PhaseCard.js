@@ -10,17 +10,20 @@ const PhaseCard = ({ phase }) => (
         data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
       >
         <div className="phase-summary">
-          <h6 className="phase-title">{phase.titleEng}</h6>
+          <h2 className="phase-title h6">{phase.titleEng}</h2>
           <p className="phase-desc">{phase.descEng}</p>
           <p className="phase-caption">
             Estimated time to complete:
-            <span className="phase-estimate"> phase.estimate</span>
+            <span className="phase-estimate">
+              {' '}
+              {phase.estimate}
+            </span>
           </p>
         </div>
       </summary>
 
       <div className="tgl-panel">
-        <p className="card-text">
+        <div className="card-text">
           {/* @todo: replace with actual task description */}
           <ol>
             <li>
@@ -37,7 +40,8 @@ const PhaseCard = ({ phase }) => (
             <li> Task two </li>
             <li> Task three </li>
           </ol>
-        </p>
+        </div>
+
       </div>
     </details>
   </div>

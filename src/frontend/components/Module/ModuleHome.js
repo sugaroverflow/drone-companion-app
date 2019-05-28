@@ -1,12 +1,39 @@
-import React from 'react';
-import Modules from './Modules';
+import React, { Component } from 'react';
+import ModuleList from './ModuleList';
 
-const ModuleHome = () => (
-  <div className="App">
-    <h1>Welcome to the Drone Companion App</h1>
-    <p>This app will help you fly safe!</p>
-    <Modules />
-  </div>
-);
+export default class ModuleHome extends Component {
+  constructor() {
+    super();
+    this.state = {
+      modules: []
+    };
+  }
 
-export default ModuleHome;
+  componentDidMount() {
+    this.getAllModules();
+  }
+
+  getAllModules = () => {
+    fetch('/api/modules')
+      .then(res => res.json())
+      .then((modules) => {
+        this.setState({ modules });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    const { modules } = this.state;
+
+    return (
+      <div className="App">
+        <h1>Welcome to the Drone Companion App</h1>
+        <p>This app will help you to fly safe!</p>
+        <ModuleList modules={modules} />
+      </div>
+
+    );
+  }
+}
