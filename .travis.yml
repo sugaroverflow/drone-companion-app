@@ -1,14 +1,14 @@
 language: node_js
-
 node_js:
-  - 8
-
+- stable
 script:
-  # - npm run pretty
-  # - npm run next-update
   - npm run build
-
-branches:
-  only:
-  - gh-pages
-  - /.*/
+cache:
+  directories:
+    - "node_modules"
+after_success:
+- bash ./deploy.sh
+deploy:
+  provider: azure_web_apps
+  on:
+   branch: master 

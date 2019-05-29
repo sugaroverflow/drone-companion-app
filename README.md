@@ -24,7 +24,7 @@ This is a full stack web application using React, Node.js, Express and Webpack. 
     - [Concurrently](#concurrently)
     - [VSCode + ESLint + Prettier](#vscode--eslint--prettier)
       - [Installation guide](#installation-guide)
-      - [Project Structure (notes to be organized)](#project-structure-notes-to-be-organized)
+      - [Project Structure](#project-structure)
 
 ## Introduction
 
@@ -121,7 +121,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
+const outputDirectory = 'build';
 
 module.exports = {
   entry: ['babel-polyfill', './src/frontend/index.js'],
@@ -229,7 +229,7 @@ app.use('/api/tasks', require('./routes/task.router'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('dist'));
+app.use(express.static('build'));
 
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
 
