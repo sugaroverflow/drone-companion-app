@@ -9,6 +9,14 @@ cache:
 after_success:
 - bash ./deploy.sh
 deploy:
-  provider: azure_web_apps
-  on:
-   branch: master 
+- provider: azure_web_apps
+  slot: dronecompanionapp
+  on: master
+- provider: azure_web_apps
+  slot: dronecompanionapp-acc
+  on: stable
+- provider: azure_web_apps
+  slot: dronecompanionapp-dev
+  on: develop
+
+   
