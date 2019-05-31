@@ -2,8 +2,8 @@
             "module_id": "1",
             "titleEng": "Conducting a Site Survey",
             "titleFra": "Conducting a Site Survey (fr)",
-            "descEng": "This set of tasks will guide you through completing a site survey",
-            "descFra": "This set of tasks will guide you through completing a site survey (fr)",
+            "descEng": "This module will guide you through completing a site survey",
+            "descFra": "This module will guide you through completing a site survey (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
             "orderNum": "1"
@@ -12,8 +12,8 @@
             "module_id": "2",
             "titleEng": "Writing Standard Operating Procedures",
             "titleFra": "Writing Standard Operating Procedures (fr)",
-            "descEng": "This set of tasks will guide you through the proper collection and retention of flight logs",
-            "descFra": "This set of tasks will guide you through the proper collection and retention of flight logs (fr)",
+            "descEng": "This module will guide you through the proper collection and retention of flight logs",
+            "descFra": "This module will guide you through the proper collection and retention of flight logs (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
             "orderNum": "2"
@@ -22,50 +22,41 @@
             "module_id": "3",
             "titleEng": "Using NOTAMS and METAR data",
             "titleFra": "Using NOTAMS and METAR data (fr)",
-            "descEng": "This set of tasks will guid you through creating a flight plan.",
-            "descFra": "This set of tasks will guid you through creating a flight plan. (fr)",
+            "descEng": "This module will guide you through creating a flight plan.",
+            "descFra": "This module will guide you through creating a flight plan. (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
-            "orderNum": "4"
+            "orderNum": "3"
         },
         {
             "module_id": "4",
             "titleEng": "Flight Planning",
             "titleFra": "Flight Planning (fr)",
-            "descEng": "This set of tasks will guide you through ensuring your drone is ready for flight.",
-            "descFra": "This set of tasks will guide you through ensuring your drone is ready for flight. (fr)",
+            "descEng": "This module will guide you through ensuring your drone is ready for flight.",
+            "descFra": "This module will guide you through ensuring your drone is ready for flight. (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
-            "orderNum": "5"
+            "orderNum": "4"
         },
         {
             "module_id": "5",
             "titleEng": "Equipment Readiness",
             "titleFra": "Equipment Readiness (fr)",
-            "descEng": "This set of tasks will guide you through ensuring your drone is ready for flight.",
-            "descFra": "This set of tasks will guide you through ensuring your drone is ready for flight. (fr)",
+            "descEng": "This module will guide you through ensuring your drone is ready for flight.",
+            "descFra": "This module will guide you through ensuring your drone is ready for flight. (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
-            "orderNum": "6"
+            "orderNum": "5"
         },
         {
             "module_id": "6",
             "titleEng": "Keeping Flight Logs",
             "titleFra": "Keeping Flight Logs (fr)",
-            "descEng": "This set of tasks will guide you through the proper collection and retention of flight logs.",
-            "descFra": "This set of tasks will guide you through the proper collection and retention of flight logs. (fr)",
+            "descEng": "This module will guide you through the proper collection and retention of flight logs.",
+            "descFra": "This module will guide you through the proper collection and retention of flight logs. (fr)",
             "bannerUrl": "/src/frontend/images/placeholder-2.png",
             "icon": "",
-            "orderNum": "7"
-        },
-        {
-            "module_id": "7",
-            "titleEng": "Regulations to follow",
-            "titleFra": "Regulations to follow (fr)",
-            "descEng": "This set of tasks will guide you to flying legally based on the regulations set by Transport Canada.",
-            "descFra": "This set of tasks will guide you to flying legally based on the regulations set by Transport Canada. (fr)",
-            "bannerUrl": "/src/frontend/images/placeholder-2.png",
-            "icon": "",
-            "orderNum": "3"
+            "orderNum": "6"
         }
+       
     ]

@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import TaskCard from './TaskCard';
 
 const PhaseCard = ({ phase }) => (
   <div className="accordion phase-card">
-    <details className="acc-group">
-      <summary
-        className="wb-toggle tgl-tab"
-        data-toggle='{"parent": ".accordion", "group": ".acc-group"}'
-      >
+    <details>
+      <summary>
         <div className="phase-summary">
           <h2 className="phase-title h6">{phase.titleEng}</h2>
           <p className="phase-desc">{phase.descEng}</p>
@@ -23,25 +21,14 @@ const PhaseCard = ({ phase }) => (
       </summary>
 
       <div className="tgl-panel">
-        <div className="card-text">
-          {/* @todo: replace with actual task description */}
-          <ol>
-            <li>
-              {' '}
-              Task one
-              <NavLink
-                className="btn btn-primary"
-                to={`/tasks/${phase.phase_id}`}
-              >
-                Begin Task
-              </NavLink>
-            </li>
-
-            <li> Task two </li>
-            <li> Task three </li>
-          </ol>
-        </div>
-
+        <ul className="StepProgress">
+          {
+              (phase.tasks)
+                ? phase.tasks.map(task => (
+                  <TaskCard key={task.task_id} task={task} />
+                )) : ''
+              }
+        </ul>
       </div>
     </details>
   </div>

@@ -1,13 +1,13 @@
-.wrapper {
-  width: 330px;
-  font-family: 'Helvetica';
-  font-size: 14px;
-  border: 1px solid #CCC;
-}
+// .wrapper {
+//   width: 330px;
+//   font-family: 'Helvetica';
+//   font-size: 14px;
+//   border: 1px solid #CCC;
+// }
 
 .StepProgress {
   position: relative;
-  padding-left: 45px;
+  padding-left: 35px;
   list-style: none;
   
   &::before {
@@ -15,7 +15,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 15px;
+    left: 5px;
     width: 10px;
     height: 100%;
     border-left: 2px solid #CCC;
@@ -43,31 +43,32 @@
       display: inline-block;
       position: absolute;
       top: 0;
-      left: -37px;
-      width: 12px;
-      height: 12px;
-      border: 2px solid #CCC;
+      left: -39px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background-color: #FFF;
+      background-color: #2A7A92;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #2A7A92;
     }
     
     &.is-done {
       &::before {
-        border-left: 2px solid green;
+        border-left: 2px solid #2A7A92;
       }
       &::after {
         content: "✔";
         font-size: 10px;
         color: #FFF;
         text-align: center;
-        border: 2px solid green;
-        background-color: green;
+        border: 2px solid #2A7A92;
+        background-color: #2A7A92;
       }
     }
     
     &.current {
       &::before {
-        border-left: 2px solid green;
+        border-left: 2px solid #2A7A92;
       }
       
       &::after {
@@ -79,8 +80,8 @@
         left: -40px;
         font-size: 14px;
         text-align: center;
-        color: green;
-        border: 2px solid green;
+        color: #2A7A92;
+        border: 2px solid #2A7A92;
         background-color: white;
       }
     }

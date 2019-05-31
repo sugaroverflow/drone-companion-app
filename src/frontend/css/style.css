@@ -64,28 +64,70 @@
     border-color: #002D42;
 }
 
-.accordion {
+/* .accordion {
   margin: 1rem;
   background:#EBEBEB;
   border: #ccc;
   border-radius:1px;
+} */
+
+details[open] {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+details[open] {
+  padding-bottom: 1em;
+}
+details:not([open]) {
+  visibility: hidden;
 }
 
-.acc-group {
+details {
+  display: block;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+}
+
+details summary {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #295376;
+  padding: 5px 15px;
+  background:#EBEBEB;
+}
+
+details>summary {
+  margin-left: -1.1em;
+  margin-right: -1.1em;
+}
+
+summary {
+  display: list-item!important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+  visibility: visible!important;
+}
+
+summary {
+  cursor: pointer;
+}
+
+/* .acc-group {
   display: block;
   font-size: 1.5rem;
   font-weight: 700;
   padding: 1rem;
-}
+} */
 
-.wb-toggle {
+/* .wb-toggle {
   display: inline;
-}
+} */
 
 .tgl-panel {
   font-size: 1rem;
   font-weight: normal;
   margin-top: 1rem;
+  background-color:#fff;
 }
 
 .module-card {
@@ -112,15 +154,19 @@
 .phase-estimate { 
   font-weight: 700;
 }
-.phase-card .step-indicator { 
+.phase-summary {
+  margin-left:40px;
+  margin-top:-20px;
+}
+/* .phase-card .step-indicator { 
   height: inherit;
 }
 .phase-card .steps { 
   display: flex;
   flex-direction: column;
-}
+} */
 /* Remove the lines from the step indicator */
-.phase-card .step-indicator .steps li:after {
+/* .phase-card .step-indicator .steps li:after {
   display: none;
 }
 
@@ -132,4 +178,4 @@
   text-align: left;
   float: none;
   width: 0;
-}
+} */

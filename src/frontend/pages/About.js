@@ -5,11 +5,14 @@ const About = () => (
     <h1>About</h1>
     <p>
       The
+      {' '}
       <a href="https://github.com/sugaroverflow/drone-companion-app">
       Drone Companion App
       </a>
-      is a Code for Canada + Transport Canada collaboration project.
+      {' '}
+      is a Code for Canada + Transport Canada collaboration, aimed to help drone pilots fly safely.
     </p>
+
   </div>
 );
 

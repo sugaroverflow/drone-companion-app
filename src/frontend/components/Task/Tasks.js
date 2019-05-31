@@ -21,7 +21,7 @@ export default class Tasks extends Component {
 
   // Retrieves the list of items from the Express app
   getTasks = (phaseId) => {
-    fetch(`/api/tasks/${phaseId}`)
+    fetch(`/api/tasks?phase_id=${phaseId}`)
       .then(res => res.json())
       .then(tasks => this.setState({ tasks }));
   };

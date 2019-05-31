@@ -10,6 +10,7 @@ import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import '@khanacademy/tota11y/dist/tota11y';
 import './css/style.css';
+import './css/stepIndicator.scss';
 /* @todo remove tota11y before launch or find a way to load only on dev */
 
 export default class App extends Component {
