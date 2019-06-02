@@ -7,7 +7,7 @@ const ModuleCard = ({ module }) => (
   <div className="module-card">
     <h2 className="h6">{module.titleEng}</h2>
     <div className="card-image-task">
-      <img className="card-task-img" src={module.bannerUrl} alt="Placeholder" />
+      <img className="card-task-img" src={`public/images/${module.bannerName}`} alt="Placeholder" />
     </div>
     <p className="card-text">{module.descEng}</p>
     <div className="card-footer">
