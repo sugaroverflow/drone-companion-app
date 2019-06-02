@@ -6,7 +6,8 @@
             "descFra": "This set of tasks will guide you through completing a site survey (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "1"
+            "orderNum": "1",
+            "moduleStatus": "active"
         },
         {
             "module_id": "2",
@@ -16,7 +17,8 @@
             "descFra": "This set of tasks will guide you through the proper collection and retention of flight logs (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "2"
+            "orderNum": "2",
+            "moduleStatus": "disabled"
         },
         {
             "module_id": "3",
@@ -26,7 +28,8 @@
             "descFra": "This set of tasks will guid you through creating a flight plan. (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "3"
+            "orderNum": "4",
+            "moduleStatus": "disabled"
         },
         {
             "module_id": "4",
@@ -36,7 +39,8 @@
             "descFra": "This set of tasks will guide you through ensuring your drone is ready for flight. (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "4"
+            "orderNum": "5",
+            "moduleStatus": "disabled"
         },
         {
             "module_id": "5",
@@ -46,7 +50,8 @@
             "descFra": "This set of tasks will guide you through ensuring your drone is ready for flight. (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "5"
+            "orderNum": "6",
+            "moduleStatus": "disabled"
         },
         {
             "module_id": "6",
@@ -56,7 +61,8 @@
             "descFra": "This set of tasks will guide you through the proper collection and retention of flight logs. (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "7"
+            "orderNum": "7",
+            "moduleStatus": "disabled"
         },
         {
             "module_id": "7",
@@ -66,7 +72,7 @@
             "descFra": "This set of tasks will guide you to flying legally based on the regulations set by Transport Canada. (fr)",
             "bannerName": "placeholder-2.png",
             "icon": "",
-            "orderNum": "3"
+            "orderNum": "3",
+            "moduleStatus": "disabled"
         }
-       
     ]
