@@ -29,15 +29,15 @@ export default class Phases extends Component {
     const { phases } = this.state;
 
     return (
-      // Todo: Move the breadcrumb to create a component
+      // @todo: Create a breadcrumb component.
       <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">First Page</a>
+              <a href="#test">First Page</a>
             </li>
             <li className="breadcrumb-item">
-              <a href="#">Second Page</a>
+              <a href="#test">Second Page</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               Current Page

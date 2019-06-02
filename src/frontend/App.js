@@ -8,10 +8,7 @@ import Phase from './components/Phase/Phases';
 import Task from './components/Task/Tasks';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import '@khanacademy/tota11y/dist/tota11y';
-import './css/style.css';
-import './css/stepIndicator.scss';
-/* @todo remove tota11y before launch or find a way to load only on dev */
+import './App.scss';
 
 export default class App extends Component {
   constructor() {
@@ -30,7 +27,6 @@ export default class App extends Component {
         <main id="main-content" role="main">
           <div className="container">
             <Switch>
-              {/* @todo home currently = module home */}
               <Route exact path="/" component={ModuleHome} />
               <Route exact path="/about" component={About} />
               <Route path="/modules/:moduleId" component={Module} />
