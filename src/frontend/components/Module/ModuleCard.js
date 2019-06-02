@@ -11,7 +11,7 @@ const ModuleCard = ({ module }) => (
     </div>
     <p className="card-text">{module.descEng}</p>
     <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/modules/${module.module_id}`}>
+      <NavLink className={`btn btn-primary ${module.moduleStatus}`} to={`/modules/${module.module_id}`}>
             Begin Module
       </NavLink>
     </div>
@@ -25,6 +25,7 @@ ModuleCard.propTypes = {
     titleFra: PropTypes.string.isRequired,
     descEng: PropTypes.string.isRequired,
     descFra: PropTypes.string.isRequired,
+    moduleStatus: PropTypes.string.isRequired,
   }).isRequired
 };
 

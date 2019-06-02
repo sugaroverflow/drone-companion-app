@@ -8,7 +8,7 @@ import Phase from './components/Phase/Phases';
 import Task from './components/Task/Tasks';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import './css/style.css';
+import './App.scss';
 
 export default class App extends Component {
   constructor() {
