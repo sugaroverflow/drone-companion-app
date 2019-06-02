@@ -20,6 +20,12 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('build'));
-app.use('/public/images/', express.static(path.join(__dirname, 'images')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use('/build/images/', express.static(path.join(__dirname, 'images')));
+}
+else { 
+  app.use('/public/images/', express.static(path.join(__dirname, 'images')));
+}
 
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
