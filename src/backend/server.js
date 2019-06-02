@@ -23,8 +23,7 @@ app.use(express.static('build'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/build/images/', express.static(path.join(__dirname, 'images')));
-}
-else { 
+} else {
   app.use('/public/images/', express.static(path.join(__dirname, 'images')));
 }
 
