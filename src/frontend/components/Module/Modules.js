@@ -16,7 +16,7 @@ export default class Modules extends Component {
     const { moduleId } = match.params;
     if (moduleId) {
       this.getModulebyId(moduleId);
-      this.getPhasesbyModuleId(moduleId);
+      this.getPhasesbymoduleId(moduleId);
     }
   }
 
@@ -31,7 +31,7 @@ export default class Modules extends Component {
       });
   }
 
-  getPhasesbyModuleId = (moduleId) => {
+  getPhasesbymoduleId = (moduleId) => {
     fetch(`/api/phases?module_id=${moduleId}`)
       .then(res => res.json())
       .then((phases) => {
@@ -59,9 +59,7 @@ function DisplayModuleInfo({ module }) {
   if (module !== null) {
     return (
       <h1>
-  Module:
-        {' '}
-        {module.titleEng}
+        {`Module: ${module.titleEng}`}
       </h1>
     );
   }

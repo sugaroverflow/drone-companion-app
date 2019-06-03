@@ -5,29 +5,35 @@
         "titleFra": "Site Research (fr)",
         "descEng": "This guides you through researching your site ahead of time to ensure safety and legality.",
         "descFra": "This guides you through researching your site ahead of time to ensure safety and legality. (fr)",
-        "bannerUrl": "/src/frontend/images/placeholder-2.png",
+        "bannerUrl": "placeholder-2.png",
         "icon": "",
         "estimate": "30",
-        "OrderNum": "1",
+        "orderNum": "1",
         "tasks": [{
           "task_id": "1",
           "phase_id": "1",
+          "bannerUrl": "placeholder-2.png",
           "titleEng": "Determine where to fly",
           "titleFra": "Determine where to fly (fr)",
+          "estimate": "30",
           "orderNum": "1"
         },
         {
           "task_id": "2",
           "phase_id": "1",
+          "bannerUrl": "placeholder-2.png",
           "titleEng": "Define your flight boundary",
           "titleFra": "Define your flight boundary (fr)",
+          "estimate": "30",
           "orderNum": "2"
         },
         {
           "task_id": "3",
           "phase_id": "1",
+          "bannerUrl": "placeholder-2.png",
           "titleEng": "Measure distances",
           "titleFra": "Measure distances (fr)",
+          "estimate": "30",
           "orderNum": "3"
         }]
     },
@@ -38,16 +44,18 @@
         "titleFra": "Before You Leave (fr)",
         "descEng": "This guides you through the day-of, pre-flight requirements, like checking the weather.",
         "descFra": "This guides you through the day-of, pre-flight requirements, like checking the weather. (fr)",
-        "bannerUrl": "/src/frontend/images/placeholder-2.png",
+        "bannerUrl": "placeholder-2.png",
         "icon": "",
         "estimate": "35",
-        "OrderNum": "2",
+        "orderNum": "2",
         "tasks": [
           {
             "task_id": "4",
             "phase_id": "2",
+            "bannerUrl": "placeholder-2.png",
             "titleEng": "Plan a date",
             "titleFra": "Plan a date (fr)",
+            "estimate": "30",
             "orderNum": "4"
           }
         ]
@@ -59,10 +67,10 @@
         "titleFra": "On-site Survey (fr)",
         "descEng": "This guides you through the requirements before you take off.",
         "descFra": "This guides you through the requirements before you take off. (fr)",
-        "bannerUrl": "/src/frontend/images/placeholder-2.png",
+        "bannerUrl": "placeholder-2.png",
         "icon": "",
         "estimate": "40",
-        "OrderNum": "3"
+        "orderNum": "3"
     },
     {
         "phase_id": "4",
@@ -71,9 +79,9 @@
         "titleFra": "Module 2 Phase 1 (fr)",
         "descEng": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.",
         "descFra": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.(fr)",
-        "bannerUrl": "/src/frontend/images/placeholder-2.png",
+        "bannerUrl": "placeholder-2.png",
         "icon": "",
         "estimate": "25",
-        "OrderNum": "1"
+        "orderNum": "1"
     }
 ]

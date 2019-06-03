@@ -1,19 +1,17 @@
 import React from 'react';
+import PropTypes, { object } from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import TaskCard from './TaskCard';
 
-const getTasks = tasks => (
+const getTasks = ({ tasks }) => (
   <Grid container spacing={24}>
-    {tasks.tasks.map(task => (
+    {tasks.map(task => (
       <TaskCard key={task.task_id} task={task} />
     ))}
   </Grid>
 );
-
-const TaskList = tasks => <div>{getTasks(tasks)}</div>;
-
-TaskList.defaultProps = {
-  tasks: []
+getTasks.propTypes = {
+  tasks: PropTypes.arrayOf(object).isRequired
 };
 
-export default TaskList;
+export default getTasks;

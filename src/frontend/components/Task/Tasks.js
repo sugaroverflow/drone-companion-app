@@ -1,3 +1,11 @@
+/* Todo: https://sketch.cloud/s/ng0Yl/a/KbYEay
+  Tasks:
+    |_Parent Phase Title
+    |_Title Text: TaskList
+    |_TaskList
+      |_TaskCard
+*/
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TaskList from './TaskList';
@@ -7,6 +15,7 @@ export default class Tasks extends Component {
     super();
 
     this.state = {
+      phase: null,
       tasks: []
     };
   }
@@ -16,7 +25,19 @@ export default class Tasks extends Component {
     const { match } = this.props;
     const { params } = match;
     const { phaseId } = params;
+    this.getPhasebyId(phaseId);
     this.getTasks(phaseId);
+  }
+
+  getPhasebyId = (phaseId) => {
+    fetch(`/api/phases/${phaseId}`)
+      .then(res => res.json())
+      .then((phases) => {
+        this.setState({ phase: phases[0] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   // Retrieves the list of items from the Express app
@@ -27,10 +48,31 @@ export default class Tasks extends Component {
   };
 
   render() {
-    console.log(this.state);
-    const { tasks } = this.state;
-    return <TaskList tasks={tasks} />;
+    const { tasks, phase } = this.state;
+    return (
+      <div>
+        <DisplayPhaseInfo module={phase} />
+        <TaskList tasks={tasks} />
+      </div>
+    );
   }
+}
+
+function DisplayPhaseInfo({ phase }) {
+  if (phase !== null) {
+    return (
+      <div>
+        <h1>
+          {`Phase ${phase.orderNum}:`}
+          {phase.titleEng}
+        </h1>
+        <h2>
+          {'Task List'}
+        </h2>
+      </div>
+    );
+  }
+  return '';
 }
 
 Tasks.defaultProps = {
