@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 
-const TaskCard = ({ task, moduleId }) => (
+const TaskStep = ({ task, moduleId }) => (
   <li className="StepProgress-item">
     {' '}
     {task.titleEng}
@@ -19,7 +19,7 @@ const TaskCard = ({ task, moduleId }) => (
 );
 
 
-TaskCard.propTypes = {
+TaskStep.propTypes = {
   task: PropTypes.shape({
     // phase_id: PropTypes.string.isRequired,
     titleEng: PropTypes.string.isRequired,
@@ -29,4 +29,4 @@ TaskCard.propTypes = {
   }).isRequired,
   moduleId: PropTypes.string.isRequired
 };
-export default TaskCard;
+export default TaskStep;

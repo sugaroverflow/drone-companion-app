@@ -16,7 +16,7 @@ const TaskCard = ({ task }) => (
     </p>
     <hr />
     <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/Steps/${task.task_id}`}>
+      <NavLink className="btn btn-primary" to={`/steps/${task.task_id}`}>
         Begin
       </NavLink>
     </div>
