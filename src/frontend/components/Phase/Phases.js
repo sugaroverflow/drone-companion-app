@@ -1,59 +1,66 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PhaseList from './PhaseList';
+import TaskList from '../Task/TaskList';
 
 export default class Phases extends Component {
   constructor() {
     super();
     this.state = {
-      phases: []
+      phase: null
     };
   }
 
-  // Fetch the list on first mount
   componentDidMount() {
     const { match } = this.props;
-    const { params } = match;
-    const { moduleId } = params;
-    this.getPhases(moduleId);
+    const { phaseId } = match.params;
+    if (phaseId) {
+      this.getPhasebyId(phaseId);
+    }
   }
 
-  // Retrieves the list of items from the Express app
-  getPhases = (moduleId) => {
-    fetch(`/api/phases/${moduleId}`)
+  getPhasebyId = (phaseId) => {
+    fetch(`/api/phases/${phaseId}`)
       .then(res => res.json())
-      .then(phases => this.setState({ phases }));
-  };
+      .then((phases) => {
+        this.setState({ phase: phases[0] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
-    const { phases } = this.state;
-
-    return (
-      // @todo: Create a breadcrumb component.
-      <div>
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#test">First Page</a>
-            </li>
-            <li className="breadcrumb-item">
-              <a href="#test">Second Page</a>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Current Page
-            </li>
-          </ol>
-        </nav>
-        <PhaseList phases={phases} />
-      </div>
-    );
+    const { phase } = this.state;
+    if (phase !== null) {
+      const { tasks } = phase;
+      return (
+        <div>
+          <DisplayPhaseInfo phase={phase} />
+          {(tasks) ? <TaskList tasks={tasks} /> : ''}
+        </div>
+      );
+    }
+    return '';
   }
+}
+
+function DisplayPhaseInfo({ phase }) {
+  return (
+    <div>
+      <h1 className="h6">
+        {`Phase ${phase.orderNum}: ${phase.titleEng}`}
+      </h1>
+      <h2 className="h2">
+        {'Task List'}
+      </h2>
+    </div>
+  );
 }
 
 Phases.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      moduleId: null
+      phaseId: null
     })
   })
 };
@@ -63,7 +70,17 @@ Phases.propTypes = {
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
     params: PropTypes.shape({
-      moduleId: PropTypes.string.isRequired
+      phaseId: PropTypes.string.isRequired
     })
   })
+};
+
+DisplayPhaseInfo.propTypes = {
+  phase: PropTypes.shape(
+    {
+      phase_id: PropTypes.string.isRequired,
+      titleEng: PropTypes.string.isRequired,
+      orderNum: PropTypes.string.isRequired,
+    }
+  ).isRequired
 };

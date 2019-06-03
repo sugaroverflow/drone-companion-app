@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { NavLink } from 'react-router-dom';
-import TaskCard from './TaskCard';
+import TaskStep from './TaskStep';
 
 const PhaseCard = ({ phase }) => (
   <div className="accordion phase-card">
@@ -25,7 +25,7 @@ const PhaseCard = ({ phase }) => (
           {
               (phase.tasks)
                 ? phase.tasks.map(task => (
-                  <TaskCard key={task.task_id} task={task} />
+                  <TaskStep key={task.task_id} task={task} moduleId={phase.module_id} />
                 )) : ''
               }
         </ul>

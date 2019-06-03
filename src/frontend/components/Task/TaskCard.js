@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-
+import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 const TaskCard = ({ task }) => (
   <div className="task-card">
-    <h2 className="h6">{task.titleEng}</h2>
     <div className="card-image-task">
-      <img className="card-task-img" src={task.bannerUrl} alt="Placeholder" />
+      <img className="card-task-img" src={`/images/${task.bannerUrl}`} alt="Placeholder" />
     </div>
-    <p className="card-text">{task.descEng}</p>
+    <p className="card-text">
+      {`${task.orderNum}. ${task.titleEng}`}
+    </p>
+    <p className="card-desp">
+      {`${task.estimate} minutes read`}
+    </p>
+    <hr />
     <div className="card-footer">
       <NavLink className="btn btn-primary" to={`/Steps/${task.task_id}`}>
-        Begin Task
+        Begin
       </NavLink>
     </div>
   </div>
@@ -23,8 +28,6 @@ TaskCard.propTypes = {
     phase_id: PropTypes.string.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
-    descEng: PropTypes.string.isRequired,
-    descFra: PropTypes.string.isRequired
   }).isRequired
 };
 export default TaskCard;

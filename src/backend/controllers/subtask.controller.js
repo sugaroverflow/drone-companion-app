@@ -10,14 +10,14 @@ function controller() {
   function getSubtasksByTaskId(taskId) {
     const subtask = subtasks
       .filter(item => item.task_id === taskId)
-      .sort((a, b) => a.OrderNum - b.OrderNum);
+      .sort((a, b) => a.orderNum - b.orderNum);
     return clone(subtask);
   }
 
-  getCompletedSubtasksByTaskId(taskId) {
+  function getCompletedSubtasksByTaskId(taskId) {
     const subtask = subtasks
       .filter(item => item.task_id === taskId) // Todo: add filter for completed subtasks.
-      .sort((a, b) => a.OrderNum - b.OrderNum);
+      .sort((a, b) => a.orderNum - b.orderNum);
     return clone(subtask);
   }
 

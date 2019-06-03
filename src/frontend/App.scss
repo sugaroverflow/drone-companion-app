@@ -1,18 +1,18 @@
 @media screen and (min-width: 800px) {
-  .module-card {
+  .module-card, .task-card {
     max-width: 18rem;
   }
 }
 
-.task-card {
-  display: inline-block;
-  max-width: 18rem;
-  background: #fff;
-  margin: 1rem;
-  padding: 1rem;
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30%);
-  border-radius: 3px;
-}
+// .task-card {
+//   display: inline-block;
+//   max-width: 18rem;
+//   background: #fff;
+//   margin: 1rem;
+//   padding: 1rem;
+//   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30%);
+//   border-radius: 3px;
+// }
 
 .card-image-task {
   display: block;
@@ -105,14 +105,19 @@ summary {
   background-color: #fff;
 }
 
-.module-card {
+.module-card, .task-card {
   display: inline-block;
+  width: 100%;
   /* max-width: 18rem; */
   background: #fff;
   margin: 1rem;
   padding: 1rem;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30%);
   border-radius: 3px;
+
+  .card-desp{
+    color:  #2a7a92;
+  }
 }
 
 /* Phase Accordion Styles */
