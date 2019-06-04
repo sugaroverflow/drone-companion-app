@@ -1,41 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import PhaseList from '../Phase/PhaseList';
+import ModuleList from './ModuleList';
 
-export default class Modules extends Component {
+export default class ModuleHome extends Component {
   constructor() {
     super();
     this.state = {
-      module: null,
-      phases: []
+      modules: []
     };
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const { moduleId } = match.params;
-    if (moduleId) {
-      this.getModulebyId(moduleId);
-      this.getPhasesbymoduleId(moduleId);
-    }
+    this.getAllModules();
   }
 
-  getModulebyId = (moduleId) => {
-    fetch(`/api/modules/${moduleId}`)
+  getAllModules = () => {
+    fetch('/api/modules')
       .then(res => res.json())
       .then((modules) => {
-        this.setState({ module: modules[0] });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  getPhasesbymoduleId = (moduleId) => {
-    fetch(`/api/phases?module_id=${moduleId}`)
-      .then(res => res.json())
-      .then((phases) => {
-        this.setState({ phases });
+        this.setState({ modules });
       })
       .catch((error) => {
         console.log(error);
@@ -43,42 +25,15 @@ export default class Modules extends Component {
   }
 
   render() {
-    const { phases, module } = this.state;
+    const { modules } = this.state;
 
     return (
-      <div>
-        <DisplayModuleInfo module={module} />
-        <PhaseList phases={phases} />
-
+      <div className="App">
+        <h1>Welcome to the Drone Companion App</h1>
+        <p>This app will help you to fly a drone safely in Canada.</p>
+        <ModuleList modules={modules} />
       </div>
+
     );
   }
 }
-
-function DisplayModuleInfo({ module }) {
-  if (module !== null) {
-    return (
-      <h1>
-        {`Module: ${module.titleEng}`}
-      </h1>
-    );
-  }
-  return '';
-}
-
-
-Modules.defaultProps = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleId: null
-    })
-  })
-};
-
-Modules.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleId: PropTypes.string.isRequired
-    })
-  })
-};
