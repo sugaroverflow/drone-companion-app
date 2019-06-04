@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
-const TaskCard = ({ task }) => (
+const TaskCard = ({ task, moduleId }) => (
   <div className="task-card">
     <div className="card-image-task">
       <img className="card-task-img" src={`/images/${task.bannerUrl}`} alt="Placeholder" />
@@ -11,12 +11,14 @@ const TaskCard = ({ task }) => (
     <p className="card-text">
       {`${task.orderNum}. ${task.titleEng}`}
     </p>
-    <p className="card-desp">
+    <p className="card-desc">
       {`${task.estimate} minutes read`}
     </p>
     <hr />
     <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/steps/${task.task_id}`}>
+      {/* @todo update hardcoded moduleId */}
+      {/* @todo update hardcoded steps after progress functionality */}
+      <NavLink className="btn btn-primary" to={`/modules/1/phases/${task.phase_id}/tasks/${task.task_id}/steps/1`}>
         Begin
       </NavLink>
     </div>
@@ -28,6 +30,7 @@ TaskCard.propTypes = {
     phase_id: PropTypes.string.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
+  moduleId: PropTypes.string.isRequired,
 };
 export default TaskCard;
