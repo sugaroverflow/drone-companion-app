@@ -10,7 +10,7 @@ import Step from './components/Step/Step';
 import Guidance from './components/Guidance/Guidances';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import './App.scss';
+import './App.css';
 
 export default class App extends Component {
   constructor() {
