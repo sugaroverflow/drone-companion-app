@@ -3,6 +3,11 @@
     max-width: 18rem;
   }
 }
+
+header {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+}
 .card-image-task {
   display: block;
   width: 100%;

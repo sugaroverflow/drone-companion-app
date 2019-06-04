@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import TaskStep from './TaskStep';
 
 const PhaseCard = ({ phase }) => (
@@ -29,6 +29,12 @@ const PhaseCard = ({ phase }) => (
                 )) : ''
               }
         </ul>
+        <NavLink
+          className="btn btn-primary"
+          to={`/modules/${phase.moduleId}/phases/${phase.phase_id}/tasks/`}
+        >
+         Start
+        </NavLink>
       </div>
     </details>
   </div>
