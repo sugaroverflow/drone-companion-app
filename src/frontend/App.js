@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Header from './components/Header';
 import ModuleHome from './components/Module/ModuleHome';
 import About from './pages/About';
 import Module from './components/Module/Modules';
 import Phase from './components/Phase/Phases';
-import Task from './components/Task/Tasks';
-import Step from './components/Step/Step';
-import Guidance from './components/Guidance/Guidances';
+// import Task from './components/Task/Tasks';
+// import Step from './components/Step/Step';
+// import Guidance from './components/Guidance/Guidances';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.scss';
@@ -26,6 +27,9 @@ export default class App extends Component {
     return (
       <div>
         <Header title={title} />
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <main id="main-content" role="main">
           <div className="container">
             <Switch>
