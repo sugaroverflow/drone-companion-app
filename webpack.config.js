@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const outputDirectory = 'build';
 
@@ -23,7 +24,12 @@ module.exports = {
       },
       {
         test: /\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -60,6 +66,12 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './public/images', to: 'images' }
-    ])
+    ]),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ]
 };
