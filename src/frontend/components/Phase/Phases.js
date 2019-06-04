@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TaskList from '../Task/TaskList';
+import PhaseList from './PhaseList';
 
 export default class Phases extends Component {
   constructor() {
     super();
     this.state = {
-      phase: null
+      module: null,
+      phases: []
     };
   }
 
   componentDidMount() {
     const { match } = this.props;
-    const { phaseId } = match.params;
-    if (phaseId) {
-      this.getPhasebyId(phaseId);
+    const { moduleId } = match.params;
+    if (moduleId) {
+      this.getModulebyId(moduleId);
+      this.getPhasesbymoduleId(moduleId);
     }
   }
 
-  getPhasebyId = (phaseId) => {
-    fetch(`/api/phases/${phaseId}`)
+  getModulebyId = (moduleId) => {
+    fetch(`/api/modules/${moduleId}`)
+      .then(res => res.json())
+      .then((modules) => {
+        this.setState({ module: modules[0] });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getPhasesbymoduleId = (moduleId) => {
+    fetch(`/api/phases?module_id=${moduleId}`)
       .then(res => res.json())
       .then((phases) => {
-        this.setState({ phase: phases[0] });
+        this.setState({ phases });
       })
       .catch((error) => {
         console.log(error);
@@ -30,57 +43,42 @@ export default class Phases extends Component {
   }
 
   render() {
-    const { phase } = this.state;
-    if (phase !== null) {
-      const { tasks } = phase;
-      return (
-        <div>
-          <DisplayPhaseInfo phase={phase} />
-          {(tasks) ? <TaskList tasks={tasks} /> : ''}
-        </div>
-      );
-    }
-    return '';
+    const { phases, module } = this.state;
+
+    return (
+      <div>
+        <DisplayModuleInfo module={module} />
+        <PhaseList phases={phases} />
+
+      </div>
+    );
   }
 }
 
-function DisplayPhaseInfo({ phase }) {
-  return (
-    <div>
-      <h1 className="h6">
-        {`Phase ${phase.orderNum}: ${phase.titleEng}`}
+function DisplayModuleInfo({ module }) {
+  if (module !== null) {
+    return (
+      <h1>
+        {`Module: ${module.titleEng}`}
       </h1>
-      <h2 className="h2">
-        {'Task List'}
-      </h2>
-    </div>
-  );
+    );
+  }
+  return '';
 }
+
 
 Phases.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseId: null
+      moduleId: null
     })
   })
 };
 
 Phases.propTypes = {
-  // @todo fix the issue with match and props here
-  // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseId: PropTypes.string.isRequired
+      moduleId: PropTypes.string.isRequired
     })
   })
-};
-
-DisplayPhaseInfo.propTypes = {
-  phase: PropTypes.shape(
-    {
-      phase_id: PropTypes.string.isRequired,
-      titleEng: PropTypes.string.isRequired,
-      orderNum: PropTypes.string.isRequired,
-    }
-  ).isRequired
 };
