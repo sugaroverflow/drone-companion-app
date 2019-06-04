@@ -22,14 +22,22 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: {
-          loader: 'file-loader'
-        }
+        test: /\.(jpe?g|png|gif)$/,
+        use: [{
+          /* inline if smaller than 10 KB, otherwise load as a file */
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff2?|otf)$/,
+        use: 'file-loader'
       }
     ]
   },

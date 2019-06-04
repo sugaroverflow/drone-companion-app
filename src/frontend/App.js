@@ -6,9 +6,11 @@ import About from './pages/About';
 import Module from './components/Module/Modules';
 import Phase from './components/Phase/Phases';
 import Task from './components/Task/Tasks';
+import Step from './components/Step/Step';
+import Guidance from './components/Guidance/Guidances';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import './css/style.css';
+import './App.scss';
 
 export default class App extends Component {
   constructor() {
@@ -28,10 +30,13 @@ export default class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/" component={ModuleHome} />
+              <Route exact path="/modules/" component={ModuleHome} />
               <Route exact path="/about" component={About} />
-              <Route path="/modules/:moduleId" component={Module} />
-              <Route path="/phases/:phaseId" component={Phase} />
-              <Route path="/tasks/:taskId" component={Task} />
+              <Route exact path="/modules/:moduleId/phases/" component={Module} />
+              <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/" component={Phase} />
+              {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/" component={Task} />
+              <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/" component={Step} />
+              <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
               <Route component={PageNotFound} />
             </Switch>
           </div>

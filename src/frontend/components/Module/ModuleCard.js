@@ -7,11 +7,11 @@ const ModuleCard = ({ module }) => (
   <div className="module-card">
     <h2 className="h6">{module.titleEng}</h2>
     <div className="card-image-task">
-      <img className="card-task-img" src={`images/${module.bannerName}`} alt="Placeholder" />
+      <img className="card-task-img" src={`/images/${module.bannerName}`} alt="Placeholder" />
     </div>
     <p className="card-text">{module.descEng}</p>
     <div className="card-footer">
-      <NavLink className="btn btn-primary" to={`/modules/${module.module_id}`}>
+      <NavLink className={`btn btn-primary ${module.moduleStatus}`} to={`/modules/${module.orderNum}/phases/`}>
             Begin Module
       </NavLink>
     </div>
@@ -25,6 +25,7 @@ ModuleCard.propTypes = {
     titleFra: PropTypes.string.isRequired,
     descEng: PropTypes.string.isRequired,
     descFra: PropTypes.string.isRequired,
+    moduleStatus: PropTypes.string.isRequired,
   }).isRequired
 };
 

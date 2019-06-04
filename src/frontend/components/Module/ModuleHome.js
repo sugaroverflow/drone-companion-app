@@ -30,7 +30,7 @@ export default class ModuleHome extends Component {
     return (
       <div className="App">
         <h1>Welcome to the Drone Companion App</h1>
-        <p>This app will help you to fly safe!</p>
+        <p>This app will help you to fly a drone safely in Canada.</p>
         <ModuleList modules={modules} />
       </div>
 
