@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - stable
 script:
-  - npm rebuild node-sass
+  - npm run prebuild
   - npm run build
 cache:
   directories:

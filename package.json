@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/backend/server.js",
   "scripts": {
+    "prebuild": "npm rebuild node-sass",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "npm run build && node src/backend/server.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
