@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
-const TaskCard = ({ task, moduleId }) => (
+const TaskCard = ({ task, moduleOId, phaseOId }) => (
   <div className="task-card">
     <div className="card-image-task">
-      <img className="card-task-img" src={`/images/${task.bannerUrl}`} alt="Placeholder" />
+      <img className="card-task-img" src={`/images/${task.imageUrlEng}`} alt="Placeholder" />
     </div>
     <p className="card-text">
       {`${task.orderNum}. ${task.titleEng}`}
@@ -16,9 +16,7 @@ const TaskCard = ({ task, moduleId }) => (
     </p>
     <hr />
     <div className="card-footer">
-      {/* @todo update hardcoded moduleId */}
-      {/* @todo update hardcoded steps after progress functionality */}
-      <NavLink className="btn btn-primary" to={`/modules/1/phases/${task.phase_id}/tasks/${task.task_id}/steps/1`}>
+      <NavLink className="btn btn-primary" to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${task.task_id}/steps/`}>
         Begin
       </NavLink>
     </div>
@@ -31,6 +29,7 @@ TaskCard.propTypes = {
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
   }).isRequired,
-  moduleId: PropTypes.string.isRequired,
+  moduleOId: PropTypes.string.isRequired,
+  phaseOId: PropTypes.number.isRequired
 };
 export default TaskCard;

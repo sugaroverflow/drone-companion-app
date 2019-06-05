@@ -14,13 +14,12 @@ function controller() {
     return res.json(jsonContent);
   }
 
-  function getModuleById(req, res) {
+  function getById(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    /* @todo is there a way to pass params from the router? */
-    const { moduleId } = req.params;
+    const { moduleOId } = req.params;
     const jsonContent = JSON.parse(contents);
-    if (moduleId !== null) {
-      const filtered = jsonContent.filter(item => item.module_id === moduleId);
+    if (moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId);
       return res.json(filtered);
     }
 
@@ -28,7 +27,7 @@ function controller() {
   }
 
 
-  return { get, getModuleById };
+  return { get, getById };
 }
 
 
