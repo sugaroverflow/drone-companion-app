@@ -22,11 +22,11 @@ export default class Tasks extends Component {
     const { moduleOId } = match.params;
     const { phaseOId } = match.params;
     if (phaseOId && moduleOId) {
-      this.getPhasebyId(moduleOId, phaseOId);
+      this.getPhasebyOId(moduleOId, phaseOId);
     }
   }
 
-  getPhasebyId = (moduleOId, phaseOId) => {
+  getPhasebyOId = (moduleOId, phaseOId) => {
     fetch(`/api/modules/${moduleOId}/phases/${phaseOId}`)
       .then(res => res.json())
       .then((phase) => {
