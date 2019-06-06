@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 
-const TaskStep = ({ task, moduleId }) => (
+const TaskStep = ({ task, moduleOId, phaseOId }) => (
   <li className="StepProgress-item">
     {' '}
     {task.titleEng}
     <NavLink
       className="btn btn-primary"
-      to={`/modules/${moduleId}/phases/${task.phase_id}/tasks/`}
+      to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/`}
     >
      Begin Task
     </NavLink>
@@ -27,6 +27,7 @@ TaskStep.propTypes = {
     // descEng: PropTypes.string.isRequired,
     // descFra: PropTypes.string.isRequired
   }).isRequired,
-  moduleId: PropTypes.string.isRequired
+  moduleOId: PropTypes.number.isRequired,
+  phaseOId: PropTypes.number.isRequired
 };
 export default TaskStep;

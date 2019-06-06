@@ -3,22 +3,22 @@ const fs = require('fs');
 const path = require('path');
 
 function controller() {
-  function get(req, res) {
-    const contents = fs.readFileSync(path.resolve(__dirname, '../data/taskData.json'));
-    const phaseId = req.query.phase_id;
+  function getById(req, res) {
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const {
+      moduleOId, phaseOId, taskOId
+    } = req.params;
     const jsonContent = JSON.parse(contents);
-    const filtered = jsonContent.filter(item => item.phase_id === phaseId);
-    return res.json(filtered);
-  }
+    if (phaseOId !== null && moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
+        .find(item => `${item.orderNum}` === phaseOId).tasks
+        .find(item => `${item.orderNum}` === taskOId);
+      return res.json(filtered);
+    }
 
-  function getTaskbyId(req, res) {
-    const contents = fs.readFileSync(path.resolve(__dirname, '../data/taskData.json'));
-    const { taskId } = req.params;
-    const jsonContent = JSON.parse(contents);
-    const filtered = jsonContent.filter(item => item.task_id === taskId);
-    return res.json(filtered);
+    return res.json(jsonContent);
   }
-  return { get, getTaskbyId };
+  return { getById };
 }
 
 module.exports = controller;

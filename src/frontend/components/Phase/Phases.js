@@ -7,35 +7,22 @@ export default class Phases extends Component {
     super();
     this.state = {
       module: null,
-      phases: []
     };
   }
 
   componentDidMount() {
     const { match } = this.props;
-    const { moduleId } = match.params;
-    if (moduleId) {
-      this.getModulebyId(moduleId);
-      this.getPhasesbymoduleId(moduleId);
+    const { moduleOId } = match.params;
+    if (moduleOId) {
+      this.getModulebyOId(moduleOId);
     }
   }
 
-  getModulebyId = (moduleId) => {
-    fetch(`/api/modules/${moduleId}`)
+  getModulebyOId = (moduleOId) => {
+    fetch(`/api/modules/${moduleOId}`)
       .then(res => res.json())
-      .then((modules) => {
-        this.setState({ module: modules[0] });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  getPhasesbymoduleId = (moduleId) => {
-    fetch(`/api/phases?module_id=${moduleId}`)
-      .then(res => res.json())
-      .then((phases) => {
-        this.setState({ phases });
+      .then((module) => {
+        this.setState({ module });
       })
       .catch((error) => {
         console.log(error);
@@ -43,29 +30,20 @@ export default class Phases extends Component {
   }
 
   render() {
-    const { phases, module } = this.state;
-
-    return (
-      <div>
-        <DisplayModuleInfo module={module} />
-        <PhaseList phases={phases} />
-
-      </div>
-    );
+    const { module } = this.state;
+    if (module) {
+      return (
+        <div>
+          <h1>
+            {`Module: ${module.titleEng}`}
+          </h1>
+          <PhaseList phases={module.phases} moduleOId={module.orderNum} />
+        </div>
+      );
+    }
+    return '';
   }
 }
-
-function DisplayModuleInfo({ module }) {
-  if (module !== null) {
-    return (
-      <h1>
-        {`Module: ${module.titleEng}`}
-      </h1>
-    );
-  }
-  return '';
-}
-
 
 Phases.defaultProps = {
   match: PropTypes.shape({
@@ -78,7 +56,7 @@ Phases.defaultProps = {
 Phases.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      moduleId: PropTypes.string.isRequired
+      moduleOId: PropTypes.string.isRequired
     })
   })
 };
