@@ -19,17 +19,18 @@ export default class Tasks extends Component {
 
   componentDidMount() {
     const { match } = this.props;
-    const { phaseId } = match.params;
-    if (phaseId) {
-      this.getPhasebyId(phaseId);
+    const { moduleOId } = match.params;
+    const { phaseOId } = match.params;
+    if (phaseOId && moduleOId) {
+      this.getPhasebyOId(moduleOId, phaseOId);
     }
   }
 
-  getPhasebyId = (phaseId) => {
-    fetch(`/api/phases/${phaseId}`)
+  getPhasebyOId = (moduleOId, phaseOId) => {
+    fetch(`/api/modules/${moduleOId}/phases/${phaseOId}`)
       .then(res => res.json())
-      .then((phases) => {
-        this.setState({ phase: phases[0] });
+      .then((phase) => {
+        this.setState({ phase });
       })
       .catch((error) => {
         console.log(error);
@@ -38,12 +39,14 @@ export default class Tasks extends Component {
 
   render() {
     const { phase } = this.state;
+    const { match } = this.props;
+    const { moduleOId } = match.params;
     if (phase !== null) {
       const { tasks } = phase;
       return (
         <div>
           <DisplayPhaseInfo phase={phase} />
-          {(tasks) ? <TaskList tasks={tasks} /> : ''}
+          {(tasks) ? <TaskList tasks={tasks} moduleOId={moduleOId} phaseOId={phase.orderNum} /> : ''}
         </div>
       );
     }
@@ -77,7 +80,8 @@ Tasks.propTypes = {
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseId: PropTypes.string.isRequired
+      phaseOId: PropTypes.string.isRequired,
+      moduleOId: PropTypes.string.isRequired
     })
   })
 };
@@ -85,9 +89,9 @@ Tasks.propTypes = {
 DisplayPhaseInfo.propTypes = {
   phase: PropTypes.shape(
     {
-      phase_id: PropTypes.string.isRequired,
+      phase_id: PropTypes.number.isRequired,
       titleEng: PropTypes.string.isRequired,
-      orderNum: PropTypes.string.isRequired,
+      orderNum: PropTypes.number.isRequired,
     }
   ).isRequired
 };

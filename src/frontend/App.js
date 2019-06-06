@@ -35,9 +35,9 @@ export default class App extends Component {
               <Route exact path="/" component={Modules} />
               <Route exact path="/modules/" component={Modules} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/modules/:moduleId/phases/" component={Phases} />
-              <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/" component={Tasks} />
-              <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId" component={Steps} />
+              <Route exact path="/modules/:moduleOId/phases/" component={Phases} />
+              <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/" component={Tasks} />
+              <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
               {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/" component={Step} /> */}
               {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
               <Route component={PageNotFound} />
