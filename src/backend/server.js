@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 //  Connect routes
-app.use('/api/modules', require('./routes/module.router'));
+app.use('/api/modules', require('./routes/router'));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
