@@ -7,7 +7,7 @@ import Modules from './components/Module/Modules';
 import Phases from './components/Phase/Phases';
 import Tasks from './components/Task/Tasks';
 import Steps from './components/Step/Steps';
-// import Guidance from './components/Guidance/Guidances';
+import Guidances from './components/Guidance/Guidances';
 import PageNotFound from './pages/PageNotFound';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';
@@ -39,7 +39,7 @@ export default class App extends Component {
               <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/" component={Tasks} />
               <Redirect exact from="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/" to="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/1" />
               <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
-              {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/" component={Step} /> */}
+              <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/:stepOId/guidances/" component={Guidances} />
               {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
               <Route component={PageNotFound} />
             </Switch>

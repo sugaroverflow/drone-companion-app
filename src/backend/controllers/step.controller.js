@@ -9,11 +9,11 @@ function controller() {
       moduleOId, phaseOId, taskOId, stepOId
     } = req.params;
     const jsonContent = JSON.parse(contents);
-    if (phaseOId !== null && moduleOId !== null) {
-      const filtered = jsonContent.filter(item => `${item.orderNum}` === moduleOId)[0].phases
-        .filter(item => `${item.orderNum}` === phaseOId)[0].tasks
-        .filter(item => `${item.orderNum}` === taskOId)[0].steps
-        .filter(item => `${item.orderNum}` === stepOId);
+    if (moduleOId !== null && phaseOId !== null && taskOId !== null && stepOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
+        .find(item => `${item.orderNum}` === phaseOId).tasks
+        .find(item => `${item.orderNum}` === taskOId).steps
+        .find(item => `${item.orderNum}` === stepOId);
       return res.json(filtered);
     }
 
