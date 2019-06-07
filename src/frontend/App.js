@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from './components/Header';
 import About from './pages/About';
@@ -37,6 +37,7 @@ export default class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/modules/:moduleOId/phases/" component={Phases} />
               <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/" component={Tasks} />
+              <Redirect exact from="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/" to="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/1" />
               <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
               {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/" component={Step} /> */}
               {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
