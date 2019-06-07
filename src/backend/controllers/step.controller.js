@@ -5,7 +5,6 @@ const path = require('path');
 function controller() {
   function getById(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    /* @todo is there a way to pass params from the router? */
     const {
       moduleOId, phaseOId, taskOId, stepOId
     } = req.params;

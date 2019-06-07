@@ -14,11 +14,11 @@ export default class Phases extends Component {
     const { match } = this.props;
     const { moduleOId } = match.params;
     if (moduleOId) {
-      this.getModulebyId(moduleOId);
+      this.getModulebyOId(moduleOId);
     }
   }
 
-  getModulebyId = (moduleOId) => {
+  getModulebyOId = (moduleOId) => {
     fetch(`/api/modules/${moduleOId}`)
       .then(res => res.json())
       .then((module) => {

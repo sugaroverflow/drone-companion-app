@@ -8,7 +8,6 @@ function controller() {
    */
   function get(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    /* @todo is there a way to pass params from the router? */
     const jsonContent = JSON.parse(contents);
 
     return res.json(jsonContent);
