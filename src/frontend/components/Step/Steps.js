@@ -5,17 +5,17 @@
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import StepList from './StepList';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Wizard, Steps, Step } from 'react-albus';
+import { Line } from 'rc-progress';
+import StepCard from './StepCard';
 
-export default class Steps extends Component {
+export default class AppSteps extends Component {
   constructor() {
     super();
     this.state = {
-      currentStep: 1, // default to step 1
       task: null
     };
-    this.nextStep = this.nextStep.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -33,45 +33,36 @@ export default class Steps extends Component {
     fetch(`/api/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}`)
       .then(res => res.json())
       .then((task) => {
-        this.setState({ task, currentStep: Number.parseInt(stepOId, 10) });
+        this.setState({ task });
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  // This function is created to track user progress in the future.
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  nextStep() {
-    const { currentStep, task } = this.state;
-    // If the current step is 1 or 2, then add one on "next" button click
-    const nStep = currentStep >= task.steps.length - 1 ? task.steps.length : currentStep + 1;
-    this.setState({
-      currentStep: nStep
-    });
-  }
-
   render() {
-    const { task, currentStep } = this.state;
+    const { task } = this.state;
     const { match } = this.props;
-    // console.log(stepOId);
     if (task !== null) {
       return (
         <React.Fragment>
-          {/* @todo: step indicator */}
           <DisplayTaskInfo task={task} />
-          <StepList
-            params={match.params}
-            currentStep={currentStep}
-            steps={task.steps}
-            nextStep={this.nextStep}
-          />
+          <div>
+            <Wizard>
+              <Steps>
+                {/* @todo: Warning: Each child in a list should have a unique "key" prop. */}
+                {task.steps.map((step, key) => (
+                  <Step id={step.step_id}>
+                    <StepCard
+                      key={key.orderNum}
+                      params={match.params}
+                      step={step}
+                    />
+                  </Step>
+                ))}
+              </Steps>
+            </Wizard>
+          </div>
         </React.Fragment>
       );
     }
@@ -89,7 +80,7 @@ function DisplayTaskInfo({ task }) {
   );
 }
 
-Steps.defaultProps = {
+AppSteps.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       phaseId: null
@@ -97,7 +88,7 @@ Steps.defaultProps = {
   })
 };
 
-Steps.propTypes = {
+AppSteps.propTypes = {
   // @todo fix the issue with match and props here
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
