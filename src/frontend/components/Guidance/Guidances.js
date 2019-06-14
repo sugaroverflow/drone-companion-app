@@ -34,7 +34,7 @@ export default class Guidances extends Component {
     fetch(`/api/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`)
       .then(res => res.json())
       .then((step) => {
-        this.setState({ guidances: step.guidances });
+        this.setState({ guidances: step.Guidances });
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +47,7 @@ export default class Guidances extends Component {
       moduleOId, phaseOId, taskOId, stepOId
     } = match.params;
     return (
-      <NavLink className="btn btn-primary" to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
+      <NavLink className="btn btn-primary" to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${Number(stepOId) + 1}`}>
         Next Step
       </NavLink>
     );

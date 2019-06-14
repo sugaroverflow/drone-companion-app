@@ -23,10 +23,10 @@ const PhaseCard = ({ phase, moduleOId }) => (
       <div className="tgl-panel">
         <ul className="StepProgress">
           {
-              (phase.tasks)
-                ? phase.tasks.map(task => (
+              (phase.Tasks)
+                ? phase.Tasks.map(task => (
                   <TaskStep
-                    key={task.task_id}
+                    key={task.taskId}
                     task={task}
                     moduleOId={moduleOId}
                     phaseOId={phase.orderNum}
@@ -36,7 +36,7 @@ const PhaseCard = ({ phase, moduleOId }) => (
         </ul>
         <NavLink
           className="btn btn-primary"
-          to={`/modules/${phase.moduleId}/phases/${phase.phase_id}/tasks/`}
+          to={`/modules/${phase.moduleId}/phases/${phase.phaseId}/tasks/`}
         >
          Start
         </NavLink>

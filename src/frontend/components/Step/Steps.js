@@ -33,7 +33,7 @@ export default class Steps extends Component {
     fetch(`/api/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}`)
       .then(res => res.json())
       .then((task) => {
-        this.setState({ task, currentStep: Number.parseInt(stepOId, 10) });
+        this.setState({ task, currentStep: Number(stepOId) });
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +51,7 @@ export default class Steps extends Component {
   nextStep() {
     const { currentStep, task } = this.state;
     // If the current step is 1 or 2, then add one on "next" button click
-    const nStep = currentStep >= task.steps.length - 1 ? task.steps.length : currentStep + 1;
+    const nStep = currentStep >= task.Steps.length - 1 ? task.Steps.length : currentStep + 1;
     this.setState({
       currentStep: nStep
     });
@@ -60,7 +60,6 @@ export default class Steps extends Component {
   render() {
     const { task, currentStep } = this.state;
     const { match } = this.props;
-    // console.log(stepOId);
     if (task !== null) {
       return (
         <React.Fragment>
@@ -69,7 +68,7 @@ export default class Steps extends Component {
           <StepList
             params={match.params}
             currentStep={currentStep}
-            steps={task.steps}
+            steps={task.Steps}
             nextStep={this.nextStep}
           />
         </React.Fragment>
@@ -111,9 +110,9 @@ Steps.propTypes = {
 DisplayTaskInfo.propTypes = {
   task: PropTypes.shape(
     {
-      task_id: PropTypes.string.isRequired,
+      taskId: PropTypes.number.isRequired,
       titleEng: PropTypes.string.isRequired,
-      orderNum: PropTypes.string.isRequired,
+      orderNum: PropTypes.number.isRequired,
     }
   ).isRequired
 };

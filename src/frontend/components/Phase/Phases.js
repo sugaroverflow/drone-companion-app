@@ -37,7 +37,7 @@ export default class Phases extends Component {
           <h1>
             {`Module: ${module.titleEng}`}
           </h1>
-          <PhaseList phases={module.phases} moduleOId={module.orderNum} />
+          <PhaseList phases={module.Phases} moduleOId={module.orderNum} />
         </div>
       );
     }

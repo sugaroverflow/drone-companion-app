@@ -6,7 +6,7 @@ import ModuleCard from './ModuleCard';
 const getModules = ({ modules }) => (
   <Grid container spacing={24}>
     {
-      modules.map(module => <ModuleCard key={module.module_id} module={module} />)
+      modules.map(module => <ModuleCard key={module.moduleId} module={module} />)
     }
   </Grid>
 );

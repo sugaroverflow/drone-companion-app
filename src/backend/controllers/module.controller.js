@@ -1,33 +1,46 @@
 /* Module Controller */
-const fs = require('fs');
-const path = require('path');
+const models = require('../models/db');
 
 function controller() {
   /**
    * get all modules
    */
   function get(req, res) {
-    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    const jsonContent = JSON.parse(contents);
-
-    return res.json(jsonContent);
+    models.Module.findAll()
+      .then((modules) => {
+        res.json(modules);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(404).send(error);
+      });
   }
 
   function getById(req, res) {
-    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
     const { moduleOId } = req.params;
-    const jsonContent = JSON.parse(contents);
-    if (moduleOId !== null) {
-      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId);
-      return res.json(filtered);
-    }
-
-    return res.json(jsonContent);
+    models.Module.findOne({
+      where: {
+        orderNum: Number(moduleOId)
+      },
+      include: [
+        {
+          model: models.Phase,
+          include: [{
+            model: models.Task,
+          }]
+        }
+      ]
+    })
+      .then((module) => {
+        res.json(module);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(404).send(error);
+      });
   }
-
 
   return { get, getById };
 }
-
 
 module.exports = controller;

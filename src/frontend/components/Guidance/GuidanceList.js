@@ -14,7 +14,7 @@ const getGuidances = (props) => {
     <div className="phases-accordion">
       {guidances.map(guidance => (
         <GuidanceCard
-          key={guidance.orderNum}
+          key={guidance.guidanceId}
           guidance={guidance}
         />
       ))}

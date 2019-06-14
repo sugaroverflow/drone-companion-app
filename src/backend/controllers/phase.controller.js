@@ -1,21 +1,34 @@
 /* Phase Controller */
-const fs = require('fs');
-const path = require('path');
+const models = require('../models/db');
 
 function controller() {
   function getById(req, res) {
-    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    const {
-      moduleOId, phaseOId
-    } = req.params;
-    const jsonContent = JSON.parse(contents);
-    if (phaseOId !== null && moduleOId !== null) {
-      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
-        .find(item => `${item.orderNum}` === phaseOId);
-      return res.json(filtered);
-    }
+    const { moduleOId, phaseOId } = req.params;
 
-    return res.json(jsonContent);
+    models.Module.findOne({
+      where: {
+        orderNum: Number(moduleOId)
+      }
+    })
+      .then((module) => {
+        models.Phase.findOne({
+          where: {
+            orderNum: Number(phaseOId),
+            moduleId: module.moduleId
+          },
+          include: [
+            {
+              model: models.Task
+            }
+          ]
+        }).then((phase) => {
+          res.json(phase);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(404).send(error);
+      });
   }
   return { getById };
 }

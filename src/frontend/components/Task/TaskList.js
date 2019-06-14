@@ -8,7 +8,7 @@ const getTasks = (props) => {
   return (
     <Grid container spacing={24}>
       {tasks.map(task => (
-        <TaskCard key={task.task_id} task={task} params={params} />
+        <TaskCard key={task.taskId} task={task} params={params} />
       ))}
     </Grid>
   );

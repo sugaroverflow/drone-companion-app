@@ -20,7 +20,7 @@ const ModuleCard = ({ module }) => (
 
 ModuleCard.propTypes = {
   module: PropTypes.shape({
-    module_id: PropTypes.number.isRequired,
+    moduleId: PropTypes.number.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
     descEng: PropTypes.string.isRequired,

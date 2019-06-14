@@ -41,11 +41,10 @@ export default class Tasks extends Component {
     const { phase } = this.state;
     const { match } = this.props;
     if (phase !== null) {
-      const { tasks } = phase;
       return (
         <div>
           <DisplayPhaseInfo phase={phase} />
-          {(tasks) ? <TaskList tasks={tasks} params={match.params} /> : ''}
+          <TaskList tasks={phase.Tasks} params={match.params} />
         </div>
       );
     }
@@ -88,7 +87,7 @@ Tasks.propTypes = {
 DisplayPhaseInfo.propTypes = {
   phase: PropTypes.shape(
     {
-      phase_id: PropTypes.number.isRequired,
+      phaseId: PropTypes.number.isRequired,
       titleEng: PropTypes.string.isRequired,
       orderNum: PropTypes.number.isRequired,
     }

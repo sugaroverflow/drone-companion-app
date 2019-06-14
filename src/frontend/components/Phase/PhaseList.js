@@ -6,7 +6,7 @@ const getPhases = ({ phases, moduleOId }) => (
   <div className="phases-accordion">
     {}
     {phases.map(phase => (
-      <PhaseCard key={phase.phase_id} phase={phase} moduleOId={moduleOId} />
+      <PhaseCard key={phase.phaseId} phase={phase} moduleOId={moduleOId} />
     ))}
   </div>
 );
