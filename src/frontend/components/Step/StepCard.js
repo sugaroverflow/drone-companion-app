@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import StepNavigation from '../Common/StepNavigation';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 const StepCard = (props) => {
@@ -13,12 +14,9 @@ const StepCard = (props) => {
       <div className="card-image-step">
         <img className="card-step-img" src={`/images/${step.imageUrlEng}`} alt="Placeholder" />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: step.descEng }} />
       <hr />
       <div className="card-footer">
-        <NavLink className="btn btn-secondary" to={`/modules/${params.moduleOId}/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.step_id}`}>
-        Next Step
-        </NavLink>
+        <StepNavigation nextButtonText="Next Step" />
         <p>
           <NavLink className="btn btn-secondary" to={`/modules/${params.moduleOId}/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.step_id}/guidances/`}>
         How?

@@ -43,26 +43,45 @@ export default class AppSteps extends Component {
   render() {
     const { task } = this.state;
     const { match } = this.props;
+    const {
+      moduleOId, phaseOId, taskOId
+    } = match.params;
     if (task !== null) {
       return (
         <React.Fragment>
           <DisplayTaskInfo task={task} />
-          <div>
-            <Wizard>
-              <Steps>
-                {/* @todo: Warning: Each child in a list should have a unique "key" prop. */}
-                {task.steps.map((step, key) => (
-                  <Step id={step.step_id}>
-                    <StepCard
-                      key={key.orderNum}
-                      params={match.params}
-                      step={step}
+          <BrowserRouter>
+            <div className="row pad-t">
+              <div className="col-xs-6 col-xs-offset-3">
+                <Route
+                  render={({ history }) => (
+                    <Wizard
+                      history={history}
+                      basename={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps`}
+                      render={({ step, steps }) => (
+                        <div>
+                          <Line
+                            percent={(steps.indexOf(step) + 1) / steps.length * 100}
+                          />
+                          <Steps key={step.id} step={step}>
+                            {task.steps.map((item, key) => (
+                              <Step id={item.step_id} step={item}>
+                                <StepCard
+                                  key={key.orderNum}
+                                  params={match.params}
+                                  step={item}
+                                />
+                              </Step>
+                            ))}
+                          </Steps>
+                        </div>
+                      )}
                     />
-                  </Step>
-                ))}
-              </Steps>
-            </Wizard>
-          </div>
+                  )}
+                />
+              </div>
+            </div>
+          </BrowserRouter>
         </React.Fragment>
       );
     }
