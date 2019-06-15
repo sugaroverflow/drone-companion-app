@@ -16,7 +16,6 @@ const getTasks = (props) => {
 getTasks.propTypes = {
   tasks: PropTypes.arrayOf(object).isRequired,
   params: PropTypes.shape({
-    moduleOId: PropTypes.string.isRequired,
     phaseOId: PropTypes.string.isRequired,
   }).isRequired
 

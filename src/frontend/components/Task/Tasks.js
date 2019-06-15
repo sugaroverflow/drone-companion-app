@@ -19,15 +19,14 @@ export default class Tasks extends Component {
 
   componentDidMount() {
     const { match } = this.props;
-    const { moduleOId } = match.params;
     const { phaseOId } = match.params;
-    if (phaseOId && moduleOId) {
-      this.getPhasebyOId(moduleOId, phaseOId);
+    if (phaseOId) {
+      this.getPhasebyOId(phaseOId);
     }
   }
 
-  getPhasebyOId = (moduleOId, phaseOId) => {
-    fetch(`/api/modules/${moduleOId}/phases/${phaseOId}`)
+  getPhasebyOId = (phaseOId) => {
+    fetch(`phases/${phaseOId}`)
       .then(res => res.json())
       .then((phase) => {
         this.setState({ phase });
@@ -79,8 +78,7 @@ Tasks.propTypes = {
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseOId: PropTypes.string.isRequired,
-      moduleOId: PropTypes.string.isRequired
+      phaseOId: PropTypes.string.isRequired
     })
   })
 };

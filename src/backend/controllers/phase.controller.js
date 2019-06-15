@@ -3,21 +3,35 @@ const fs = require('fs');
 const path = require('path');
 
 function controller() {
+
+  /**
+   * Helper function
+   * Gets all the phases from the database with module_id = 1
+   */
+  function getDefault(req, res) {
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const jsonContent = JSON.parse(contents);
+    const { moduleOId } = 1;
+    if (moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId);
+      return res.json(filtered);
+    }
+    return res.json(jsonContent);
+  }
+
   function getById(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    const {
-      moduleOId, phaseOId
-    } = req.params;
+    const { moduleOId } = 1; // because there is only one module
     const jsonContent = JSON.parse(contents);
-    if (phaseOId !== null && moduleOId !== null) {
-      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
-        .find(item => `${item.orderNum}` === phaseOId);
+    if (moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases;
       return res.json(filtered);
     }
 
     return res.json(jsonContent);
   }
-  return { getById };
+
+  return { getDefault, getById };
 }
 
 module.exports = controller;

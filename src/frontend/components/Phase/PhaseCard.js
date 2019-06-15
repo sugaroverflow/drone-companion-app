@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import TaskStep from './TaskStep';
 
-const PhaseCard = ({ phase, moduleOId }) => (
+const PhaseCard = ({ phase }) => (
   <div className="accordion phase-card">
     <details>
       <summary>
@@ -28,7 +28,6 @@ const PhaseCard = ({ phase, moduleOId }) => (
                   <TaskStep
                     key={task.task_id}
                     task={task}
-                    moduleOId={moduleOId}
                     phaseOId={phase.orderNum}
                   />
                 )) : ''
@@ -36,7 +35,7 @@ const PhaseCard = ({ phase, moduleOId }) => (
         </ul>
         <NavLink
           className="btn btn-primary"
-          to={`/modules/${phase.moduleId}/phases/${phase.phase_id}/tasks/`}
+          to={`phases/${phase.phase_id}/tasks/`}
         >
          Start
         </NavLink>
@@ -52,6 +51,5 @@ PhaseCard.propTypes = {
     descEng: PropTypes.string.isRequired,
     descFra: PropTypes.string.isRequired
   }).isRequired,
-  moduleOId: PropTypes.number.isRequired
 };
 export default PhaseCard;

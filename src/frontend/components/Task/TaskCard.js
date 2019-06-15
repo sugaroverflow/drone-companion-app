@@ -18,7 +18,7 @@ const TaskCard = (props) => {
       </p>
       <hr />
       <div className="card-footer">
-        <NavLink className="btn btn-primary" to={`/modules/${params.moduleOId}/phases/${params.phaseOId}/tasks/${task.task_id}/steps/`}>
+        <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${task.task_id}/steps/`}>
         Begin
         </NavLink>
       </div>
@@ -33,7 +33,6 @@ TaskCard.propTypes = {
     titleFra: PropTypes.string.isRequired,
   }).isRequired,
   params: PropTypes.shape({
-    moduleOId: PropTypes.string.isRequired,
     phaseOId: PropTypes.string.isRequired,
   }).isRequired
 };

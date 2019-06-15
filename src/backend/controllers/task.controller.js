@@ -5,8 +5,9 @@ const path = require('path');
 function controller() {
   function getById(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const { moduleOId } = 1; // because there is only one module
     const {
-      moduleOId, phaseOId, taskOId
+      phaseOId, taskOId
     } = req.params;
     const jsonContent = JSON.parse(contents);
     if (phaseOId !== null && moduleOId !== null) {
