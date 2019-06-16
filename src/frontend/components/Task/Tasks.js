@@ -40,13 +40,12 @@ export default class Tasks extends Component {
   render() {
     const { phase } = this.state;
     const { match } = this.props;
-    const { moduleOId } = match.params;
     if (phase !== null) {
       const { tasks } = phase;
       return (
         <div>
           <DisplayPhaseInfo phase={phase} />
-          {(tasks) ? <TaskList tasks={tasks} moduleOId={moduleOId} phaseOId={phase.orderNum} /> : ''}
+          {(tasks) ? <TaskList tasks={tasks} params={match.params} /> : ''}
         </div>
       );
     }

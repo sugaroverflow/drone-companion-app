@@ -6,7 +6,7 @@ const router = express.Router();
 const moduleController = require('../controllers/module.controller')();
 const phaseController = require('../controllers/phase.controller')();
 const taskController = require('../controllers/task.controller')();
-const stepController = require('../controllers/task.controller')();
+const stepController = require('../controllers/step.controller')();
 
 router.get('/', (req, res) => {
   moduleController.get(req, res);
