@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import TaskStep from './TaskStep';
+import Task from './Task';
 
 const PhaseCard = ({ phase }) => (
   <div className="accordion phase-card">
@@ -25,7 +24,7 @@ const PhaseCard = ({ phase }) => (
           {
               (phase.tasks)
                 ? phase.tasks.map(task => (
-                  <TaskStep
+                  <Task
                     key={task.task_id}
                     task={task}
                     phaseOId={phase.orderNum}
@@ -33,12 +32,6 @@ const PhaseCard = ({ phase }) => (
                 )) : ''
               }
         </ul>
-        <NavLink
-          className="btn btn-primary"
-          to={`phases/${phase.phase_id}/tasks/`}
-        >
-         Start
-        </NavLink>
       </div>
     </details>
   </div>

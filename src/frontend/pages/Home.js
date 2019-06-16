@@ -64,12 +64,12 @@ export default function Homepage() {
               </Grid>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro/">
+                  <NavLink className="btn btn-primary" to="/intro">
                     English
                   </NavLink>
                 </Grid>
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro/">
+                  <NavLink className="btn btn-primary" to="/intro">
                     Français
                   </NavLink>
                 </Grid>

@@ -8,17 +8,21 @@ import '@gctools-components/aurora-ds/css/aurora.min.css';
 import PhaseCard from './PhaseCard';
 import Header from '../../common/Header';
 import Footer from '../../common/Footer';
+import Background from '../../../../public/images/burst-background.png';
 
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
+  },
+  main: {
+    backgroundImage: `url(${Background})`,
+    // backgroundColor: theme.palette.background.paper,
   }
 }));
 
@@ -28,7 +32,7 @@ export default function getPhases({ phases }) {
     <React.Fragment>
       <CssBaseline />
       <Header />
-      <main>
+      <main className={classes.main}>
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <h4>Skill #1: Site Survey</h4>

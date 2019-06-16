@@ -11,15 +11,19 @@ router.get('/', (req, res) => {
   phaseController.getDefault(req, res);
 });
 
-router.get('/phases/:phaseOId', (req, res) => {
+router.get('/:phaseOId', (req, res) => {
   phaseController.getById(req, res);
 });
 
-router.get('/phases/:phaseOId/tasks/:taskOId', (req, res) => {
+router.get('/:phaseOId/tasks', (req, res) => {
+  taskController.get(req, res);
+});
+
+router.get('/:phaseOId/tasks/:taskOId', (req, res) => {
   taskController.getById(req, res);
 });
 
-router.get('/phases/:phaseOId/tasks/:taskOId/steps/:stepOId', (req, res) => {
+router.get('/:phaseOId/tasks/:taskOId/steps/:stepOId', (req, res) => {
   stepController.getById(req, res);
 });
 
