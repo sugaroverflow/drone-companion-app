@@ -46,9 +46,18 @@ export default class Guidances extends Component {
     const {
       phaseOId, taskOId, stepOId
     } = match.params;
+    if (stepOId < 3) {
+      return (
+        <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
+          Next Step
+        </NavLink>
+      );
+    }
+    // If all steps are complete, temporary route to summary
+    // @todo: update this logic to make it more robust
     return (
-      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
-        Next Step
+      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/summary`}>
+        Next
       </NavLink>
     );
   }

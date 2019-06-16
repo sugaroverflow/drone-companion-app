@@ -7,6 +7,7 @@ import BridgeInPhase from './pages/BridgeInPhase';
 import Phases from './components/Phase/Phases';
 import Steps from './components/Step/Steps';
 import Guidances from './components/Guidance/Guidances';
+import TaskSummary from './components/Task/TaskSummary';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';
 
@@ -36,7 +37,7 @@ export default class App extends Component {
               <Redirect exact from="/phases/:phaseOId/tasks/:taskOId/steps/" to="/phases/:phaseOId/tasks/:taskOId/steps/1" />
               <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
               <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId/guidances/" component={Guidances} />
-              {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/summary/" component={TaskSummary} />
             </Switch>
           </div>
         </main>

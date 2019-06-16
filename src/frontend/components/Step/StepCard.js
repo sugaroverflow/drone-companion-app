@@ -31,8 +31,13 @@ const StepCard = (props) => {
         </div>
       );
     }
-    // ...else render nothing
-    return null;
+    // else button to the summary page
+    // @todo: update this to make it more robust
+    return (
+      <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/summary`}>
+        Next
+      </NavLink>
+    );
   };
 
   return (

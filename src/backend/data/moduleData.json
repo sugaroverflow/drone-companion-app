@@ -45,7 +45,7 @@
                   {
                     "guidance_id": "1",
                     "step_id": "1",
-                    "titleEng": "What is airspace?1",
+                    "titleEng": "What is airspace? (for step 1)",
                     "titleFra": "What is airspace? (fr)",
                     "contentEng": "What is airspace content ",
                     "contentFra": "What is airspace content (fr)",
@@ -56,7 +56,7 @@
                   {
                     "guidance_id": "2",
                     "step_id": "1",
-                    "titleEng": "Why is this needed?1",
+                    "titleEng": "Why is this needed? (for step 1)",
                     "titleFra": "Why is this needed? (fr)",
                     "contentEng": "Why is this needed content",
                     "contentFra": "Why is this needed content (fr)",
@@ -67,7 +67,7 @@
                   {
                     "guidance_id": "3",
                     "step_id": "1",
-                    "titleEng": "How do I do it best?1",
+                    "titleEng": "How do I do it best? (for step 1)",
                     "titleFra": "How do I do it best? (fr)",
                     "contentEng": "How do I do it best content",
                     "contentFra": "How do I do it best content (fr)",
@@ -91,7 +91,7 @@
                   {
                     "guidance_id": "1",
                     "step_id": "2",
-                    "titleEng": "What is airspace?2",
+                    "titleEng": "What is airspace? (for step 2)",
                     "titleFra": "What is airspace? (fr)",
                     "contentEng": "What is airspace content ",
                     "contentFra": "What is airspace content (fr)",
@@ -102,7 +102,7 @@
                   {
                     "guidance_id": "2",
                     "step_id": "2",
-                    "titleEng": "Why is this needed?2",
+                    "titleEng": "Why is this needed? (for step 2)",
                     "titleFra": "Why is this needed? (fr)",
                     "contentEng": "Why is this needed content",
                     "contentFra": "Why is this needed content (fr)",
@@ -113,7 +113,7 @@
                   {
                     "guidance_id": "3",
                     "step_id": "2",
-                    "titleEng": "How do I do it best?2",
+                    "titleEng": "How do I do it best? (for step 2)",
                     "titleFra": "How do I do it best? (fr)",
                     "contentEng": "How do I do it best content",
                     "contentFra": "How do I do it best content (fr)",
@@ -136,7 +136,7 @@
                   {
                     "guidance_id": "1",
                     "step_id": "3",
-                    "titleEng": "What is airspace?3",
+                    "titleEng": "What is airspace? (for step 3)",
                     "titleFra": "What is airspace? (fr)",
                     "contentEng": "What is airspace content ",
                     "contentFra": "What is airspace content (fr)",
@@ -147,7 +147,7 @@
                   {
                     "guidance_id": "2",
                     "step_id": "1",
-                    "titleEng": "Why is this needed?3",
+                    "titleEng": "Why is this needed? (for step 3)",
                     "titleFra": "Why is this needed? (fr)",
                     "contentEng": "Why is this needed content",
                     "contentFra": "Why is this needed content (fr)",
@@ -158,7 +158,7 @@
                   {
                     "guidance_id": "3",
                     "step_id": "1",
-                    "titleEng": "How do I do it best?3",
+                    "titleEng": "How do I do it best? (for step 3)",
                     "titleFra": "How do I do it best? (fr)",
                     "contentEng": "How do I do it best content",
                     "contentFra": "How do I do it best content (fr)",
