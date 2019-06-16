@@ -54,7 +54,7 @@ export default function Homepage() {
               </Grid>
             </Grid>
             <div className="langSelection">
-              <Grid container spacing={12} direction="column" alignItems="center">
+              <Grid container spacing={2} direction="column" alignItems="center">
                 <Grid item>
                   <h5>Please select a language</h5>
                 </Grid>

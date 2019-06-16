@@ -6,7 +6,7 @@ import TaskCard from './TaskCard';
 const getTasks = (props) => {
   const { tasks, params } = props;
   return (
-    <Grid container spacing={24}>
+    <Grid container spacing={10}>
       {tasks.map(task => (
         <TaskCard key={task.task_id} task={task} params={params} />
       ))}

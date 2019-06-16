@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import PhaseCard from './PhaseCard';
 
 const getPhases = ({ phases }) => (
-  <div className="phases-accordion">
-    {}
-    {phases.map(phase => (
-      <PhaseCard key={phase.phase_id} phase={phase} />
-    ))}
-  </div>
+  <Grid container spacing={4}>
+    {
+      phases.map(phase => <PhaseCard key={phases.phase_id} phase={phase} />)
+    }
+  </Grid>
 );
 
 getPhases.propTypes = {

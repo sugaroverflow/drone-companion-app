@@ -1,19 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome, faQuestionCircle, faCog, faUser
+} from '@fortawesome/free-solid-svg-icons';
 
-const useStyles = makeStyles({
-  root: {
-    width: 500,
-  },
-});
 
 export default function SimpleBottomNavigation() {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   return (
@@ -23,12 +17,11 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
       }}
       showLabels
-      className={classes.root}
     >
-      <BottomNavigationAction label="Home" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Help" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Settings" icon={<LocationOnIcon />} />
-      <BottomNavigationAction label="Account" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Home" icon={<FontAwesomeIcon icon={faHome} />} />
+      <BottomNavigationAction label="Help" icon={<FontAwesomeIcon icon={faQuestionCircle} />} />
+      <BottomNavigationAction label="Settings" icon={<FontAwesomeIcon icon={faCog} />} />
+      <BottomNavigationAction label="Account" icon={<FontAwesomeIcon icon={faUser} />} />
     </BottomNavigation>
   );
 }

@@ -5,7 +5,7 @@ const path = require('path');
 function controller() {
   function getById(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
-    const { moduleOId } = 1; // because there is only one module
+    const moduleOId = '1'; // because there is only one module
     const {
       phaseOId, taskOId, stepOId
     } = req.params;

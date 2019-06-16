@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Home from './pages/Home';
-import BridgeInPhase from './components/Phase/PhasesIntro';
+import BridgeInPhase from './pages/BridgeInPhase';
 import Phases from './components/Phase/Phases';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';

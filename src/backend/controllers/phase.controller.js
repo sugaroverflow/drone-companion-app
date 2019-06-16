@@ -11,7 +11,7 @@ function controller() {
   function getDefault(req, res) {
     const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
     const jsonContent = JSON.parse(contents);
-    const { moduleOId } = 1;
+    const moduleOId = '1'; // because there is only one module
     if (moduleOId !== null) {
       const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId);
       return res.json(filtered);
