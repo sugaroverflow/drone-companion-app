@@ -10,7 +10,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import GuidanceList from './GuidanceList';
-import StepNavigation from '../../common/StepNavigation';
 
 export default class Guidances extends Component {
   constructor() {
@@ -23,16 +22,16 @@ export default class Guidances extends Component {
   componentDidMount() {
     const { match } = this.props;
     const {
-      phaseOId, taskOId, stepOId
+      moduleOId, phaseOId, taskOId, stepOId
     } = match.params;
 
-    if (phaseOId && taskOId && stepOId) {
-      this.getGuidancesbyOId(phaseOId, taskOId, stepOId);
+    if (moduleOId && phaseOId && taskOId && stepOId) {
+      this.getGuidancesbyOId(moduleOId, phaseOId, taskOId, stepOId);
     }
   }
 
-  getGuidancesbyOId = (phaseOId, taskOId, stepOId) => {
-    fetch(`/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`)
+  getGuidancesbyOId = (moduleOId, phaseOId, taskOId, stepOId) => {
+    fetch(`/api/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`)
       .then(res => res.json())
       .then((step) => {
         this.setState({ guidances: step.guidances });
@@ -45,10 +44,10 @@ export default class Guidances extends Component {
   nextButton = () => {
     const { match } = this.props;
     const {
-      phaseOId, taskOId, stepOId
+      moduleOId, phaseOId, taskOId, stepOId
     } = match.params;
     return (
-      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
+      <NavLink className="btn btn-primary" to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
         Next Step
       </NavLink>
     );
@@ -57,10 +56,10 @@ export default class Guidances extends Component {
   backButton = () => {
     const { match } = this.props;
     const {
-      phaseOId, taskOId, stepOId
+      moduleOId, phaseOId, taskOId, stepOId
     } = match.params;
     return (
-      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`}>
+      <NavLink className="btn btn-primary" to={`/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`}>
         Back
       </NavLink>
     );
@@ -92,7 +91,7 @@ export default class Guidances extends Component {
 Guidances.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseOId: null, taskOId: null, stepOId: null
+      moduleOId: null, phaseOId: null, taskOId: null, stepOId: null
     })
   })
 };
@@ -102,6 +101,7 @@ Guidances.propTypes = {
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
     params: PropTypes.shape({
+      moduleOId: PropTypes.string.isRequired,
       phaseOId: PropTypes.string.isRequired,
       stepOId: PropTypes.string.isRequired,
     })
