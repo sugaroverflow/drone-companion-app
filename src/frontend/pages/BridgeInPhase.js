@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 const useStyles = makeStyles(theme => ({
   icon: {

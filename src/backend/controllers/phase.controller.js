@@ -13,7 +13,7 @@ function controller() {
     const jsonContent = JSON.parse(contents);
     const moduleOId = '1'; // because there is only one module
     if (moduleOId !== null) {
-      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId);
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases;
       return res.json(filtered);
     }
     return res.json(jsonContent);
