@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import PhaseList from './PhaseList';
 
 export default class Phases extends Component {
   constructor() {
     super();
     this.state = {
-      module: null,
+      phases: []
     };
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const { moduleOId } = match.params;
-    if (moduleOId) {
-      this.getModulebyOId(moduleOId);
-    }
+    this.getAllPhases();
   }
 
-  getModulebyOId = (moduleOId) => {
-    fetch(`/api/modules/${moduleOId}`)
+  getAllPhases = () => {
+    fetch('/api/phases')
       .then(res => res.json())
-      .then((module) => {
-        this.setState({ module });
+      .then((phases) => {
+        this.setState({ phases });
       })
       .catch((error) => {
         console.log(error);
@@ -30,33 +25,11 @@ export default class Phases extends Component {
   }
 
   render() {
-    const { module } = this.state;
-    if (module) {
-      return (
-        <div>
-          <h1>
-            {`Module: ${module.titleEng}`}
-          </h1>
-          <PhaseList phases={module.phases} moduleOId={module.orderNum} />
-        </div>
-      );
-    }
-    return '';
+    const { phases } = this.state;
+    return (
+      <div className="App">
+        <PhaseList phases={phases} />
+      </div>
+    );
   }
 }
-
-Phases.defaultProps = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleId: null
-    })
-  })
-};
-
-Phases.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleOId: PropTypes.string.isRequired
-    })
-  })
-};

@@ -21,16 +21,16 @@ export default class Steps extends Component {
   componentDidMount() {
     const { match } = this.props;
     const {
-      moduleOId, phaseOId, taskOId, stepOId
+      phaseOId, taskOId, stepOId
     } = match.params;
 
-    if (moduleOId && phaseOId && taskOId && stepOId) {
-      this.getTaskbyId(moduleOId, phaseOId, taskOId, stepOId);
+    if (phaseOId && taskOId && stepOId) {
+      this.getTaskbyId(phaseOId, taskOId, stepOId);
     }
   }
 
-  getTaskbyId = (moduleOId, phaseOId, taskOId, stepOId) => {
-    fetch(`/api/modules/${moduleOId}/phases/${phaseOId}/tasks/${taskOId}`)
+  getTaskbyId = (phaseOId, taskOId, stepOId) => {
+    fetch(`/api/phases/${phaseOId}/tasks/${taskOId}`)
       .then(res => res.json())
       .then((task) => {
         this.setState({ task, currentStep: Number.parseInt(stepOId, 10) });
@@ -60,10 +60,10 @@ export default class Steps extends Component {
   render() {
     const { task, currentStep } = this.state;
     const { match } = this.props;
-    // console.log(stepOId);
     if (task !== null) {
       return (
         <React.Fragment>
+          { console.log(task) }
           {/* @todo: step indicator */}
           <DisplayTaskInfo task={task} />
           <StepList
@@ -103,7 +103,6 @@ Steps.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       phaseOId: PropTypes.string.isRequired,
-      moduleOId: PropTypes.string.isRequired
     })
   })
 };
