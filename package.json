@@ -9,7 +9,8 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/backend/server.js",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\""
+    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
+    "test": "jest"
   },
   "lint-staged": {
     "*.js": [
@@ -48,6 +49,8 @@
     "copy-webpack-plugin": "5.0.3",
     "cross-env": "5.2.0",
     "css-loader": "3.0.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "2.17.3",
@@ -61,6 +64,7 @@
     "nodemon": "^1.18.11",
     "react-axe": "3.1.0",
     "react-helmet": "5.2.1",
+    "react-test-renderer": "16.8.6",
     "style-loader": "0.23.1",
     "url-loader": "2.0.0",
     "webpack": "4.32.2",
