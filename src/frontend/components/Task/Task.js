@@ -8,7 +8,7 @@ const Task = ({ task, phaseOId }) => (
     {task.titleEng}
     <NavLink
       className="btn btn-primary"
-      to={`/phases/${phaseOId}/tasks/${task.orderNum}/steps/`}
+      to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
     >
      Begin Task
     </NavLink>

@@ -60,10 +60,10 @@ export default class Steps extends Component {
   render() {
     const { task, currentStep } = this.state;
     const { match } = this.props;
-    // console.log(stepOId);
     if (task !== null) {
       return (
         <React.Fragment>
+          { console.log(task) }
           {/* @todo: step indicator */}
           <DisplayTaskInfo task={task} />
           <StepList

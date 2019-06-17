@@ -8,6 +8,8 @@ import Phases from './components/Phase/Phases';
 import Steps from './components/Step/Steps';
 import Guidances from './components/Guidance/Guidances';
 import TaskSummary from './components/Task/TaskSummary';
+import PreQuiz from './components/Quiz/PreQuiz';
+import PostQuiz from './components/Quiz/PostQuiz';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';
 
@@ -38,6 +40,8 @@ export default class App extends Component {
               <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
               <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId/guidances/" component={Guidances} />
               <Route exact path="/phases/:phaseOId/tasks/:taskOId/summary/" component={TaskSummary} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/preQuiz" component={PreQuiz} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/postQuiz" component={PostQuiz} />
             </Switch>
           </div>
         </main>

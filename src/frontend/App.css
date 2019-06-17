@@ -1,6 +1,6 @@
 @media screen and (min-width: 800px) {
   .module-card, .task-card {
-    max-width: 18rem;
+    /* max-width: 18rem; */
   }
 }
 body { 
