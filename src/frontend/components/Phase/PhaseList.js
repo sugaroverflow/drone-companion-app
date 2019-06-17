@@ -31,7 +31,7 @@ export default function getPhases({ phases }) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
+      <Header title="Home" />
       <main className={classes.main}>
         <div className={classes.heroContent}>
           <Container maxWidth="sm">

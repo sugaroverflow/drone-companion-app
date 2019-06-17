@@ -20,7 +20,7 @@ export default class TaskSummary extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header />
+        <Header title="Task Summary" />
         <main>
           <Container maxWidth="sm">
             <h2>Step-by-Step Complete!</h2>

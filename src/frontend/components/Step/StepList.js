@@ -34,7 +34,7 @@ export default function getSteps(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
+      <Header title="Step by Step" />
       <main className={classes.main}>
         <div className={classes.heroContent}>
           <div className={classes.heroButtons}>

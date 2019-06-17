@@ -22,7 +22,7 @@ export default class postQuiz extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header />
+        <Header title="Learning Checks" />
         <main>
           <Container maxWidth="sm">
             <Quiz quiz={quiz} showInstantFeedback />

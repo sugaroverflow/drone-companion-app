@@ -30,7 +30,7 @@ export default function getGuidances(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
+      <Header title="Guidances" />
       <main className={classes.main}>
         <div className={classes.heroContent}>
           <div className={classes.heroButtons}>

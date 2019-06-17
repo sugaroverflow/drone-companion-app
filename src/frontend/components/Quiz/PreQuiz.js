@@ -22,7 +22,7 @@ export default class preQuiz extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header />
+        <Header title="Warm Up" />
         <main>
           <Container maxWidth="sm">
             <Quiz quiz={quiz} showInstantFeedback />

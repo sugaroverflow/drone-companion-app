@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -18,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonAppBar() {
+export default function HeaderAppBar({ title }) {
   const classes = useStyles();
 
   return (
@@ -30,7 +31,7 @@ export default function ButtonAppBar() {
               <FontAwesomeIcon icon={faArrowLeft} />
             </Grid>
             <Grid item xs={10}>
-              <h6>Introduction</h6>
+              <h6>{title}</h6>
             </Grid>
             <Grid item xs={1}>
               <FontAwesomeIcon icon={faUserCircle} />
@@ -41,3 +42,7 @@ export default function ButtonAppBar() {
     </div>
   );
 }
+
+HeaderAppBar.propTypes = {
+  title: PropTypes.string.isRequired,
+};

@@ -27,7 +27,7 @@ export default function BridgeInPhase() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header />
+      <Header title="Introduction" />
       <main>
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
