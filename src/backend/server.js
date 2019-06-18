@@ -24,7 +24,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use('/public/images/', express.static(path.join(__dirname, 'images')));
 }
 
-// app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
+// app.listen(process.env.PORT || 8080,
+// () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
 
 // Uncomment below to Seed Database First
 // db.sequelize
