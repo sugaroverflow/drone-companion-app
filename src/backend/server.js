@@ -7,7 +7,7 @@ const db = require('./models/db');
 const seed = require('./models/seed/seed-db');
 
 //  Connect routes
-app.use('/api/modules', require('./routes/router'));
+app.use('/api/phases', require('./routes/router'));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

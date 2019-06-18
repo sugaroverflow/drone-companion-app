@@ -1,6 +1,6 @@
 # drone companion app
 
-[![Build Status](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop) [![Greenkeeper badge](https://badges.greenkeeper.io/sugaroverflow/drone-companion-app.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop) [![Greenkeeper badge](https://badges.greenkeeper.io/sugaroverflow/drone-companion-app.svg)](https://greenkeeper.io/) [![Known Vulnerabilities](https://snyk.io/test/github/sugaroverflow/drone-companion-app/badge.svg)](https://snyk.io/test/github/sugaroverflow/drone-companion-app)
 
 This application is a collaboration between Code for Canada + Transport Canada. 
 
