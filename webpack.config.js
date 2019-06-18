@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PacktrackerPlugin = require('@packtracker/webpack-plugin')
 
 const outputDirectory = 'build';
 
@@ -60,6 +61,11 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './public/images', to: 'images' }
-    ])
+    ]),
+    new PacktrackerPlugin({
+      project_token: '51e43c44-60b5-4ee8-86ff-e1ecb831cb62',
+      upload: true,
+      fail_build: true
+    })
   ]
 };
