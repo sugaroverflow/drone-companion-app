@@ -4,9 +4,11 @@ const Sequelize = require('sequelize');
 
 const basename = path.basename(module.filename);
 const db = {};
+// include dotenv for configs
+require('dotenv').config();
 
-const sequelize = new Sequelize('droneCompanion', 'dc_admin@dronecompanion', 'MP9f^]4h5', {
-  host: 'dronecompanion.postgres.database.azure.com',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+  host: process.env.DB_HOST,
   dialect: 'postgres',
   ssl: true,
   dialectOptions: {
