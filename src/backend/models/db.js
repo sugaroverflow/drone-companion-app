@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(module.filename);
 const db = {};
 
-const sequelize = new Sequelize('droneCompanion', 'dc_admin@dronecompanion', 'MP9f^]4h5', {
+const sequelize = new Sequelize('droneCompanion', 'dc_admin@dronecompanion', 'VCeQN!!DP6', {
   host: 'dronecompanion.postgres.database.azure.com',
   dialect: 'postgres',
   ssl: true,

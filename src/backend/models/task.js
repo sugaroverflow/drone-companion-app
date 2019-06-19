@@ -60,6 +60,7 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: 'phaseId'
     });
     models.Task.hasMany(models.Step, { foreignKey: 'task_cd', sourceKey: 'taskId' });
+    models.Task.hasMany(models.Quiz, { foreignKey: 'task_cd', sourceKey: 'taskId' });
   };
   return Task;
 };
