@@ -16,13 +16,13 @@ const StepCard = (props) => {
     step, currentStep, params, nextStep, totalSteps
   } = props;
 
-  if (`${currentStep}` !== step.orderNum) { // Prop: The current step
+  if (currentStep !== step.orderNum) { // Prop: The current step
     return null;
   }
 
   const nextButton = () => {
     // If the current step is not 3, then render the "next" button
-    if (currentStep < 3) {
+    if (currentStep < totalSteps) {
       return (
         <div>
           <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${Number.parseInt(step.orderNum, 10) + 1}`} onClick={nextStep}>
@@ -54,7 +54,7 @@ const StepCard = (props) => {
       <div className="card-footer">
         {nextButton()}
         <p>
-          <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.step_id}/guidances/`}>
+          <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.stepId}/guidances/`}>
         How?
           </NavLink>
         </p>
@@ -65,7 +65,7 @@ const StepCard = (props) => {
 
 StepCard.propTypes = {
   step: PropTypes.shape({
-    step_id: PropTypes.string.isRequired,
+    stepId: PropTypes.number.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
   }).isRequired,

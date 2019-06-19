@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import Task from '../Task/Task';
 
 const PhaseCard = ({ phase }) => (
@@ -22,10 +23,10 @@ const PhaseCard = ({ phase }) => (
       <div className="tgl-panel">
         <ul className="StepProgress">
           {
-              (phase.tasks)
-                ? phase.tasks.map(task => (
+              (phase.Tasks)
+                ? phase.Tasks.map(task => (
                   <Task
-                    key={task.task_id}
+                    key={task.taskId}
                     task={task}
                     phaseOId={phase.orderNum}
                   />

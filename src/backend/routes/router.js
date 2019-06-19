@@ -3,27 +3,27 @@
 const express = require('express');
 
 const router = express.Router();
+const moduleController = require('../controllers/module.controller')();
 const phaseController = require('../controllers/phase.controller')();
 const taskController = require('../controllers/task.controller')();
 const stepController = require('../controllers/step.controller')();
 
 router.get('/', (req, res) => {
-  phaseController.getDefault(req, res);
+  moduleController.get(req, res);
+});
+router.get('/:moduleOId', (req, res) => {
+  moduleController.getById(req, res);
 });
 
-router.get('/:phaseOId', (req, res) => {
+router.get('/phases/:phaseOId', (req, res) => {
   phaseController.getById(req, res);
 });
 
-router.get('/:phaseOId/tasks', (req, res) => {
-  taskController.get(req, res);
-});
-
-router.get('/:phaseOId/tasks/:taskOId', (req, res) => {
+router.get('/phases/:phaseOId/tasks/:taskOId', (req, res) => {
   taskController.getById(req, res);
 });
 
-router.get('/:phaseOId/tasks/:taskOId/steps/:stepOId', (req, res) => {
+router.get('/phases/:phaseOId/tasks/:taskOId/steps/:stepOId', (req, res) => {
   stepController.getById(req, res);
 });
 
