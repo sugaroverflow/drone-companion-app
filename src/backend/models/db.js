@@ -12,7 +12,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   dialect: 'postgres',
   ssl: true,
   dialectOptions: {
-    ssl: true
+    encrypt: true
   },
   pool: {
     max: 5,
