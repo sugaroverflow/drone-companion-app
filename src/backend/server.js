@@ -28,20 +28,29 @@ if (process.env.NODE_ENV === 'production') {
 // () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
 
 // Uncomment below to Seed Database First
+// db.sequelize
+//   .sync({ force: true })
+//   .then(() => {
+//     seed.insert();
+//   })
+//   .then(() => {
+//     app.listen(process.env.PORT || 8080, () => {
+//       console.log(`running server on port ${process.env.PORT || 8080}`);
+//     });
+//   });
+
 db.sequelize
-  .sync({ force: true })
+  .authenticate()
   .then(() => {
-    seed.insert();
+    console.log('Connection has been established successfully.');
   })
-  .then(() => {
-    app.listen(process.env.PORT || 8080, () => {
-      console.log(`running server on port ${process.env.PORT || 8080}`);
-    });
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
   });
 
 // connect to DB then run server
-// db.sequelize.sync({ force: true }).then(() => {
-//   app.listen(process.env.PORT || 8080, () => {
-//     console.log(`running server on port ${process.env.PORT || 8080}`);
-//   });
-// });
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(process.env.PORT || 8080, () => {
+    console.log(`running server on port ${process.env.PORT || 8080}`);
+  });
+});

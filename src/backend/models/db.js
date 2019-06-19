@@ -21,22 +21,6 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
     acquire: 30000,
     idle: 10000
   }
-  // define: {
-  //   createdAt: {field: 'date_created_dte', defaultValue: Date.now()},
-  //   updatedAt: {field: 'date_last_update_dte', defaultValue: Date.now()},
-  //   deletedAt: 'date_deleted_dte',
-  //   paranoid: true,
-  //   // hooks: {
-  //   //     beforeCreate: (obj, options) => {
-  //   //       obj.date_created_dte = Date.now()
-  //   //       // Do stuff
-  //   //     },
-  //   //     beforeUpdate: (obj, options) => {
-  //   //       obj.date_last_update_dte = Date.now()
-  //   //       // Do stuff
-  //   //     },
-  //   // }
-  // }
 });
 
 // sequelize
