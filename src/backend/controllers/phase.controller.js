@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 function controller() {
-
   /**
    * Helper function
    * Gets all the phases from the database with module_id = 1
