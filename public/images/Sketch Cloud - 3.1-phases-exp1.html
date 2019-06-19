@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://sketch.cloud/s/jPQEW/a/AzLnVy -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Sketch Cloud - 3.1-phases-exp1_files/analytics.js"></script><script>(function(){function fQgpS() {
+  //<![CDATA[
+  window.VMFDMsA = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.WzYzauU = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.MtwDn = true;
+    window.mfpXL = 38.883333;
+    window.aTedJ = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.MtwDn !== 'undefined')) {
+      if (window.MtwDn === true) {
+        window.DjvBKgV({
+          coords: {
+            latitude: window.mfpXL,
+            longitude: window.aTedJ,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.VMFDMsA(window.DjvBKgV, window.PTFnyez, window.jjpnX);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.MtwDn !== 'undefined')) {
+      if (window.MtwDn === true) {
+        navigator.getCurrentPosition(window.BYWnqYk, window.AXZZoom, window.WsdeG);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.WzYzauU(window.BYWnqYk, window.AXZZoom, window.WsdeG);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.DjvBKgV = successCallback;
+    window.PTFnyez = errorCallback;
+    window.jjpnX = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.BYWnqYk = successCallback;
+    window.AXZZoom = errorCallback;
+    window.WsdeG = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${fQgpS}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'mZcyzon':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.mfpXL = message.info.coords.lat;
+          window.aTedJ = message.info.coords.lon;
+          window.MtwDn = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}fQgpS();})()</script><title>Sketch Cloud - 3.1-phases-exp1</title><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="white"><meta name="description" content="Collaborate with your team, upload and share designs and prototypes with anyone, anywhere, and work better, together with Sketch Cloud."><link rel="apple-touch-icon" sizes="180x180" href="https://sketch.cloud/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://sketch.cloud/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://sketch.cloud/favicon-16x16.png"><link rel="manifest" href="https://sketch.cloud/site.webmanifest"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link href="./Sketch Cloud - 3.1-phases-exp1_files/3.2a13c17e.chunk.css" rel="stylesheet"><style data-styled-components=""></style></head><body><div id="root" style="height:100%"><div style="min-height: 100%; display: flex; flex-direction: column; flex: 1 0 auto;"><div data-testid="modal-root"></div><div class="sc-hlILIN ggnXbL"><div class="sc-bfYoXt cArHOo"><div class="sc-uJMKN zBpoy sc-dNLxif ccLMGL"><div class="sc-jqCOkK izPujG"><div class="sc-dEoRIm jhiLLI sc-iqzUVk kxMKFk"><div class="sc-frDJqD jgHWpo"><div class="sc-cJSrbW dtPaIe sc-bdVaJa bQaErt"><span><button class="sc-kgAjT yhBwW sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz"><svg viewBox="0 0 16 16" class="sc-jzJRlG CpcGs" width="1em" height="1em"><path d="M3.207 14.207a1 1 0 1 1-1.414-1.414l11-11a1 1 0 0 1 1.414 1.414zm11-1.414a1 1 0 0 1-1.414 1.414l-11-11a1 1 0 0 1 1.414-1.414z" fill="currentColor"></path></svg></button></span><span class="sc-TOsTZ hHZtrQ"></span><div class="sc-feJyhm dhtuvX sc-bdVaJa kHYkpJ"><button class="sc-cTjmhe bWNEnz sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz" data-testid="pagination-previous"><svg viewBox="0 0 16 16" class="sc-eNQAEJ jLQGUf" width="1em" height="1em"><path d="M4 8c0 .265.105.52.293.707l5 5a1 1 0 0 0 1.414-1.414L6.414 8l4.293-4.293a1 1 0 0 0-1.414-1.414l-5 5A.997.997 0 0 0 4 8z" fill="currentColor"></path></svg></button><span class="sc-cHSUfg lgkvHn">6/71</span><button class="sc-cTjmhe bWNEnz sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz" data-testid="pagination-next"><svg viewBox="0 0 16 16" class="sc-Rmtcm fNFmqf" width="1em" height="1em"><path d="M12 8c0 .265-.105.52-.293.707l-5 5a1 1 0 0 1-1.414-1.414L9.586 8 5.293 3.707a1 1 0 0 1 1.414-1.414l5 5A.997.997 0 0 1 12 8z" fill="currentColor"></path></svg></button></div></div><p class="sc-hmzhuo jrItik sc-cHGsZl fbhOB sc-bdVaJa bXTrqt" data-testid="navbar-title">3.1-phases-exp1</p><div class="sc-cJSrbW hgIwpN sc-bdVaJa bQaErt"><button class="sc-kgAjT yhBwW sc-gzVnrw iZCpE sc-htpNat bPxNjy sc-bdVaJa kmJcAz"><svg viewBox="0 0 16 16" class="sc-fMiknA ewajFF" width="1em" height="1em"><path d="M10 3v10h3a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM3 1h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3z" fill="currentColor"></path></svg></button><span class="sc-TOsTZ hHZtrQ"></span><div><div><button class="sc-kgAjT yhBwW sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz" data-testid="notification-bell"><svg viewBox="0 0 16 16" class="sc-jAaTju iZSeXE" width="1em" height="1em" style="position: relative;"><path d="M14 11a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2 1 1 0 0 0 1-1V7a5.002 5.002 0 0 1 3.5-4.771V1.5a1.5 1.5 0 0 1 3 0v.729A5.002 5.002 0 0 1 13 7v3a1 1 0 0 0 1 1zm-8 3h4a2 2 0 1 1-4 0z" fill="currentColor"></path></svg></button></div></div><button class="sc-kgAjT yhBwW sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz" id="headway" style="position: relative; display: none;"><svg viewBox="0 0 16 16" class="sc-iwsKbI hRgSDJ" width="1em" height="1em"><path fill="currentColor" d="M2 1h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 6v6h5V7zm7 0v2h5V7zm0 4v2h5v-2zM2 3v2h12V3z"></path></svg><span id="HW_badge_cont" class=""><span id="HW_badge" data-count-unseen="" class="HW_hidden">0</span></span></button><div class="sc-kafWEX jjyKrS"><button class="sc-cIShpX ceJjXn sc-kgAjT yhBwW sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa kmJcAz" data-testid="user-avatar" aria-haspopup="true" aria-expanded="false"><img class="sc-ktHwxA kPRYwL" src="./Sketch Cloud - 3.1-phases-exp1_files/1.png" alt="Fatima Khalid" style="width: 28px; height: 28px;"></button></div></div></div></div></div><div class="sc-jbKcbu gcVmHX" style="padding-top: 64px;"><div class="sc-keVrkP ebvwdz sc-feJyhm eTRJUd sc-bdVaJa bXTrqt"><div class="sc-gbOuXE bqGcoo"><div class="sc-fnwBNb fQzYgk"><div class="sc-eAKXzc flDhPl"><div class="sc-iNhVCk ebenbH sc-hzNEM dpoNJa" style="width: 320px; height: 806px;"><img src="./Sketch Cloud - 3.1-phases-exp1_files/e72409cb-d471-4993-8e65-26c948bc7af6.png" srcset="https://resources-live.sketch.cloud/files/e72409cb-d471-4993-8e65-26c948bc7af6.png?Expires=1560906000&amp;Signature=LUAUP8ETjw-NoxFuhBonbqGyksDLEAAAm7QhElQPcSo-SJ4MskRiJ2C5swZ0BdMte6hLlgrbona7tpTpH9CuNdlhtXdS7rn1Bhx5UH80RehCBgJaRBG8xGsYRiLA~OBSryVDxIkMsf-w9rTdGF-uTcnycuG8E8F0uyGHD69VawY_&amp;Key-Pair-Id=APKAJOITMW3RWOLNNPYA 1x, https://resources-live.sketch.cloud/files/81baca2b-b9b4-40bb-8f28-ea264eb31bf7.png?Expires=1560906000&amp;Signature=DKjkwFP-79P-7838e3ODCUqPWETRVoDBfKls8oCMTpbxFFQnsH2zuGrdDfQZPVVhTh4sfg1SIVe1gHlBpT0ggV9BNBwdeUAnlvTs9V1g0pWtjwH2OtdZ1sHypirl6Jzqm7AEp2YUnZ1tIZOdcdcOUC~vdm8vv0ldXJan2v7HiL8_&amp;Key-Pair-Id=APKAJOITMW3RWOLNNPYA 2x" style="width: inherit; height: inherit; display: block;"></div></div></div></div></div><div class="sc-gVLVqr lcMXgO sc-bdVaJa bXTrqt" style="top: 64px; height: calc(100% - 64px);"><div class="sc-cmjSyW gBqmkV"><h2 class="sc-sdtwF kIcmCT sc-iELTvK jarUat sc-cHGsZl fbhOB sc-bdVaJa bXTrqt">Comments</h2><div class="sc-cqpYsc GjwcN sc-bdVaJa bXTrqt" data-testid="activity-list-scroller"><div class="sc-elJkPf bBxddO sc-feJyhm flPgEC sc-bdVaJa kmlKOz"><svg viewBox="0 0 48 48" class="sc-jWBwVP iJDFLL" width="72px" height="72px"><g fill="none" fill-rule="evenodd"><path fill="#C85000" d="M23.548 31H28v-4H17.523C14.711 24.127 13 20.321 13 16.164 13 7.214 20.813 0 30.5 0 40.188 0 48 7.28 48 16.164c0 4.81-2.25 9.084-5.813 12.023-.25.2-.374.468-.25.802.5 1.736 1.688 3.005 2.938 3.74.313.134.5.468.5.935C45.375 34.332 45 35 44 35c-3.125 0-6.688-1.27-9.063-2.872-.25-.134-.437-.2-.75-.134-1.187.2-2.437.334-3.687.334A18.65 18.65 0 0 1 23.548 31z"></path><path fill="#FB8332" d="M3.134 45.722c1.254-.736 2.445-2.01 2.946-3.75.125-.336 0-.604-.25-.805C2.256 38.22 0 33.933 0 29.11 0 20.2 7.835 12.9 17.55 12.9c9.716 0 17.552 7.234 17.552 16.21 0 8.91-7.836 16.211-17.551 16.211a22.37 22.37 0 0 1-3.698-.334c-.314-.067-.502 0-.753.134C10.72 46.727 7.146 48 4.012 48c-1.003 0-1.38-.67-1.38-1.34 0-.469.189-.804.502-.938zM10 31a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></g></svg><h2 class="sc-jtRfpW jMnXWT sc-iELTvK jarUat sc-cHGsZl fbhOB sc-bdVaJa jzWJZp">Start a discussion</h2><p class="sc-kTUwUJ ejZqrn sc-cHGsZl fbhOB sc-bdVaJa bXTrqt">Leave your first comment below!</p></div><div style="float: left; clear: both;"></div></div><form class="Form sc-gRnDUn WBktA sc-bdVaJa bXTrqt" data-testid="comment-input" style="margin-top: auto; padding-bottom: 0.5rem;"><div class="sc-dqBHgY lmCChQ sc-dqBHgY--multiLine" style="position: relative; overflow-y: visible;"><div class="sc-dqBHgY__control"><div class="sc-dqBHgY__highlighter" style="display: block; position: relative; top: 0px; box-sizing: border-box; background-color: transparent; width: inherit; font-family: inherit; font-size: inherit; height: 100%; bottom: 0px; overflow: hidden auto; resize: none; padding: 1.6rem 1.75rem 0.5rem; line-height: 1.25rem; outline: 0px; border: 0px; max-height: 230px; color: transparent; white-space: pre-wrap; overflow-wrap: break-word;"> </div><textarea placeholder="Write a comment..." class="sc-dqBHgY__input" style="display: block; position: absolute; top: 0px; box-sizing: border-box; background-color: transparent; width: 100%; font-family: inherit; font-size: inherit; height: 100%; bottom: 0px; overflow: hidden auto; resize: none; padding: 1.6rem 1.75rem 0.5rem; line-height: 1.25rem; outline: 0px; border: 0px; max-height: 230px;"></textarea></div></div><div class="sc-feJyhm bhJNUZ sc-bdVaJa jPFZxG"><button class="sc-gzVnrw izvqrQ sc-htpNat bPxNjy sc-bdVaJa COixi" type="button"><svg viewBox="0 0 20 20" class="sc-kgoBCf dHSoSp" width="20px" height="20px"><g fill="currentColor"><path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle><circle cx="12.5" cy="7.5" r="1.5"></circle><path d="M6.102 11h8c.622 0 .622.684.483 1.002a5.001 5.001 0 0 1-9.165.003c-.14-.32-.14-1.005.682-1.005z"></path></g></svg></button><div><button class="sc-drKuOJ kYdrly sc-gzVnrw cAgqKa sc-htpNat bPxNjy sc-bdVaJa kmJcAz" type="submit" disabled=""><svg height="26" width="26" class="sc-hzDkRC bOHyIl"><path d="M13 26C5.82 26 0 20.18 0 13S5.82 0 13 0s13 5.82 13 13-5.82 13-13 13zm-1-15.62V18a1 1 0 0 0 2 0v-7.62l1.586 1.534A1 1 0 0 0 17 10.5l-3.293-3.207a1 1 0 0 0-1.414 0L9 10.5a1 1 0 0 0 1.414 1.414z" fill="currentColor"></path></svg></button></div></div></form></div></div></div></div></div><div data-testid="notifications" class="sc-ccLTTT gWbnee"></div></div><div class="sc-lnrBVv gjXYCG sc-iHhHRJ ldwfVh"></div></div></div><div id="image-cache" style="display:none"></div><div id="popover-destination"></div><script src="./Sketch Cloud - 3.1-phases-exp1_files/widget.js"></script><script>!function(c){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],i=0,a=[];i<n.length;i++)t=n[i],l[t]&&a.push(l[t][0]),l[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(c[r]=o[r]);for(d&&d(e);a.length;)a.shift()();return p.push.apply(p,u||[]),f()}function f(){for(var e,r=0;r<p.length;r++){for(var t=p[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==l[u]&&(n=!1)}n&&(p.splice(r--,1),e=s(s.s=t[0]))}return e}var t={},l={2:0},p=[];function s(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return c[e].call(r.exports,r,r.exports,s),r.l=!0,r.exports}s.e=function(u){var e=[],t=l[u];if(0!==t)if(t)e.push(t[2]);else{var r=new Promise(function(e,r){t=l[u]=[e,r]});e.push(t[2]=r);var n,i=document.createElement("script");i.charset="utf-8",i.timeout=120,s.nc&&i.setAttribute("nonce",s.nc),i.src=s.p+"static/js/"+({}[u]||u)+"."+{0:"e77ef543",4:"4a21992e",5:"95dcfa58",6:"0814fd68",7:"55c21c60"}[u]+".chunk.js",n=function(e){i.onerror=i.onload=null,clearTimeout(a);var r=l[u];if(0!==r){if(r){var t=e&&("load"===e.type?"missing":e.type),n=e&&e.target&&e.target.src,o=new Error("Loading chunk "+u+" failed.\n("+t+": "+n+")");o.type=t,o.request=n,r[1](o)}l[u]=void 0}};var a=setTimeout(function(){n({type:"timeout",target:i})},12e4);i.onerror=i.onload=n,document.head.appendChild(i)}return Promise.all(e)},s.m=c,s.c=t,s.d=function(e,r,t){s.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},s.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},s.t=function(r,e){if(1&e&&(r=s(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(s.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)s.d(t,n,function(e){return r[e]}.bind(null,n));return t},s.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return s.d(r,"a",r),r},s.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},s.p="/",s.oe=function(e){throw console.error(e),e};var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var d=n;f()}([])</script><script src="./Sketch Cloud - 3.1-phases-exp1_files/3.2e6c5b43.chunk.js"></script><script src="./Sketch Cloud - 3.1-phases-exp1_files/main.eb524d1f.chunk.js"></script><script id="stripe-js" src="./Sketch Cloud - 3.1-phases-exp1_files/saved_resource" async=""></script><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeController1" allowpaymentrequest="true" src="./Sketch Cloud - 3.1-phases-exp1_files/controller-c738d39711e73da6b0e8c58c0e4b4109.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./Sketch Cloud - 3.1-phases-exp1_files/outer.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><style id="HW_styles_cont">#HW_badge_cont {
+  visibility: hidden;
+  pointer-events: none;
+  display: block;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  position: relative;
+}
+
+#HW_badge_cont.HW_visible {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#HW_badge {
+  display: block;
+  border-radius: 20px;
+  background: #CD4B5B;
+  height: 16px;
+  width: 16px;
+  color: #fff;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+#HW_badge.HW_softHidden {
+  background: #d4d4d4;
+  opacity: 1;
+  transform: scale(0.6);
+}
+
+#HW_badge.HW_hidden {
+  opacity: 0;
+  transform: scale(0);
+}
+
+#HW_badge.HW_visible {
+  opacity: 1;
+  transform: scale(1.0);
+}
+
+#HW_frame_cont {
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
+  background: #fff;
+  border: none;
+  position: absolute;
+  top: -900em;
+  z-index: 2147483647;
+  width: 340px;
+  height: 0;
+  opacity: 0;
+  will-change: height, margin-top, opacity;
+  margin-top: -10px;
+  transition: margin-top 0.15s ease-out, opacity 0.1s ease-out, height 0.3s ease-out;
+}
+
+#HW_frame_cont.HW_visible {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0px;
+}
+
+#HW_frame {
+  background: #fff;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2147483647;
+  transition: height 0.3s ease-out;
+}
+
+#HW_frame_cont.HW_embed {
+  position: static;
+  margin-top: 0;
+}</style><div id="HW_frame_cont" style="height: 308px;"><iframe id="HW_frame" src="./Sketch Cloud - 3.1-phases-exp1_files/xD4Ojx.html" sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups allow-forms" tabindex="-1" aria-hidden="true" style="height: 308px;"></iframe></div></body></html>

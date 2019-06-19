@@ -16,5 +16,8 @@ deploy:
 - provider: azure_web_apps
   slot: dronecompanionapp-dev
   on: develop
+- provider: azure_web_apps
+  slot: dronecompanionapp-test
+  on: test
 
    

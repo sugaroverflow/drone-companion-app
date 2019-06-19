@@ -1,42 +1,43 @@
 /* Task Controller */
-const models = require('../models/db');
+const fs = require('fs');
+const path = require('path');
 
 function controller() {
-  function getById(req, res) {
-    const {
-      moduleOId, phaseOId, taskOId
-    } = req.params;
-    models.Module.findOne({
-      where: {
-        orderNum: Number(moduleOId)
-      }
-    })
-      .then((module) => {
-        models.Phase.findOne({
-          where: {
-            orderNum: Number(phaseOId),
-            moduleId: module.moduleId
-          }
-        }).then((phase) => {
-          models.Task.findOne({
-            where: {
-              orderNum: Number(taskOId),
-              phaseId: phase.phaseId
-            },
-            include: [{
-              model: models.Step
-            }]
-          }).then((task) => {
-            res.json(task);
-          });
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        res.status(404).send(error);
-      });
+  /**
+   * get all tasks by phaseOId and module id = 1
+   */
+  function get(req, res) {
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const moduleOId = '1'; // because there is only one module
+    const { phaseOId } = req.params;
+    const jsonContent = JSON.parse(contents);
+    if (phaseOId !== null && moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
+        .find(item => `${item.orderNum}` === phaseOId).tasks;
+      return res.json(filtered);
+    }
+
+    return res.json(jsonContent);
   }
-  return { getById };
+
+  function getById(req, res) {
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const moduleOId = '1'; // because there is only one module
+    const {
+      phaseOId, taskOId
+    } = req.params;
+    const jsonContent = JSON.parse(contents);
+    if (phaseOId !== null && moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases
+        .find(item => `${item.orderNum}` === phaseOId).tasks
+        .find(item => `${item.orderNum}` === taskOId);
+
+      return res.json(filtered);
+    }
+
+    return res.json(jsonContent);
+  }
+  return { get, getById };
 }
 
 module.exports = controller;

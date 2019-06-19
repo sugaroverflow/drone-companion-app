@@ -15,23 +15,29 @@ const StepCard = (props) => {
   const {
     step, currentStep, params, nextStep, totalSteps
   } = props;
-  if (currentStep !== step.orderNum) { // Prop: The current step
+
+  if (`${currentStep}` !== step.orderNum) { // Prop: The current step
     return null;
   }
 
   const nextButton = () => {
     // If the current step is not 3, then render the "next" button
-    if (currentStep < totalSteps) {
+    if (currentStep < 3) {
       return (
         <div>
-          <NavLink className="btn btn-primary" to={`/modules/${params.moduleOId}/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${Number.parseInt(step.orderNum, 10) + 1}`} onClick={nextStep}>
+          <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${Number.parseInt(step.orderNum, 10) + 1}`} onClick={nextStep}>
         Next Step
           </NavLink>
         </div>
       );
     }
-    // ...else render nothing
-    return null;
+    // else button to the summary page
+    // @todo: update this to make it more robust
+    return (
+      <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/summary`}>
+        Next
+      </NavLink>
+    );
   };
 
   return (
@@ -48,7 +54,7 @@ const StepCard = (props) => {
       <div className="card-footer">
         {nextButton()}
         <p>
-          <NavLink className="btn btn-secondary" to={`/modules/${params.moduleOId}/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.stepId}/guidances/`}>
+          <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.step_id}/guidances/`}>
         How?
           </NavLink>
         </p>
@@ -59,12 +65,11 @@ const StepCard = (props) => {
 
 StepCard.propTypes = {
   step: PropTypes.shape({
-    stepId: PropTypes.number.isRequired,
+    step_id: PropTypes.string.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
   }).isRequired,
   params: PropTypes.shape({
-    moduleOId: PropTypes.string.isRequired,
     phaseOId: PropTypes.string.isRequired,
     taskOId: PropTypes.string.isRequired,
   }).isRequired,
