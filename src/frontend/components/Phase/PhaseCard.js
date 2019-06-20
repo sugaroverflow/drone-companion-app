@@ -22,10 +22,10 @@ const PhaseCard = ({ phase }) => (
       <div className="tgl-panel">
         <ul className="StepProgress">
           {
-              (phase.Tasks)
-                ? phase.Tasks.map(task => (
+              (phase.tasks)
+                ? phase.tasks.map(task => (
                   <Task
-                    key={task.taskId}
+                    key={task.task_id}
                     task={task}
                     phaseOId={phase.orderNum}
                   />

@@ -1,63 +1,35 @@
 /* Phase Controller */
-const models = require('../models/db');
+const fs = require('fs');
+const path = require('path');
 
 function controller() {
-  const moduleOId = '1';
   /**
    * Helper function
    * Gets all the phases from the database with module_id = 1
    */
   function getDefault(req, res) {
-    // because there is only one module
-    models.Module.findOne({
-      where: {
-        orderNum: Number(moduleOId)
-      },
-      include: [
-        {
-          model: models.Phase,
-          include: [
-            {
-              model: models.Task
-            }
-          ]
-        }
-      ]
-    }).then((module) => {
-      res.json(module);
-    }).catch((error) => {
-      console.log(error);
-      res.status(404).send(error);
-    });
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const jsonContent = JSON.parse(contents);
+    const moduleOId = '1'; // because there is only one module
+    if (moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases;
+      return res.json(filtered);
+    }
+    return res.json(jsonContent);
   }
-  function getById(req, res) {
-    const { phaseOId } = req.params;
 
-    models.Module.findOne({
-      where: {
-        orderNum: Number(moduleOId)
-      }
-    })
-      .then((module) => {
-        models.Phase.findOne({
-          where: {
-            orderNum: Number(phaseOId),
-            moduleId: module.moduleId
-          },
-          include: [
-            {
-              model: models.Task
-            }
-          ]
-        }).then((phase) => {
-          res.json(phase);
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        res.status(404).send(error);
-      });
+  function getById(req, res) {
+    const contents = fs.readFileSync(path.resolve(__dirname, '../data/moduleData.json'));
+    const { moduleOId } = 1; // because there is only one module
+    const jsonContent = JSON.parse(contents);
+    if (moduleOId !== null) {
+      const filtered = jsonContent.find(item => `${item.orderNum}` === moduleOId).phases;
+      return res.json(filtered);
+    }
+
+    return res.json(jsonContent);
   }
+
   return { getDefault, getById };
 }
 

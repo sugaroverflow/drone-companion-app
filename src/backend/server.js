@@ -39,15 +39,6 @@ if (process.env.NODE_ENV === 'production') {
 //     });
 //   });
 
-db.sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
-
 // connect to DB then run server
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(process.env.PORT || 8080, () => {

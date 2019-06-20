@@ -51,7 +51,7 @@ export default class Steps extends Component {
   nextStep() {
     const { currentStep, task } = this.state;
     // If the current step is 1 or 2, then add one on "next" button click
-    const nStep = currentStep >= task.Steps.length - 1 ? task.Steps.length : currentStep + 1;
+    const nStep = currentStep >= task.steps.length - 1 ? task.steps.length : currentStep + 1;
     this.setState({
       currentStep: nStep
     });
@@ -69,7 +69,7 @@ export default class Steps extends Component {
           <StepList
             params={match.params}
             currentStep={currentStep}
-            steps={task.Steps}
+            steps={task.steps}
             nextStep={this.nextStep}
           />
         </React.Fragment>
@@ -110,9 +110,9 @@ Steps.propTypes = {
 DisplayTaskInfo.propTypes = {
   task: PropTypes.shape(
     {
-      taskId: PropTypes.number.isRequired,
+      task_id: PropTypes.string.isRequired,
       titleEng: PropTypes.string.isRequired,
-      orderNum: PropTypes.number.isRequired,
+      orderNum: PropTypes.string.isRequired,
     }
   ).isRequired
 };
