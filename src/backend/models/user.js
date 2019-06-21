@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         field: 'stakeholder_id'
       },
-      firstName: { type: DataTypes.STRING, field: 'name_first_nm' },
-      middleName: { type: DataTypes.STRING, field: 'name_middle_nm' },
-      lastName: { type: DataTypes.STRING, field: 'name_last_nm' },
+      // firstName: { type: DataTypes.STRING, field: 'name_first_nm' },
+      // middleName: { type: DataTypes.STRING, field: 'name_middle_nm' },
+      // lastName: { type: DataTypes.STRING, field: 'name_last_nm' },
       // salutationCd: { type: DataTypes.STRING, field: 'salutation_cd' },
       // languageCd: { type: DataTypes.INTEGER, field: 'language_cd' },
       token: { type: DataTypes.STRING, field: 'token_txt' },
