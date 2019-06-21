@@ -1,0 +1,41 @@
+[{
+  "phaseId": 1,
+        "moduleId": 1,
+        "titleEng": "Site Research",
+        "titleFra": "Site Research (fr)",
+        "descEng": "This guides you through researching your site ahead of time to ensure safety and legality.",
+        "descFra": "This guides you through researching your site ahead of time to ensure safety and legality. (fr)",
+        "estimate": 30,
+        "orderNum": 1
+},
+{
+  "phaseId": 2,
+        "moduleId": 1,
+        "titleEng": "Before You Leave",
+        "titleFra": "Before You Leave (fr)",
+        "descEng": "This guides you through the day-of, pre-flight requirements, like checking the weather.",
+        "descFra": "This guides you through the day-of, pre-flight requirements, like checking the weather. (fr)",
+        "estimate": 30,
+        "orderNum": 2
+},
+{
+  "phaseId": 3,
+  "moduleId": 1,
+  "titleEng": "On-site Survey",
+  "titleFra": "On-site Survey (fr)",
+  "descEng": "This guides you through the requirements before you take off.",
+  "descFra": "This guides you through the requirements before you take off. (fr)",
+  "estimate": 30,
+  "orderNum": 3
+},
+{
+  "phaseId": 4,
+        "moduleId": 2,
+        "titleEng": "Module 2 Phase 1",
+        "titleFra": "Module 2 Phase 1 (fr)",
+        "descEng": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.",
+        "descFra": "Module 2 Phase 1 desc - shouldn't be appearing if you're filtering correctly.(fr)",
+        "estimate": 30,
+        "orderNum": 1
+}
+]

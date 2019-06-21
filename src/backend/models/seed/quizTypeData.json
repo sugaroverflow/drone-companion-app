@@ -1,0 +1,12 @@
+[
+  {
+    "quizTypeId": 1,
+      "typeNameEng": "preQuiz",
+      "typeNameFra": "preQuiz (fr)"
+  },
+  {
+    "quizTypeId": 2,
+      "typeNameEng": "postQuiz",
+      "typeNameFra": "postQuiz (fr)"
+  }
+]
