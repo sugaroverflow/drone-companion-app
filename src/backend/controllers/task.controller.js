@@ -24,9 +24,18 @@ function controller() {
               orderNum: Number(taskOId),
               phaseId: phase.phaseId
             },
+            order: [
+              [models.Step, 'orderNum'],
+              [models.Quiz, 'quizTypeId'],
+              [models.Quiz, 'orderNum'],
+            ],
             include: [{
               model: models.Step
-            }]
+            },
+            {
+              model: models.Quiz
+            }
+            ]
           }).then((task) => {
             res.json(task);
           });

@@ -20,6 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       quizTitleFra: { type: DataTypes.STRING, unique: true, field: 'quiz_title_ftxt' },
       quizDescEng: { type: DataTypes.STRING(4000), field: 'quiz_description_etxt' },
       quizDescFra: { type: DataTypes.STRING(4000), field: 'quiz_description_ftxt' },
+      orderNum: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: -1,
+        field: 'display_order_srt'
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -53,6 +59,7 @@ module.exports = (sequelize, DataTypes) => {
   Quiz.associate = (models) => {
     models.Quiz.hasMany(models.Question, { foreignKey: 'quiz_cd', sourceKey: 'quizId' });
     models.Quiz.belongsTo(models.Task, { foreignKey: 'task_cd', sourceKey: 'taskId' });
+    models.Quiz.belongsToMany(models.User, { through: models.UserQuizCompleted, foreignKey: 'quiz_cd' });
   };
 
   return Quiz;

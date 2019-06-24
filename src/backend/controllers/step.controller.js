@@ -30,6 +30,9 @@ function controller() {
                 orderNum: Number(stepOId),
                 taskId: task.taskId
               },
+              order: [
+                [models.Guidance, 'orderNum'],
+              ],
               include: [
                 {
                   model: models.Guidance
