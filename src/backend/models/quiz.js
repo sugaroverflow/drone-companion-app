@@ -59,10 +59,7 @@ module.exports = (sequelize, DataTypes) => {
   Quiz.associate = (models) => {
     models.Quiz.hasMany(models.Question, { foreignKey: 'quiz_cd', sourceKey: 'quizId' });
     models.Quiz.belongsTo(models.Task, { foreignKey: 'task_cd', sourceKey: 'taskId' });
-<<<<<<< HEAD
     models.Quiz.belongsToMany(models.User, { through: models.UserQuizCompleted, foreignKey: 'quiz_cd' });
-=======
->>>>>>> test
   };
 
   return Quiz;
