@@ -24,6 +24,7 @@ function controller() {
               orderNum: Number(taskOId),
               phaseId: phase.phaseId
             },
+<<<<<<< HEAD
             order: [
               [models.Step, 'orderNum'],
               [models.Quiz, 'quizTypeId'],
@@ -36,6 +37,11 @@ function controller() {
               model: models.Quiz
             }
             ]
+=======
+            include: [{
+              model: models.Step
+            }]
+>>>>>>> test
           }).then((task) => {
             res.json(task);
           });

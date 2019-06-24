@@ -42,7 +42,10 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.associate = (models) => {
     models.User.belongsToMany(models.Step, { through: models.UserStepCompleted, foreignKey: 'stakeholder_id' });
+<<<<<<< HEAD
     models.User.belongsToMany(models.Quiz, { through: models.UserQuizCompleted, foreignKey: 'stakeholder_id' });
+=======
+>>>>>>> test
   };
 
   return User;
