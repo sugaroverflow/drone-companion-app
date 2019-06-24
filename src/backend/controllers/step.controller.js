@@ -30,12 +30,9 @@ function controller() {
                 orderNum: Number(stepOId),
                 taskId: task.taskId
               },
-<<<<<<< HEAD
               order: [
                 [models.Guidance, 'orderNum'],
               ],
-=======
->>>>>>> test
               include: [
                 {
                   model: models.Guidance

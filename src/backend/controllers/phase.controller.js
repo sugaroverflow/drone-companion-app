@@ -13,12 +13,9 @@ function controller() {
       where: {
         orderNum: Number(moduleOId)
       },
-<<<<<<< HEAD
       order: [
         [models.Phase, 'orderNum'],
       ],
-=======
->>>>>>> test
       include: [
         {
           model: models.Phase,

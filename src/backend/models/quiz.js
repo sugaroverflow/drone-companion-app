@@ -20,15 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       quizTitleFra: { type: DataTypes.STRING, unique: true, field: 'quiz_title_ftxt' },
       quizDescEng: { type: DataTypes.STRING(4000), field: 'quiz_description_etxt' },
       quizDescFra: { type: DataTypes.STRING(4000), field: 'quiz_description_ftxt' },
-<<<<<<< HEAD
       orderNum: {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: -1,
         field: 'display_order_srt'
       },
-=======
->>>>>>> test
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
