@@ -15,7 +15,7 @@ import Editor from 'locize-editor';
 // 5b) import de from: http://api.locize.io/ce0cf818-32e5-44a5-b7f0-4ea9e840d962/latest/de/translation
 const locizeOptions = {
   projectId: 'a3db760e-00c4-44c6-a843-0dabad63ee6a',
-  apiKey: 'eb164777-f083-47ca-9902-11fad9261dab', // YOU should not expose your apps API key to production!!!
+  apiKey: process.env.API_KEY, // YOU should not expose your apps API key to production!!!
   referenceLng: 'en-CA',
 };
 
