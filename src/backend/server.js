@@ -3,8 +3,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const mcache = require('memory-cache');
 const db = require('./models/db');
 const seed = require('./models/seed/seed-db');
+
+app.set('view engine', 'jade');
+
 
 //  Connect routes
 app.use('/api/phases', require('./routes/router'));
@@ -48,18 +52,18 @@ if (process.env.NODE_ENV === 'production') {
 //     console.error('Unable to connect to the database:', err);
 //   });
 
-db.sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
+// db.sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch((err) => {
+//     console.error('Unable to connect to the database:', err);
+//   });
 
 // connect to DB then run server
- db.sequelize.sync({ force: false }).then(() => {
-   app.listen(process.env.PORT || 8080, () => {
-     console.log(`running server on port ${process.env.PORT || 8080}`);
-   });
- });
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(process.env.PORT || 8080, () => {
+    console.log(`running server on port ${process.env.PORT || 8080}`);
+  });
+});
