@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const mcache = require('memory-cache');
 const db = require('./models/db');
 const seed = require('./models/seed/seed-db');
 
@@ -52,15 +53,6 @@ if (process.env.NODE_ENV === 'production') {
 //   .catch((err) => {
 //     console.error('Unable to connect to the database:', err);
 //   });
-
-db.sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
 
 // connect to DB then run server
  db.sequelize.sync({ force: false }).then(() => {

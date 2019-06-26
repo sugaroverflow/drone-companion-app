@@ -1,4 +1,6 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
+// import i18n from '../i18n';
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -21,13 +24,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BridgeInPhase() {
+function BridgeInPhase({ t }) {
   const classes = useStyles();
-
+  // const { t, i18n } = useTranslation();
+  // console.log(i18n.language);
   return (
+
     <React.Fragment>
       <CssBaseline />
       <Header title="Introduction" />
+      <h1>{t('Conducting Site Surveys')}</h1>
       <main>
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
@@ -49,3 +55,9 @@ export default function BridgeInPhase() {
     </React.Fragment>
   );
 }
+
+BridgeInPhase.propTypes = {
+  t: PropTypes.func.isRequired
+};
+
+export default withTranslation('translation')(BridgeInPhase);
