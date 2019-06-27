@@ -40,7 +40,7 @@ export default function getPhases({ phases }) {
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   {
-                    phases.map(phase => <PhaseCard key={phase.phaseId} phase={phase} />)
+                    phases.map(phase => <PhaseCard key={phase.orderNum} phase={phase} />)
                   }
                 </Grid>
               </Grid>
