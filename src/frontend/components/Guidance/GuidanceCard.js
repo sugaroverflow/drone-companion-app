@@ -14,12 +14,12 @@ const GuidanceCard = (props) => {
     <div className="accordion phase-card">
       <details>
         <summary>
-          <h2 className="phase-title h6">{guidance.titleEng}</h2>
+          <h2 className="phase-title h6">{guidance.title}</h2>
         </summary>
         <div className="tgl-panel">
-          <img className="card-task-img" src={`/images/${guidance.imageUrlEng}`} alt="Placeholder" />
+          <img className="card-task-img" src={`/images/${guidance.imageUrl}`} alt="Placeholder" />
           <p>
-            {guidance.contentEng}
+            {guidance.content}
           </p>
         </div>
       </details>
@@ -29,10 +29,8 @@ const GuidanceCard = (props) => {
 
 GuidanceCard.propTypes = {
   guidance: PropTypes.shape({
-    titleEng: PropTypes.string.isRequired,
-    titleFra: PropTypes.string.isRequired,
-    contentEng: PropTypes.string.isRequired,
-    contentFra: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
   }).isRequired,
 };
 export default GuidanceCard;

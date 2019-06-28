@@ -5,7 +5,7 @@ export default class Phases extends Component {
   constructor() {
     super();
     this.state = {
-      phases: []
+      module: null,
     };
   }
 
@@ -16,8 +16,8 @@ export default class Phases extends Component {
   getAllPhases = () => {
     fetch('/api/phases')
       .then(res => res.json())
-      .then((phases) => {
-        this.setState({ phases });
+      .then((module) => {
+        this.setState({ module });
       })
       .catch((error) => {
         console.log(error);
@@ -25,11 +25,18 @@ export default class Phases extends Component {
   }
 
   render() {
-    const { phases } = this.state;
-    return (
-      <div className="App">
-        <PhaseList phases={phases} />
-      </div>
-    );
+    const { module } = this.state;
+    if (module) {
+      return (
+        <div className="App">
+          {/* <h1>
+            {`Module: ${module.titleEng}`}
+          </h1> */}
+
+          <PhaseList phases={module.Phases} />
+        </div>
+      );
+    }
+    return '';
   }
 }
