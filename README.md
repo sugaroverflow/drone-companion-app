@@ -275,3 +275,4 @@ This starts a server and listens on port 8080 for connections. The app send api 
 #### Cross-Browser Testing 
 
 Cross-browser testing is done via [BrowserStack](https://www.browserstack.com).
+<img src="https://raw.githubusercontent.com/jonathantneal/browserstack-app/master/assets/icon.png" width="20">
