@@ -78,7 +78,7 @@
     "url-loader": "2.0.1",
     "webpack": "4.32.2",
     "webpack-cli": "3.3.5",
-    "webpack-dev-server": "3.5.0"
+    "webpack-dev-server": "3.5.0",
     "i18next-locize-backend": "^2.0.0",
     "i18next-xhr-backend": "^3.0.0",
     "locize-editor": "^2.0.0",
