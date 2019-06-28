@@ -7,6 +7,9 @@ const mcache = require('memory-cache');
 const db = require('./models/db');
 const seed = require('./models/seed/seed-db');
 
+app.set('view engine', 'jade');
+
+
 //  Connect routes
 app.use('/api/phases', require('./routes/router'));
 

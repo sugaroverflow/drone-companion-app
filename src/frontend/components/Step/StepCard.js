@@ -44,17 +44,17 @@ const StepCard = (props) => {
     <div className="task-card">
       {`Step ${currentStep} of ${totalSteps}:`}
       <h3 className="card-title h5">
-        {step.titleEng}
+        {step.title}
       </h3>
       <div className="card-image-step">
-        <img className="card-step-img" src={`/images/${step.imageUrlEng}`} alt="Placeholder" />
+        <img className="card-step-img" src={`/images/${step.imageUrl}`} alt="Placeholder" />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: step.descEng }} />
+      <div dangerouslySetInnerHTML={{ __html: step.description }} />
       <hr />
       <div className="card-footer">
         {nextButton()}
         <p>
-          <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.stepId}/guidances/`}>
+          <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.orderNum}/guidances/`}>
         How?
           </NavLink>
         </p>
@@ -65,9 +65,7 @@ const StepCard = (props) => {
 
 StepCard.propTypes = {
   step: PropTypes.shape({
-    stepId: PropTypes.number.isRequired,
-    titleEng: PropTypes.string.isRequired,
-    titleFra: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
   params: PropTypes.shape({
     phaseOId: PropTypes.string.isRequired,

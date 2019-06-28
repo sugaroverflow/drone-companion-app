@@ -83,7 +83,7 @@ function DisplayTaskInfo({ task }) {
   return (
     <div>
       <h1 className="h6">
-        {`${task.titleEng}`}
+        {`${task.title}`}
       </h1>
     </div>
   );
@@ -110,8 +110,7 @@ Steps.propTypes = {
 DisplayTaskInfo.propTypes = {
   task: PropTypes.shape(
     {
-      taskId: PropTypes.number.isRequired,
-      titleEng: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       orderNum: PropTypes.number.isRequired,
     }
   ).isRequired
