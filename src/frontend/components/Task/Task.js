@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Task = ({ task, phaseOId }) => (
   <li className="StepProgress-item">
     {' '}
-    {task.titleEng}
+    {task.title}
     <NavLink
       className="btn btn-primary"
       to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
@@ -18,7 +18,7 @@ const Task = ({ task, phaseOId }) => (
 
 Task.propTypes = {
   task: PropTypes.shape({
-    titleEng: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
   phaseOId: PropTypes.number.isRequired
 };

@@ -34,7 +34,7 @@ export default class Guidances extends Component {
     fetch(`/api/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`)
       .then(res => res.json())
       .then((step) => {
-        this.setState({ guidances: step.guidances });
+        this.setState({ guidances: step.Guidances });
       })
       .catch((error) => {
         console.log(error);

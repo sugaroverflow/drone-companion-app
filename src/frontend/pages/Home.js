@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation, withTranslation, Trans } from 'react-i18next';
+
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -6,6 +8,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { NavLink } from 'react-router-dom';
+import i18n from '../i18n';
+
 import Background from '../../../public/images/splash-background.png';
 import GOCLogo from '../../../public/images/goc-logo-en.svg';
 
@@ -27,14 +31,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function Homepage() {
   const classes = useStyles();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <img src={GOCLogo} alt="Symbol of the Government of Canada" className="logo" />
+          <img src={GOCLogo} alt="Government of Canada / Gouvernement du Canada" className="logo" />
         </Toolbar>
       </AppBar>
       <main className="homepage">
@@ -64,12 +73,12 @@ export default function Homepage() {
               </Grid>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro">
+                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('en-CA')}>
                     English
                   </NavLink>
                 </Grid>
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro">
+                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('fr-CA')}>
                     Français
                   </NavLink>
                 </Grid>
