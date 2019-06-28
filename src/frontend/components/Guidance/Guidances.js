@@ -9,7 +9,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
 import GuidanceList from './GuidanceList';
+
+import Header from '../../common/Header';
+import Footer from '../../common/Footer';
+
 
 export default class Guidances extends Component {
   constructor() {
@@ -79,7 +85,10 @@ export default class Guidances extends Component {
     const { match } = this.props;
     if (guidances !== null) {
       return (
-        <div>
+        <React.Fragment>
+          <CssBaseline />
+          <Header title="Guidances" />
+
           <GuidanceList
             params={match.params}
             guidances={guidances}
@@ -90,7 +99,8 @@ export default class Guidances extends Component {
           <p>
             {this.backButton()}
           </p>
-        </div>
+          <Footer />
+        </React.Fragment>
       );
     }
     return '';
