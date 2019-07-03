@@ -8,10 +8,16 @@
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+
 import { NavLink } from 'react-router-dom';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
 import GuidanceList from './GuidanceList';
 
-export default class Guidances extends Component {
+import withHeaderFooter from '../../common/withHeaderFooter';
+
+class Guidances extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,18 +26,14 @@ export default class Guidances extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const {
-      phaseOId, taskOId, stepOId
-    } = match.params;
-
-    if (phaseOId && taskOId && stepOId) {
-      this.getGuidancesbyOId(phaseOId, taskOId, stepOId);
-    }
+    const { lang } = this.props;
+    this.loadData(lang);
   }
 
-  getGuidancesbyOId = (phaseOId, taskOId, stepOId) => {
-    fetch(`/api/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`)
+  getGuidancesbyOId = (dbLang, phaseOId, taskOId, stepOId) => {
+    fetch(
+      `/api/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}?lang=${dbLang}`
+    )
       .then(res => res.json())
       .then((step) => {
         this.setState({ guidances: step.Guidances });
@@ -39,16 +41,20 @@ export default class Guidances extends Component {
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
 
   nextButton = () => {
     const { match } = this.props;
-    const {
-      phaseOId, taskOId, stepOId
-    } = match.params;
+    const { phaseOId, taskOId, stepOId } = match.params;
     if (stepOId < 3) {
       return (
-        <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(stepOId, 10) + 1}`}>
+        <NavLink
+          className="btn btn-primary"
+          to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${Number.parseInt(
+            stepOId,
+            10
+          ) + 1}`}
+        >
           Next Step
         </NavLink>
       );
@@ -56,22 +62,39 @@ export default class Guidances extends Component {
     // If all steps are complete, temporary route to summary
     // @todo: update this logic to make it more robust
     return (
-      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/summary`}>
+      <NavLink
+        className="btn btn-primary"
+        to={`/phases/${phaseOId}/tasks/${taskOId}/summary`}
+      >
         Next
       </NavLink>
     );
-  }
+  };
 
   backButton = () => {
     const { match } = this.props;
-    const {
-      phaseOId, taskOId, stepOId
-    } = match.params;
+    const { phaseOId, taskOId, stepOId } = match.params;
     return (
-      <NavLink className="btn btn-primary" to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`}>
+      <NavLink
+        className="btn btn-primary"
+        to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`}
+      >
         Back
       </NavLink>
     );
+  };
+
+  loadData(lang) {
+    const { match } = this.props;
+    const { phaseOId, taskOId, stepOId } = match.params;
+
+    if (phaseOId && taskOId && stepOId) {
+      this.getGuidancesbyOId(lang, phaseOId, taskOId, stepOId);
+    }
+  }
+
+  changeLang(lang) {
+    this.loadData(lang);
   }
 
   render() {
@@ -79,18 +102,13 @@ export default class Guidances extends Component {
     const { match } = this.props;
     if (guidances !== null) {
       return (
-        <div>
-          <GuidanceList
-            params={match.params}
-            guidances={guidances}
-          />
-          <p>
-            {this.nextButton()}
-          </p>
-          <p>
-            {this.backButton()}
-          </p>
-        </div>
+        <React.Fragment>
+          <CssBaseline />
+
+          <GuidanceList params={match.params} guidances={guidances} />
+          <p>{this.nextButton()}</p>
+          <p>{this.backButton()}</p>
+        </React.Fragment>
       );
     }
     return '';
@@ -100,7 +118,9 @@ export default class Guidances extends Component {
 Guidances.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      phaseOId: null, taskOId: null, stepOId: null
+      phaseOId: null,
+      taskOId: null,
+      stepOId: null
     })
   })
 };
@@ -111,7 +131,12 @@ Guidances.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       phaseOId: PropTypes.string.isRequired,
-      stepOId: PropTypes.string.isRequired,
+      stepOId: PropTypes.string.isRequired
     })
-  })
+  }),
+  lang: PropTypes.string.isRequired
 };
+
+export default withTranslation('translation')(
+  withHeaderFooter(Guidances, 'Conducting Site Surveys')
+);

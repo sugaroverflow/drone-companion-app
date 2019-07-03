@@ -6,8 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import PhaseCard from './PhaseCard';
-import Header from '../../common/Header';
-import Footer from '../../common/Footer';
 import Background from '../../../../public/images/burst-background.png';
 
 const useStyles = makeStyles(theme => ({
@@ -26,29 +24,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function getPhases({ phases }) {
+export default function getPhases({ phases, lang }) {
   const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header title="Home" />
-      <main className={classes.main}>
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <h4>Skill #1: Site Survey</h4>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  {
-                    phases.map(phase => <PhaseCard key={phase.orderNum} phase={phase} />)
+      <div className={classes.heroContent}>
+        <Container maxWidth="sm">
+
+          <div className={classes.heroButtons}>
+            <Grid container spacing={2} justify="center">
+              <Grid item>
+                {
+                    phases.map(phase => <PhaseCard key={phase.orderNum} phase={phase} lang={lang} />)
                   }
-                </Grid>
               </Grid>
-            </div>
-          </Container>
-        </div>
-      </main>
-      <Footer />
+            </Grid>
+          </div>
+        </Container>
+      </div>
     </React.Fragment>
   );
 }

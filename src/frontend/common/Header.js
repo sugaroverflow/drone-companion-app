@@ -6,6 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Grid from '@material-ui/core/Grid';
+import { NavLink } from 'react-router-dom';
+
+// import i18n from '../i18n';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,9 +22,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function HeaderAppBar({ title }) {
+export default function HeaderAppBar(props) {
   const classes = useStyles();
-
+  const {
+    title, changeLanguage, i18n
+  } = props;
+  const LanugageButton = () => (
+    <a className="btn btn-primary" onClick={changeLanguage}>
+      {i18n.language === 'en-CA' ? 'Français' : 'English'}
+    </a>
+  );
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -36,6 +46,9 @@ export default function HeaderAppBar({ title }) {
             <Grid item xs={1}>
               <FontAwesomeIcon icon={faUserCircle} />
             </Grid>
+            <Grid item xs={1}>
+              <LanugageButton />
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -45,4 +58,8 @@ export default function HeaderAppBar({ title }) {
 
 HeaderAppBar.propTypes = {
   title: PropTypes.string.isRequired,
+  i18n: PropTypes.shape({
+    language: PropTypes.string.isRequired
+  }).isRequired,
+  changeLanguage: PropTypes.func.isRequired
 };
