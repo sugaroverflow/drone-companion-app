@@ -4,28 +4,64 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
-import { quiz } from '../../../backend/data/quizData';
-import Header from '../../common/Header';
-import Footer from '../../common/Footer';
+import { withTranslation } from 'react-i18next';
+import withHeaderFooter from '../../common/withHeaderFooter';
+
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 
-export default class postQuiz extends Component {
-  componentDidMount() { }
+class postQuiz extends Component {
+  constructor() {
+    super();
+    this.state = {
+      task: null
+    };
+  }
+
+  componentDidMount() {
+    const { lang } = this.props;
+    this.loadData(lang);
+  }
+
+
+  getPreQuiz(lang, phaseOId, taskOId) {
+    fetch(`/api/phases/${phaseOId}/tasks/${taskOId}?lang=${lang}`)
+      .then(res => res.json())
+      .then((task) => {
+        this.setState({ task });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  loadData(lang) {
+    const { match } = this.props;
+    const {
+      phaseOId, taskOId, stepOId
+    } = match.params;
+
+    if (phaseOId && taskOId) {
+      this.getPreQuiz(lang, phaseOId, taskOId, stepOId);
+    }
+  }
+
+  changeLang(lang) {
+    this.loadData(lang);
+  }
 
   render() {
     const { match } = this.props;
     const {
       phaseOId
     } = match.params;
-
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Header title="Learning Checks" />
-        <main>
+    const { task } = this.state;
+    if (task) {
+      return (
+        <React.Fragment>
+          <CssBaseline />
           <Container maxWidth="sm">
-            <Quiz quiz={quiz} showInstantFeedback />
+            <Quiz quiz={task.preQuiz} showInstantFeedback />
             <NavLink
               className="btn btn-secondary"
               to="/phases/"
@@ -33,10 +69,10 @@ export default class postQuiz extends Component {
                 Skip
             </NavLink>
           </Container>
-        </main>
-        <Footer />
-      </React.Fragment>
-    );
+        </React.Fragment>
+      );
+    }
+    return '';
   }
 }
 
@@ -58,3 +94,4 @@ postQuiz.propTypes = {
     })
   })
 };
+export default withTranslation('translation')(withHeaderFooter(postQuiz, 'Conducting Site Surveys'));

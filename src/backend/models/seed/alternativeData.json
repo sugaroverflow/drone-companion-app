@@ -1,62 +1,62 @@
 [
   {
     "questionId": 1,
-    "alternativeEng": "Yes",
-    "alternativeFra": "Oui",
+    "answerEng": "Yes",
+    "answerFra": "Oui",
     "correctAnswerIndicator": true
   },
   {
     "questionId": 1,
-    "alternativeEng": "No",
-    "alternativeFra": "Non",
+    "answerEng": "No",
+    "answerFra": "Non",
     "correctAnswerIndicator": false
   },
   {
     "questionId": 2,
-    "alternativeEng": "Yes",
-    "alternativeFra": "Oui",
+    "answerEng": "Yes",
+    "answerFra": "Oui",
     "correctAnswerIndicator": true
   },
   {
     "questionId": 2,
-    "alternativeEng": "No",
-    "alternativeFra": "Non",
+    "answerEng": "No",
+    "answerFra": "Non",
     "correctAnswerIndicator": false
   },
   {
     "questionId": 3,
-    "alternativeEng": "Yes",
-    "alternativeFra": "Oui",
+    "answerEng": "Yes",
+    "answerFra": "Oui",
     "correctAnswerIndicator": true
   },
   {
     "questionId": 3,
-    "alternativeEng": "No",
-    "alternativeFra": "Non",
+    "answerEng": "No",
+    "answerFra": "Non",
     "correctAnswerIndicator": false
   },
   {
     "questionId": 4,
-    "alternativeEng": "Yes",
-    "alternativeFra": "Oui",
+    "answerEng": "Yes",
+    "answerFra": "Oui",
     "correctAnswerIndicator": true
   },
   {
     "questionId": 4,
-    "alternativeEng": "No",
-    "alternativeFra": "Non",
+    "answerEng": "No",
+    "answerFra": "Non",
     "correctAnswerIndicator": false
   },
   {
     "questionId": 5,
-    "alternativeEng": "Yes",
-    "alternativeFra": "Oui",
+    "answerEng": "Yes",
+    "answerFra": "Oui",
     "correctAnswerIndicator": true
   },
   {
     "questionId": 5,
-    "alternativeEng": "No",
-    "alternativeFra": "Non",
+    "answerEng": "No",
+    "answerFra": "Non",
     "correctAnswerIndicator": false
   }
 ]

@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Question.associate = (models) => {
     models.Question.belongsTo(models.Quiz, { foreignKey: 'quiz_cd', sourceKey: 'quizId' });
-    models.Question.hasMany(models.Alternative, { foreignKey: 'question_cd', sourceKey: 'questionId' });
+    models.Question.hasMany(models.Alternative, { foreignKey: 'question_cd', sourceKey: 'questionId', as: 'Answers' });
   };
 
   return Question;

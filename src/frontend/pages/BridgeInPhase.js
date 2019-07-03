@@ -6,10 +6,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
+import withHeaderFooter from '../common/withHeaderFooter';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-// import i18n from '../i18n';
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -26,38 +24,31 @@ const useStyles = makeStyles(theme => ({
 
 function BridgeInPhase({ t }) {
   const classes = useStyles();
-  // const { t, i18n } = useTranslation();
-  // console.log(i18n.language);
   return (
-
     <React.Fragment>
       <CssBaseline />
-      <Header title="Introduction" />
       <h1>{t('Conducting Site Surveys')}</h1>
-      <main>
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <h4>DronesEd</h4>
-            <h2>Conducting Site Surveys</h2>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <NavLink className="btn btn-primary" to="/phases/">
+      <div className={classes.heroContent}>
+        <Container maxWidth="sm">
+          <h4>DronesEd</h4>
+          <h2>Conducting Site Surveys</h2>
+          <div className={classes.heroButtons}>
+            <Grid container spacing={2} justify="center">
+              <Grid item>
+                <NavLink className="btn btn-primary" to="/phases/">
                     Go to Phases
-                  </NavLink>
-                </Grid>
+                </NavLink>
               </Grid>
-            </div>
-          </Container>
-        </div>
-      </main>
-      <Footer />
+            </Grid>
+          </div>
+        </Container>
+      </div>
     </React.Fragment>
   );
 }
 
 BridgeInPhase.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
 };
 
-export default withTranslation('translation')(BridgeInPhase);
+export default withTranslation('translation')(withHeaderFooter(BridgeInPhase, 'Conducting Site Surveys'));

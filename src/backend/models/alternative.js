@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         field: 'alternative_cd'
       },
       questionId: { type: DataTypes.INTEGER, field: 'question_cd' },
-      alternativeEng: { type: DataTypes.STRING, field: 'alternative_etxt' },
-      alternativeFra: { type: DataTypes.STRING, field: 'alternative_ftxt' },
+      answerEng: { type: DataTypes.STRING, field: 'alternative_etxt' },
+      answerFra: { type: DataTypes.STRING, field: 'alternative_ftxt' },
       correctAnswerIndicator: { type: DataTypes.BOOLEAN, field: 'correct_alternative_ind' },
       createdAt: {
         type: DataTypes.DATE,

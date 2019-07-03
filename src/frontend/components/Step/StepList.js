@@ -6,8 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import StepCard from './StepCard';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import Header from '../../common/Header';
-import Footer from '../../common/Footer';
+
 import Background from '../../../../public/images/burst-background.png';
 
 const useStyles = makeStyles(theme => ({
@@ -34,7 +33,6 @@ export default function getSteps(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Header title="Step by Step" />
       <main className={classes.main}>
         <div className={classes.heroContent}>
           <div className={classes.heroButtons}>
@@ -51,7 +49,6 @@ export default function getSteps(props) {
           </div>
         </div>
       </main>
-      <Footer />
     </React.Fragment>
   );
 }

@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { NavLink } from 'react-router-dom';
-import Header from '../../common/Header';
-import Footer from '../../common/Footer';
+import { withTranslation } from 'react-i18next';
+import withHeaderFooter from '../../common/withHeaderFooter';
+
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 
-export default class TaskSummary extends Component {
+class TaskSummary extends Component {
   componentDidMount() { }
+
+  changeLang(lang) {
+  }
 
   render() {
     const { match } = this.props;
@@ -20,26 +24,22 @@ export default class TaskSummary extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header title="Task Summary" />
-        <main>
-          <Container maxWidth="sm">
-            <h2>Step-by-Step Complete!</h2>
-            <p> Way to go! Check your knowledge with a quiz, or skip to go to the next section.</p>
-            <NavLink
-              className="btn btn-primary"
-              to={`/phases/${phaseOId}/tasks/${taskOId}/postQuiz/`}
-            >
+        <Container maxWidth="sm">
+          <h2>Step-by-Step Complete!</h2>
+          <p> Way to go! Check your knowledge with a quiz, or skip to go to the next section.</p>
+          <NavLink
+            className="btn btn-primary"
+            to={`/phases/${phaseOId}/tasks/${taskOId}/postQuiz/`}
+          >
                 Quiz Me!
-            </NavLink>
-            <NavLink
-              className="btn btn-secondary"
-              to="/phases/"
-            >
+          </NavLink>
+          <NavLink
+            className="btn btn-secondary"
+            to="/phases/"
+          >
                 Skip
-            </NavLink>
-          </Container>
-        </main>
-        <Footer />
+          </NavLink>
+        </Container>
       </React.Fragment>
     );
   }
@@ -63,3 +63,4 @@ TaskSummary.propTypes = {
     })
   })
 };
+export default withTranslation('translation')(withHeaderFooter(TaskSummary, 'Task Summary'));
