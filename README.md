@@ -272,3 +272,7 @@ This starts a server and listens on port 8080 for connections. The app send api 
 * Controllers - The controllers handles all the logic behind validating request parameters, query, Sending Responses with correct codes.
 * Services - The services contains the database queries and returning objects or throwing errors
 
+#### Cross-Browser Testing 
+
+Cross-browser testing is done via [BrowserStack](https://www.browserstack.com).
+<img src="https://raw.githubusercontent.com/jonathantneal/browserstack-app/master/assets/icon.png" width="20">

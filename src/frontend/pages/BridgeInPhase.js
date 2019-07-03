@@ -8,22 +8,25 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import withHeaderFooter from '../common/withHeaderFooter';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
+// import i18n from '../i18n';
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 6)
   },
   heroButtons: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(4)
   }
 }));
 
 function BridgeInPhase({ t }) {
   const classes = useStyles();
+  // const { t, i18n } = useTranslation();
+  // console.log(i18n.language);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -36,7 +39,7 @@ function BridgeInPhase({ t }) {
             <Grid container spacing={2} justify="center">
               <Grid item>
                 <NavLink className="btn btn-primary" to="/phases/">
-                    Go to Phases
+                  Go to Phases
                 </NavLink>
               </Grid>
             </Grid>
@@ -48,7 +51,9 @@ function BridgeInPhase({ t }) {
 }
 
 BridgeInPhase.propTypes = {
-  t: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
-export default withTranslation('translation')(withHeaderFooter(BridgeInPhase, 'Conducting Site Surveys'));
+export default withTranslation('translation')(
+  withHeaderFooter(BridgeInPhase, 'Conducting Site Surveys')
+);
