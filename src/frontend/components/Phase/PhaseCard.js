@@ -7,8 +7,8 @@ const PhaseCard = ({ phase }) => (
     <details>
       <summary>
         <div className="phase-summary">
-          <h2 className="phase-title h6">{phase.titleEng}</h2>
-          <p className="phase-desc">{phase.descEng}</p>
+          <h2 className="phase-title h6">{phase.title}</h2>
+          <p className="phase-desc">{phase.description}</p>
           <p className="phase-caption">
             Estimated time to complete:
             <span className="phase-estimate">
@@ -22,10 +22,10 @@ const PhaseCard = ({ phase }) => (
       <div className="tgl-panel">
         <ul className="StepProgress">
           {
-              (phase.tasks)
-                ? phase.tasks.map(task => (
+              (phase.Tasks)
+                ? phase.Tasks.map(task => (
                   <Task
-                    key={task.task_id}
+                    key={task.orderNum}
                     task={task}
                     phaseOId={phase.orderNum}
                   />
@@ -39,10 +39,8 @@ const PhaseCard = ({ phase }) => (
 
 PhaseCard.propTypes = {
   phase: PropTypes.shape({
-    titleEng: PropTypes.string.isRequired,
-    titleFra: PropTypes.string.isRequired,
-    descEng: PropTypes.string.isRequired,
-    descFra: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
   }).isRequired,
 };
 export default PhaseCard;

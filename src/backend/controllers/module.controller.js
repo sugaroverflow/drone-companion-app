@@ -22,9 +22,15 @@ function controller() {
       where: {
         orderNum: Number(moduleOId)
       },
+      order: [
+        [models.Phase, 'orderNum'],
+      ],
       include: [
         {
           model: models.Phase,
+          order: [
+            [models.Task, 'orderNum'],
+          ],
           include: [{
             model: models.Task,
           }]

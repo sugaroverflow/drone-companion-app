@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: 'taskId'
     });
     models.Step.hasMany(models.Guidance, { foreignKey: 'step_cd', sourceKey: 'stepId' });
+    models.Step.belongsToMany(models.User, { through: models.UserStepCompleted, foreignKey: 'step_cd' });
   };
   return Step;
 };
