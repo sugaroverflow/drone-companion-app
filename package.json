@@ -9,7 +9,9 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/backend/server.js",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\""
+    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": [
@@ -47,7 +49,8 @@
     "react-quiz-component": "0.2.6",
     "react-router-dom": "5.0.0",
     "sequelize": "^5.8.12",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^5.5.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
@@ -94,5 +97,6 @@
       "NODE_ENV": "development",
       "PORT": 4000
     }
-  }
+  },
+  "snyk": true
 }
