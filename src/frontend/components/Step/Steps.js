@@ -4,10 +4,12 @@
     |_StepCard
 */
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import StepList from './StepList';
+import withHeaderFooter from '../../common/withHeaderFooter';
 
-export default class Steps extends Component {
+class Steps extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,18 +21,12 @@ export default class Steps extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const {
-      phaseOId, taskOId, stepOId
-    } = match.params;
-
-    if (phaseOId && taskOId && stepOId) {
-      this.getTaskbyId(phaseOId, taskOId, stepOId);
-    }
+    const { lang } = this.props;
+    this.loadData(lang);
   }
 
-  getTaskbyId = (phaseOId, taskOId, stepOId) => {
-    fetch(`/api/phases/${phaseOId}/tasks/${taskOId}`)
+  getTaskbyId = (lang, phaseOId, taskOId, stepOId) => {
+    fetch(`/api/phases/${phaseOId}/tasks/${taskOId}?lang=${lang}`)
       .then(res => res.json())
       .then((task) => {
         this.setState({ task, currentStep: Number.parseInt(stepOId, 10) });
@@ -38,6 +34,21 @@ export default class Steps extends Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  loadData(lang) {
+    const { match } = this.props;
+    const {
+      phaseOId, taskOId, stepOId
+    } = match.params;
+
+    if (phaseOId && taskOId && stepOId) {
+      this.getTaskbyId(lang, phaseOId, taskOId, stepOId);
+    }
+  }
+
+  changeLang(lang) {
+    this.loadData(lang);
   }
 
   // This function is created to track user progress in the future.
@@ -104,7 +115,8 @@ Steps.propTypes = {
     params: PropTypes.shape({
       phaseOId: PropTypes.string.isRequired,
     })
-  })
+  }),
+  lang: PropTypes.string.isRequired,
 };
 
 DisplayTaskInfo.propTypes = {
@@ -115,3 +127,5 @@ DisplayTaskInfo.propTypes = {
     }
   ).isRequired
 };
+
+export default withTranslation('translation')(withHeaderFooter(Steps, 'Conducting Site Surveys'));
