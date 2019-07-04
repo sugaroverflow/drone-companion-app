@@ -75,7 +75,7 @@
     "jest": "24.7.1",
     "lint-staged": "8.2.0",
     "nodemon": "^1.18.11",
-    "react-axe": "3.1.0",
+    "react-axe": "3.2.0",
     "react-helmet": "5.2.1",
     "style-loader": "0.23.1",
     "url-loader": "2.0.1",
