@@ -54,6 +54,6 @@ BridgeInPhase.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-export default withTranslation('translation')(
+export default withTranslation('home')(
   withHeaderFooter(BridgeInPhase, 'Conducting Site Surveys')
 );

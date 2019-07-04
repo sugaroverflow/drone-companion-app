@@ -35,11 +35,12 @@ class Phases extends Component {
 
   render() {
     const { module } = this.state;
+    const { t } = this.props;
     if (module) {
       return (
         <div className="App">
           <h1 className="h4">
-            {`Module: ${module.title}`}
+          {t('Skill #1 - Site Survey')}
           </h1>
 
           <PhaseList phases={module.Phases} />
@@ -54,4 +55,4 @@ Phases.propTypes = {
   lang: PropTypes.string.isRequired,
 };
 
-export default withTranslation('translation')(withHeaderFooter(Phases, 'Conducting Site Surveys'));
+export default withTranslation('phase')(withHeaderFooter(Phases, 'Skill #1 - Site Survey'));
