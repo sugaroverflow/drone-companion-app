@@ -9,6 +9,7 @@
     "no-console": "off",
     "comma-dangle": "off",
     "react/jsx-filename-extension": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "javascript.validate.enable": false
   }
 }

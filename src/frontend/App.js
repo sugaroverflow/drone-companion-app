@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component, Suspense } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Header from './components/Header';
+import Home from './pages/Home';
 import About from './pages/About';
-import Modules from './components/Module/Modules';
+import BridgeInPhase from './pages/BridgeInPhase';
 import Phases from './components/Phase/Phases';
-import Tasks from './components/Task/Tasks';
 import Steps from './components/Step/Steps';
-// import Guidance from './components/Guidance/Guidances';
-import PageNotFound from './pages/PageNotFound';
+import Guidances from './components/Guidance/Guidances';
+import TaskSummary from './components/Task/TaskSummary';
+import PreQuiz from './components/Quiz/PreQuiz';
+import PostQuiz from './components/Quiz/PostQuiz';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';
+// import Header from './common/header_2';
+
 
 export default class App extends Component {
   constructor() {
@@ -21,30 +24,36 @@ export default class App extends Component {
     };
   }
 
+
   render() {
     const { title } = this.state;
+    const Loader = () => (
+      <div className="App">
+        <div>loading...</div>
+      </div>
+    );
     return (
-      <div>
-        <Header title={title} />
+      <Suspense fallback={<Loader />}>
         <Helmet>
           <title>{title}</title>
         </Helmet>
         <main id="main-content" role="main">
           <div className="container">
             <Switch>
-              <Route exact path="/" component={Modules} />
-              <Route exact path="/modules/" component={Modules} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/modules/:moduleOId/phases/" component={Phases} />
-              <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/" component={Tasks} />
-              <Route exact path="/modules/:moduleOId/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
-              {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/" component={Step} /> */}
-              {/* <Route exact path="/modules/:moduleId/phases/:phaseId/tasks/:taskId/steps/:stepId/guidances/:guidanceId" component={Guidance} /> */}
-              <Route component={PageNotFound} />
+              <Route exact path="/intro" component={BridgeInPhase} />
+              <Route exact path="/phases" component={Phases} />
+              <Redirect exact from="/phases/:phaseOId/tasks/:taskOId/steps/" to="/phases/:phaseOId/tasks/:taskOId/steps/1" />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId/guidances/" component={Guidances} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/summary/" component={TaskSummary} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/preQuiz" component={PreQuiz} />
+              <Route exact path="/phases/:phaseOId/tasks/:taskOId/postQuiz" component={PostQuiz} />
             </Switch>
           </div>
         </main>
-      </div>
+      </Suspense>
     );
   }
 }

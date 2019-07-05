@@ -20,12 +20,12 @@ const ModuleCard = ({ module }) => (
 
 ModuleCard.propTypes = {
   module: PropTypes.shape({
-    module_id: PropTypes.string.isRequired,
+    moduleId: PropTypes.number.isRequired,
     titleEng: PropTypes.string.isRequired,
     titleFra: PropTypes.string.isRequired,
     descEng: PropTypes.string.isRequired,
     descFra: PropTypes.string.isRequired,
-    moduleStatus: PropTypes.string.isRequired,
+    // moduleStatus: PropTypes.string.isRequired,
   }).isRequired
 };
 

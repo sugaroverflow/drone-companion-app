@@ -1,0 +1,62 @@
+[
+  {
+    "questionId": 1,
+    "answerEng": "Yes",
+    "answerFra": "Oui",
+    "correctAnswerIndicator": true
+  },
+  {
+    "questionId": 1,
+    "answerEng": "No",
+    "answerFra": "Non",
+    "correctAnswerIndicator": false
+  },
+  {
+    "questionId": 2,
+    "answerEng": "Yes",
+    "answerFra": "Oui",
+    "correctAnswerIndicator": true
+  },
+  {
+    "questionId": 2,
+    "answerEng": "No",
+    "answerFra": "Non",
+    "correctAnswerIndicator": false
+  },
+  {
+    "questionId": 3,
+    "answerEng": "Yes",
+    "answerFra": "Oui",
+    "correctAnswerIndicator": true
+  },
+  {
+    "questionId": 3,
+    "answerEng": "No",
+    "answerFra": "Non",
+    "correctAnswerIndicator": false
+  },
+  {
+    "questionId": 4,
+    "answerEng": "Yes",
+    "answerFra": "Oui",
+    "correctAnswerIndicator": true
+  },
+  {
+    "questionId": 4,
+    "answerEng": "No",
+    "answerFra": "Non",
+    "correctAnswerIndicator": false
+  },
+  {
+    "questionId": 5,
+    "answerEng": "Yes",
+    "answerFra": "Oui",
+    "correctAnswerIndicator": true
+  },
+  {
+    "questionId": 5,
+    "answerEng": "No",
+    "answerFra": "Non",
+    "correctAnswerIndicator": false
+  }
+]

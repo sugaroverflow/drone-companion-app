@@ -1,6 +1,6 @@
 # drone companion app
 
-[![Build Status](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop) [![Greenkeeper badge](https://badges.greenkeeper.io/sugaroverflow/drone-companion-app.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop)](https://travis-ci.org/sugaroverflow/drone-companion-app.svg?branch=develop) [![Greenkeeper badge](https://badges.greenkeeper.io/sugaroverflow/drone-companion-app.svg)](https://greenkeeper.io/) [![Known Vulnerabilities](https://snyk.io/test/github/sugaroverflow/drone-companion-app/badge.svg)](https://snyk.io/test/github/sugaroverflow/drone-companion-app)
 
 This application is a collaboration between Code for Canada + Transport Canada. 
 
@@ -272,3 +272,7 @@ This starts a server and listens on port 8080 for connections. The app send api 
 * Controllers - The controllers handles all the logic behind validating request parameters, query, Sending Responses with correct codes.
 * Services - The services contains the database queries and returning objects or throwing errors
 
+#### Cross-Browser Testing 
+
+Cross-browser testing is done via [BrowserStack](https://www.browserstack.com).
+<img src="https://raw.githubusercontent.com/jonathantneal/browserstack-app/master/assets/icon.png" width="20">

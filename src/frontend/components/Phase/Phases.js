@@ -1,62 +1,60 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import PhaseList from './PhaseList';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withTranslation } from "react-i18next";
+import PhaseList from "./PhaseList";
+import withHeaderFooter from "../../common/withHeaderFooter";
 
-export default class Phases extends Component {
+class Phases extends Component {
   constructor() {
     super();
     this.state = {
-      module: null,
+      module: null
     };
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    const { moduleOId } = match.params;
-    if (moduleOId) {
-      this.getModulebyOId(moduleOId);
+    const { lang, onMounted } = this.props;
+    this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: lang => this.changeLang(lang)
+      });
     }
   }
 
-  getModulebyOId = (moduleOId) => {
-    fetch(`/api/modules/${moduleOId}`)
+  loadData = lang => {
+    fetch(`/api/phases?lang=${lang}`)
       .then(res => res.json())
-      .then((module) => {
+      .then(module => {
         this.setState({ module });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
+  };
+
+  changeLang(lang) {
+    this.loadData(lang);
   }
 
   render() {
     const { module } = this.state;
+    const { i18n, t } = this.props;
     if (module) {
       return (
-        <div>
-          <h1>
-            {`Module: ${module.titleEng}`}
-          </h1>
-          <PhaseList phases={module.phases} moduleOId={module.orderNum} />
+        <div className="App">
+          <h1 className="h4">{t('Skill #1 - Site Survey')}</h1>
+
+          <PhaseList phases={module.Phases} i18n={i18n} />
         </div>
       );
     }
-    return '';
+    return "";
   }
 }
 
-Phases.defaultProps = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleId: null
-    })
-  })
+Phases.propTypes = {
+  lang: PropTypes.string.isRequired
 };
 
-Phases.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      moduleOId: PropTypes.string.isRequired
-    })
-  })
-};
+export default withTranslation('phase')(withHeaderFooter(Phases, 'Skill #1 - Site Survey'));
