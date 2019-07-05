@@ -39,7 +39,7 @@ class Phases extends Component {
 
   render() {
     const { module } = this.state;
-    const { i18n } = this.props;
+    const { i18n, t } = this.props;
     if (module) {
       return (
         <div className="App">
