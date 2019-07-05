@@ -4,7 +4,7 @@
     |_StepCard
 */
 import React, { Component } from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, I18nextProvider } from "react-i18next";
 import PropTypes from 'prop-types';
 import StepList from './StepList';
 import withHeaderFooter from '../../common/withHeaderFooter';
@@ -21,8 +21,13 @@ class Steps extends Component {
   }
 
   componentDidMount() {
-    const { lang } = this.props;
+    const { lang, onMounted } = this.props;
     this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: lang => this.changeLang(lang)
+      });
+    }
   }
 
   getTaskbyId = (lang, phaseOId, taskOId, stepOId) => {
@@ -70,12 +75,10 @@ class Steps extends Component {
 
   render() {
     const { task, currentStep } = this.state;
-    const { match } = this.props;
+    const { match, i18n, t } = this.props;
     if (task !== null) {
       return (
-        <React.Fragment>
-          { console.log(task) }
-          {/* @todo: step indicator */}
+        <I18nextProvider i18n={i18n}>
           <DisplayTaskInfo task={task} />
           <StepList
             params={match.params}
@@ -83,7 +86,7 @@ class Steps extends Component {
             steps={task.Steps}
             nextStep={this.nextStep}
           />
-        </React.Fragment>
+        </I18nextProvider>
       );
     }
     return '';
@@ -128,4 +131,4 @@ DisplayTaskInfo.propTypes = {
   ).isRequired
 };
 
-export default withTranslation('translation')(withHeaderFooter(Steps, 'Conducting Site Surveys'));
+export default withTranslation('step')(withHeaderFooter(Steps, 'Steps'));

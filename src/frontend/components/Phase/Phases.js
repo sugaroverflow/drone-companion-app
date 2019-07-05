@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withTranslation } from "react-i18next";
+import { withTranslation, I18nextProvider } from "react-i18next";
 import PhaseList from "./PhaseList";
 import withHeaderFooter from "../../common/withHeaderFooter";
 
@@ -42,11 +42,13 @@ class Phases extends Component {
     const { i18n, t } = this.props;
     if (module) {
       return (
+        <I18nextProvider i18n={i18n}>
         <div className="App">
           <h1 className="h4">{t('Skill #1 - Site Survey')}</h1>
 
-          <PhaseList phases={module.Phases} i18n={i18n} />
+          <PhaseList phases={module.Phases} />
         </div>
+        </I18nextProvider>
       );
     }
     return "";

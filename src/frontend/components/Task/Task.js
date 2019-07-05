@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
-const Task = ({ task, phaseOId }) => (
+const Task = ({ task, phaseOId }) => {
+  const {t, i18n}=useTranslation('phase');
+  console.log(i18n.language);
+  return (
+  
   <li className="StepProgress-item">
     {' '}
     {task.title}
@@ -10,10 +15,11 @@ const Task = ({ task, phaseOId }) => (
       className="btn btn-primary"
       to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
     >
-     Begin Task
+     {t('Start')}
     </NavLink>
   </li>
-);
+  );
+  }
 
 
 Task.propTypes = {

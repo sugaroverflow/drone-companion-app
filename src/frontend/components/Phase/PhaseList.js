@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function getPhases(props) {
-  const { phases, i18n } = props;
+  const { phases } = props;
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -36,7 +36,7 @@ export default function getPhases(props) {
             <Grid container spacing={2} justify="center">
               <Grid item>
                 {phases.map(phase => (
-                  <PhaseCard key={phase.orderNum} phase={phase} i18n={i18n} />
+                  <PhaseCard key={phase.orderNum} phase={phase} />
                 ))}
               </Grid>
             </Grid>

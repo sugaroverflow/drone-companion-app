@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, I18nextProvider } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
 
 import '@gctools-components/aurora-ds/css/aurora.min.css';
@@ -19,8 +19,13 @@ class postQuiz extends Component {
   }
 
   componentDidMount() {
-    const { lang } = this.props;
+    const { lang, onMounted } = this.props;
     this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: lang => this.changeLang(lang)
+      });
+    }
   }
 
 
@@ -51,14 +56,14 @@ class postQuiz extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, i18n, t } = this.props;
     const {
       phaseOId
     } = match.params;
     const { task } = this.state;
     if (task) {
       return (
-        <React.Fragment>
+        <I18nextProvider i18n={i18n}>
           <CssBaseline />
           <Container maxWidth="sm">
             <Quiz quiz={task.preQuiz} showInstantFeedback />
@@ -66,10 +71,10 @@ class postQuiz extends Component {
               className="btn btn-secondary"
               to="/phases/"
             >
-                Skip
+              {t('Skip')}
             </NavLink>
           </Container>
-        </React.Fragment>
+        </I18nextProvider>
       );
     }
     return '';
@@ -94,4 +99,4 @@ postQuiz.propTypes = {
     })
   })
 };
-export default withTranslation('translation')(withHeaderFooter(postQuiz, 'Conducting Site Surveys'));
+export default withTranslation('quiz')(withHeaderFooter(postQuiz, 'Post Quiz'));

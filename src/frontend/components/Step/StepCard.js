@@ -9,12 +9,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 const StepCard = (props) => {
   const {
     step, currentStep, params, nextStep, totalSteps
   } = props;
+
+  const {t}=useTranslation('step');
 
   if (currentStep !== step.orderNum) { // Prop: The current step
     return null;
@@ -26,7 +30,7 @@ const StepCard = (props) => {
       return (
         <div>
           <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${Number.parseInt(step.orderNum, 10) + 1}`} onClick={nextStep}>
-        Next Step
+        {t('Next Step')}
           </NavLink>
         </div>
       );
@@ -35,14 +39,14 @@ const StepCard = (props) => {
     // @todo: update this to make it more robust
     return (
       <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/summary`}>
-        Next
+        {t('Next')}
       </NavLink>
     );
   };
 
   return (
     <div className="task-card">
-      {`Step ${currentStep} of ${totalSteps}:`}
+      {t('Step of', {currentStep: currentStep, totalSteps: totalSteps})}
       <h3 className="card-title h5">
         {step.title}
       </h3>
@@ -55,7 +59,7 @@ const StepCard = (props) => {
         {nextButton()}
         <p>
           <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.orderNum}/guidances/`}>
-        How?
+          {t('How?')}
           </NavLink>
         </p>
       </div>

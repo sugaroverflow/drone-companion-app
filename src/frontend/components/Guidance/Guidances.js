@@ -8,7 +8,7 @@
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, I18nextProvider } from "react-i18next";
 
 import { NavLink } from 'react-router-dom';
 
@@ -26,8 +26,13 @@ class Guidances extends Component {
   }
 
   componentDidMount() {
-    const { lang } = this.props;
+    const { lang, onMounted } = this.props;
     this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: lang => this.changeLang(lang)
+      });
+    }
   }
 
   getGuidancesbyOId = (dbLang, phaseOId, taskOId, stepOId) => {
@@ -44,7 +49,7 @@ class Guidances extends Component {
   };
 
   nextButton = () => {
-    const { match } = this.props;
+    const { match, t } = this.props;
     const { phaseOId, taskOId, stepOId } = match.params;
     if (stepOId < 3) {
       return (
@@ -55,7 +60,7 @@ class Guidances extends Component {
             10
           ) + 1}`}
         >
-          Next Step
+          {t('Next Step')}
         </NavLink>
       );
     }
@@ -66,20 +71,20 @@ class Guidances extends Component {
         className="btn btn-primary"
         to={`/phases/${phaseOId}/tasks/${taskOId}/summary`}
       >
-        Next
+        {t('Next')}
       </NavLink>
     );
   };
 
   backButton = () => {
-    const { match } = this.props;
+    const { match, t } = this.props;
     const { phaseOId, taskOId, stepOId } = match.params;
     return (
       <NavLink
         className="btn btn-primary"
         to={`/phases/${phaseOId}/tasks/${taskOId}/steps/${stepOId}`}
       >
-        Back
+        {t('Back')}
       </NavLink>
     );
   };
@@ -99,16 +104,16 @@ class Guidances extends Component {
 
   render() {
     const { guidances } = this.state;
-    const { match } = this.props;
+    const { match, i18n } = this.props;
     if (guidances !== null) {
       return (
-        <React.Fragment>
+        <I18nextProvider i18n={i18n}>
           <CssBaseline />
 
           <GuidanceList params={match.params} guidances={guidances} />
           <p>{this.nextButton()}</p>
           <p>{this.backButton()}</p>
-        </React.Fragment>
+        </I18nextProvider>
       );
     }
     return '';
@@ -137,6 +142,6 @@ Guidances.propTypes = {
   lang: PropTypes.string.isRequired
 };
 
-export default withTranslation('translation')(
-  withHeaderFooter(Guidances, 'Conducting Site Surveys')
+export default withTranslation('guidance')(
+  withHeaderFooter(Guidances, 'Guidance')
 );
