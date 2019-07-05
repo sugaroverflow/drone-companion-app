@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(0, 0, 1),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -26,18 +26,14 @@ export default function getGuidances(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      {/* <main className={classes.main}> */}
-      <div className={classes.heroContent}>
-        <div className={classes.heroButtons}>
-          {guidances.map(guidance => (
-            <GuidanceCard
-              key={guidance.orderNum}
-              guidance={guidance}
-            />
-          ))}
-        </div>
+      <div className={classes.heroButtons}>
+        {guidances.map(guidance => (
+          <GuidanceCard
+            key={guidance.orderNum}
+            guidance={guidance}
+          />
+        ))}
       </div>
-      {/* </main> */}
 
     </React.Fragment>
   );

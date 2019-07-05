@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, I18nextProvider } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
 // import { quiz } from '../../../backend/data/quizData';
 
@@ -19,8 +19,13 @@ class preQuiz extends Component {
   }
 
   componentDidMount() {
-    const { lang } = this.props;
+    const { lang, onMounted } = this.props;
     this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: lang => this.changeLang(lang)
+      });
+    }
   }
 
 
@@ -51,14 +56,14 @@ class preQuiz extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, t, i18n } = this.props;
     const {
       phaseOId, taskOId
     } = match.params;
     const { task } = this.state;
     if (task) {
       return (
-        <React.Fragment>
+        <I18nextProvider i18n={i18n}>
           <CssBaseline />
           <Container maxWidth="sm">
             <Quiz quiz={task.preQuiz} showInstantFeedback />
@@ -66,11 +71,11 @@ class preQuiz extends Component {
               className="btn btn-primary"
               to={`/phases/${phaseOId}/tasks/${taskOId}/steps/`}
             >
-              {' '}
-                Skip
+              {t('Skip')}
+
             </NavLink>
           </Container>
-        </React.Fragment>
+        </I18nextProvider>
       );
     }
     return '';
@@ -97,4 +102,4 @@ preQuiz.propTypes = {
   lang: PropTypes.string.isRequired
 };
 
-export default withTranslation('translation')(withHeaderFooter(preQuiz, 'Conducting Site Surveys'));
+export default withTranslation('quiz')(withHeaderFooter(preQuiz, 'Quiz me!'));

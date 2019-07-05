@@ -77,7 +77,7 @@ export default function Homepage() {
                   <h5>Please select a language</h5>
                 </Grid>
                 <Grid item>
-                  <h5>Sélectionnez votre langue</h5>
+                  <h5>Veuillez sélectionner une langue</h5>
                 </Grid>
               </Grid>
               <Grid container spacing={2} justify="center">
@@ -101,7 +101,7 @@ export default function Homepage() {
                 <Grid item xs container direction="column" spacing={2}>
                   <span className="titleInfo">
                     <h6 className="subtitle">SÉCURITÉ DES DRONES </h6>
-                    <h4 className="title">RENSEIGNEZ-VOUS AVANT TOUT</h4>
+                    <h4 className="title">RENSEIGNEZ-VOUS AVANT TOUT!</h4>
                   </span>
                 </Grid>
               </Grid>
