@@ -9,7 +9,9 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/backend/server.js",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\""
+    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": [
@@ -44,7 +46,8 @@
     "react-quiz-component": "0.2.6",
     "react-router-dom": "5.0.0",
     "sequelize": "^5.8.12",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^5.5.0",
+    "snyk": "^1.192.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
@@ -67,14 +70,14 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "2.5.0",
     "jest": "24.7.1",
-    "lint-staged": "8.2.0",
+    "lint-staged": "9.0.0",
     "nodemon": "^1.18.11",
     "react-axe": "3.1.0",
     "react-helmet": "5.2.1",
     "style-loader": "0.23.1",
     "url-loader": "2.0.1",
     "webpack": "4.32.2",
-    "webpack-cli": "3.3.3",
+    "webpack-cli": "3.3.5",
     "webpack-dev-server": "3.5.0",
     "i18next-xhr-backend": "^3.0.0"
   },
@@ -88,5 +91,6 @@
       "NODE_ENV": "development",
       "PORT": 4000
     }
-  }
+  },
+  "snyk": true
 }
