@@ -1,42 +1,52 @@
 [
   {
     "taskId": "1",
-            "phaseId": "1",
-            "titleEng": "Determine where to fly",
-            "titleFra": "Determine where to fly (fr)",
-            "imageUrlEng": "placeholder-2.png",
-            "imageUrlFra": "placeholder-2.png",
-            "estimate": "30",
-            "orderNum": "1"
+    "phaseId": "1",
+    "titleEng": "Register your drone",
+    "titleFra": "Register your drone (fr)",
+    "imageUrlEng": "placeholder-2.png",
+    "imageUrlFra": "placeholder-2.png",
+    "estimate": "30",
+    "orderNum": "1"
   },
   {
     "taskId": "2",
-            "phaseId": "1",
-            "titleEng": "Define your flight boundary",
-            "titleFra": "Define your flight boundary (fr)",
-            "imageUrlEng": "placeholder-2.png",
-            "imageUrlFra": "placeholder-2.png",
-            "estimate": "30",
-            "orderNum": "2"
+    "phaseId": "1",
+    "titleEng": "Mark your drone",
+    "titleFra": "Mark your drone (fr)",
+    "imageUrlEng": "placeholder-2.png",
+    "imageUrlFra": "placeholder-2.png",
+    "estimate": "30",
+    "orderNum": "2"
   },
   {
     "taskId": "3",
-            "phaseId": "1",
-            "titleEng": "Measure distances",
-            "titleFra": "Measure distances (fr)",
-            "imageUrlEng": "placeholder-2.png",
-            "imageUrlFra": "placeholder-2.png",
-            "estimate": "30",
-            "orderNum": "3"
+    "phaseId": "2",
+    "titleEng": "Learn about the make and model of your drone.",
+    "titleFra": "Learn about the make and model of your drone. (fr)",
+    "imageUrlEng": "placeholder-2.png",
+    "imageUrlFra": "placeholder-2.png",
+    "estimate": "30",
+    "orderNum": "3"
   },
   {
     "taskId": "4",
-            "phaseId": "2",
-            "titleEng": "Plan a date",
-            "titleFra": "Plan a date (fr)",
-            "imageUrlEng": "placeholder-2.png",
-            "imageUrlFra": "placeholder-2.png",
-            "estimate": "30",
-            "orderNum": "4"
+    "phaseId": "2",
+    "titleEng": "Learn about your drone's remote control or software",
+    "titleFra": "Learn about your drone's remote control or software (fr)",
+    "imageUrlEng": "placeholder-2.png",
+    "imageUrlFra": "placeholder-2.png",
+    "estimate": "30",
+    "orderNum": "4"
+  },
+  {
+    "taskId": "5",
+    "phaseId": "2",
+    "titleEng": "Know your level of experience",
+    "titleFra": "Know your level of experience (fr)",
+    "imageUrlEng": "placeholder-2.png",
+    "imageUrlFra": "placeholder-2.png",
+    "estimate": "30",
+    "orderNum": "5"
   }
 ]

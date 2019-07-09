@@ -9,7 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
@@ -18,7 +18,7 @@ const StepCard = (props) => {
     step, currentStep, params, nextStep, totalSteps
   } = props;
 
-  const {t}=useTranslation('step');
+  const { t } = useTranslation('step');
 
   if (currentStep !== step.orderNum) { // Prop: The current step
     return null;
@@ -26,11 +26,11 @@ const StepCard = (props) => {
 
   const nextButton = () => {
     // If the current step is not 3, then render the "next" button
-    if (currentStep < 3) {
+    if (currentStep < totalSteps) {
       return (
         <div>
           <NavLink className="btn btn-primary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${Number.parseInt(step.orderNum, 10) + 1}`} onClick={nextStep}>
-        {t('Next Step')}
+            {t('Next Step')}
           </NavLink>
         </div>
       );
@@ -46,7 +46,7 @@ const StepCard = (props) => {
 
   return (
     <div className="task-card">
-      {t('Step of', {currentStep: currentStep, totalSteps: totalSteps})}
+      {t('Step of', { currentStep, totalSteps })}
       <h3 className="card-title h5">
         {step.title}
       </h3>
@@ -59,7 +59,7 @@ const StepCard = (props) => {
         {nextButton()}
         <p>
           <NavLink className="btn btn-secondary" to={`/phases/${params.phaseOId}/tasks/${params.taskOId}/steps/${step.orderNum}/guidances/`}>
-          {t('How?')}
+            {t('How?')}
           </NavLink>
         </p>
       </div>
@@ -70,6 +70,9 @@ const StepCard = (props) => {
 StepCard.propTypes = {
   step: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    orderNum: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
   }).isRequired,
   params: PropTypes.shape({
     phaseOId: PropTypes.string.isRequired,
