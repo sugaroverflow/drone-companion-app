@@ -8,7 +8,7 @@
 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation, I18nextProvider } from "react-i18next";
+import { withTranslation } from 'react-i18next';
 
 import { NavLink } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ class Guidances extends Component {
     this.loadData(lang);
     if (onMounted) {
       onMounted({
-        changeLang: lang => this.changeLang(lang)
+        changeLang: newLang => this.changeLang(newLang)
       });
     }
   }
@@ -104,16 +104,16 @@ class Guidances extends Component {
 
   render() {
     const { guidances } = this.state;
-    const { match, i18n } = this.props;
+    const { match } = this.props;
     if (guidances !== null) {
       return (
-        <I18nextProvider i18n={i18n}>
+        <>
           <CssBaseline />
 
           <GuidanceList params={match.params} guidances={guidances} />
           <p>{this.nextButton()}</p>
           <p>{this.backButton()}</p>
-        </I18nextProvider>
+        </>
       );
     }
     return '';
@@ -136,10 +136,13 @@ Guidances.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       phaseOId: PropTypes.string.isRequired,
-      stepOId: PropTypes.string.isRequired
+      stepOId: PropTypes.string.isRequired,
+      taskOId: PropTypes.string.isRequired
     })
   }),
-  lang: PropTypes.string.isRequired
+  lang: PropTypes.string.isRequired,
+  onMounted: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
 export default withTranslation('guidance')(

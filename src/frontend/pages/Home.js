@@ -1,6 +1,4 @@
 import React from 'react';
-import { useTranslation, withTranslation, Trans } from 'react-i18next';
-
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -34,6 +32,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Homepage() {
   const classes = useStyles();
+  // const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };

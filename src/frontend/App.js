@@ -12,7 +12,6 @@ import PreQuiz from './components/Quiz/PreQuiz';
 import PostQuiz from './components/Quiz/PostQuiz';
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 import './App.css';
-// import Header from './common/header_2';
 
 
 export default class App extends Component {
