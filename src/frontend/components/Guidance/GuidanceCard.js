@@ -18,9 +18,8 @@ const GuidanceCard = (props) => {
         </summary>
         <div className="tgl-panel">
           <img className="card-task-img" src={`/images/${guidance.imageUrl}`} alt="Placeholder" />
-          <p>
-            {guidance.content}
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: guidance.content }} />
+
         </div>
       </details>
     </div>
