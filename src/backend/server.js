@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-// const mcache = require('memory-cache');
+const mcache = require('memory-cache');
 const db = require('./models/db');
 const seed = require('./models/seed/seed-db');
 
@@ -58,8 +58,8 @@ db.sequelize
 //   });
 
 // connect to DB then run server
-//  db.sequelize.sync({ force: false }).then(() => {
-//    app.listen(process.env.PORT || 8080, () => {
-//      console.log(`running server on port ${process.env.PORT || 8080}`);
-//    });
-//  });
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(process.env.PORT || 8080, () => {
+    console.log(`running server on port ${process.env.PORT || 8080}`);
+  });
+});
