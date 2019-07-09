@@ -25,28 +25,38 @@ const useStyles = makeStyles(theme => ({
 export default function HeaderAppBar(props) {
   const classes = useStyles();
   const {
-    title, changeLanguage, i18n
+    title, backRoute, changeLanguage, i18n
   } = props;
   const LanugageButton = () => (
-    <a className="btn btn-primary" onClick={changeLanguage}>
+    <a lang={i18n.language === 'en-CA' ? 'eng' : 'fra'} className="btn" onClick={changeLanguage}>
       {i18n.language === 'en-CA' ? 'Français' : 'English'}
     </a>
   );
+  function BackButton() {
+    if (backRoute) {
+      return (
+        <NavLink to={backRoute}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </NavLink>
+      );
+    }
+    return '';
+  }
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Grid container spacing={3}>
             <Grid item xs={1}>
-              <FontAwesomeIcon icon={faArrowLeft} />
+              <BackButton />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={8}>
               <h6>{title}</h6>
             </Grid>
             <Grid item xs={1}>
               <FontAwesomeIcon icon={faUserCircle} />
             </Grid>
-            <Grid item xs={1}>
+            <Grid item xs={2}>
               <LanugageButton />
             </Grid>
           </Grid>
@@ -61,5 +71,6 @@ HeaderAppBar.propTypes = {
   i18n: PropTypes.shape({
     language: PropTypes.string.isRequired
   }).isRequired,
-  changeLanguage: PropTypes.func.isRequired
+  changeLanguage: PropTypes.func.isRequired,
+  backRoute: PropTypes.string.isRequired
 };

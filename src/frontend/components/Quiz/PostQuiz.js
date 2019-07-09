@@ -4,13 +4,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
-import { withTranslation, I18nextProvider } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
 
 import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 
-class postQuiz extends Component {
+class PostQuiz extends Component {
   constructor() {
     super();
     this.state = {
@@ -23,7 +23,7 @@ class postQuiz extends Component {
     this.loadData(lang);
     if (onMounted) {
       onMounted({
-        changeLang: lang => this.changeLang(lang)
+        changeLang: newLang => this.changeLang(newLang)
       });
     }
   }
@@ -43,11 +43,11 @@ class postQuiz extends Component {
   loadData(lang) {
     const { match } = this.props;
     const {
-      phaseOId, taskOId, stepOId
+      phaseOId, taskOId
     } = match.params;
 
     if (phaseOId && taskOId) {
-      this.getPreQuiz(lang, phaseOId, taskOId, stepOId);
+      this.getPreQuiz(lang, phaseOId, taskOId);
     }
   }
 
@@ -56,14 +56,11 @@ class postQuiz extends Component {
   }
 
   render() {
-    const { match, i18n, t } = this.props;
-    const {
-      phaseOId
-    } = match.params;
+    const { t } = this.props;
     const { task } = this.state;
     if (task) {
       return (
-        <I18nextProvider i18n={i18n}>
+        <>
           <CssBaseline />
           <Container maxWidth="sm">
             <Quiz quiz={task.preQuiz} showInstantFeedback />
@@ -74,14 +71,14 @@ class postQuiz extends Component {
               {t('Skip')}
             </NavLink>
           </Container>
-        </I18nextProvider>
+        </>
       );
     }
     return '';
   }
 }
 
-postQuiz.defaultProps = {
+PostQuiz.defaultProps = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       phaseOId: null, taskOId: null
@@ -89,7 +86,7 @@ postQuiz.defaultProps = {
   })
 };
 
-postQuiz.propTypes = {
+PostQuiz.propTypes = {
   // @todo fix the issue with match and props here
   // eslint-disable-next-line react/require-default-props
   match: PropTypes.shape({
@@ -97,6 +94,9 @@ postQuiz.propTypes = {
       phaseOId: PropTypes.string.isRequired,
       taskOId: PropTypes.string.isRequired,
     })
-  })
+  }),
+  lang: PropTypes.string.isRequired,
+  onMounted: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
-export default withTranslation('quiz')(withHeaderFooter(postQuiz, 'Post Quiz'));
+export default withTranslation('quiz')(withHeaderFooter(PostQuiz, 'Post Quiz'));
