@@ -25,7 +25,8 @@ class Steps extends Component {
     this.loadData(lang);
     if (onMounted) {
       onMounted({
-        changeLang: newLang => this.changeLang(newLang)
+        changeLang: newLang => this.changeLang(newLang),
+        backRoute: '/phases'
       });
     }
   }

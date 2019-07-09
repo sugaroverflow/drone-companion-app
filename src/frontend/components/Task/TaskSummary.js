@@ -10,10 +10,22 @@ import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 
 class TaskSummary extends Component {
-  componentDidMount() { }
-
-  changeLang(lang) {
+  componentDidMount() {
+    const { onMounted, match } = this.props;
+    const {
+      phaseOId, taskOId
+    } = match.params;
+    // this.loadData(lang);
+    if (onMounted) {
+      onMounted({
+        changeLang: newLang => this.changeLang(newLang),
+        backRoute: `/phases/${phaseOId}/tasks/${taskOId}/steps/`
+      });
+    }
   }
+
+  // changeLang(lang) {
+  // }
 
   render() {
     const { match } = this.props;
@@ -61,6 +73,7 @@ TaskSummary.propTypes = {
       phaseOId: PropTypes.string.isRequired,
       taskOId: PropTypes.string.isRequired,
     })
-  })
+  }),
+  onMounted: PropTypes.func.isRequired,
 };
 export default withTranslation('translation')(withHeaderFooter(TaskSummary, 'Task Summary'));

@@ -19,11 +19,15 @@ class PostQuiz extends Component {
   }
 
   componentDidMount() {
-    const { lang, onMounted } = this.props;
+    const { lang, onMounted, match } = this.props;
+    const {
+      phaseOId, taskOId
+    } = match.params;
     this.loadData(lang);
     if (onMounted) {
       onMounted({
-        changeLang: newLang => this.changeLang(newLang)
+        changeLang: newLang => this.changeLang(newLang),
+        backRoute: `/phases/${phaseOId}/tasks/${taskOId}/steps/`
       });
     }
   }
