@@ -17,7 +17,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    fallbackLng: { default: ['en-CA'], fr: ['fr-CA'] },
+    fallbackLng: { default: ['en'], fr: ['fr'] },
     debug: true,
     saveMissing: true,
 

@@ -25,7 +25,7 @@ function controller() {
   function getDBLang(req) {
     const { lang } = req.query;
     if (lang) {
-      if (lang.toLowerCase() === 'fra') { return 'f'; }
+      if (lang.toLowerCase() === 'fr') { return 'f'; }
     }
     return 'e';
   }
