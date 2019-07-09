@@ -23,16 +23,13 @@ function withHeaderAndFooter(WrappedComponent, pageName) {
 
     changeLanguage() {
       const { i18n } = this.props;
-      let lang;
-      if (i18n.language === 'en-CA') {
-        i18n.changeLanguage('fr-CA');
-        lang = 'fra';
+      if (i18n.language === 'en') {
+        i18n.changeLanguage('fr');
       } else {
-        i18n.changeLanguage('en-CA');
-        lang = 'eng';
+        i18n.changeLanguage('en');
       }
       if (this.callbacks) {
-        this.callbacks.changeLang(lang);
+        this.callbacks.changeLang(i18n.language);
       }
     }
 
@@ -53,7 +50,7 @@ function withHeaderAndFooter(WrappedComponent, pageName) {
           <div className="app-body">
             <WrappedComponent
               {...this.props}
-              lang={(i18n.language === 'fr-CA' ? 'fra' : 'eng')}
+              lang={i18n.language}
               onMounted={(callbacks) => { (this.callbacks = callbacks); }}
             />
           </div>

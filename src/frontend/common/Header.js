@@ -28,8 +28,8 @@ export default function HeaderAppBar(props) {
     title, backRoute, changeLanguage, i18n
   } = props;
   const LanugageButton = () => (
-    <a lang={i18n.language === 'en-CA' ? 'eng' : 'fra'} className="btn" onClick={changeLanguage}>
-      {i18n.language === 'en-CA' ? 'Français' : 'English'}
+    <a lang={i18n.language} className="btn" onClick={changeLanguage}>
+      {i18n.language === 'en' ? 'Français' : 'English'}
     </a>
   );
   function BackButton() {

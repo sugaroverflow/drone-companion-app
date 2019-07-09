@@ -81,12 +81,12 @@ export default function Homepage() {
               </Grid>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('en-CA')}>
+                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('en')}>
                     English
                   </NavLink>
                 </Grid>
                 <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('fr-CA')}>
+                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('fr')}>
                     Français
                   </NavLink>
                 </Grid>
