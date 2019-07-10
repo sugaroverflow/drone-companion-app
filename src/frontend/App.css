@@ -1,3 +1,4 @@
+/* Main home styles */
 @media screen and (min-width: 800px) {
   .module-card, .task-card {
     /* max-width: 18rem; */
@@ -39,19 +40,48 @@ body {
   margin: 0 auto;
 }
 
+body {
+  padding-top: 0; /* override */
+  background-color: #ffffff; /* override */
+}
+
+.container {
+  padding: 0;
+  background: none;
+}
+
+.homepage {
+  color: #fff;
+}
+
+.homepage .droneRectangle {
+  height: 50px;
+  width: 30px;
+  background-color: #fff10f;
+  display: inline-block;
+}
+
+.homepage .btn {
+  padding: 0.5rem 2rem;
+}
+.homepage .subtitle {
+  color: #fff10f;
+}
+
+.homepage .langSelection {
+  padding: 5rem 0;
+}
+
+#app {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
 header {
   padding-top: 0.5rem;
   padding-left: 0.5rem;
 }
-.card-image-task {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-.card-task-img {
-  width: 100%;
-}
+/* Button styles */
 .btn {
   display: block;
   font-weight: 400;
@@ -64,7 +94,8 @@ header {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.35rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .btn-primary {
   width: 100%;
@@ -87,6 +118,45 @@ header {
   background-color: #002d42;
   border-color: #002d42;
 }
+/* Card styles */
+.card-image-task {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.card-task-img {
+  width: 100%;
+}
+.module-card,
+.task-card {
+  display: inline-block;
+  width: 100%;
+  /* max-width: 18rem; */
+  background: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30);
+  border-radius: 3px;
+}
+.module-card .card-desc,
+.task-card .card-desc {
+  color: #2a7a92;
+}
+.card-image-step {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.card-step-img {
+  width: -webkit-fill-available;
+}
+.card-title {
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+}
+/* Accordion styles */
 details {
   display: block;
   padding-left: 1.1em;
@@ -123,19 +193,7 @@ summary {
   margin-top: 1rem;
   background-color: #fff;
 }
-.module-card, .task-card {
-  display: inline-block;
-  width: 100%;
-  /* max-width: 18rem; */
-  background: #fff;
-  margin: 1rem;
-  padding: 1rem;
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30);
-  border-radius: 3px;
-}
-.module-card .card-desc, .task-card .card-desc {
-  color: #2a7a92;
-}
+
 /* Phase Accordion Styles */
 .phase-card .phase-desc {
   font-size: 16px;
@@ -227,7 +285,8 @@ summary {
 .StepProgress strong {
   display: block;
 }
-button:disabled, button[disabled] {
+button:disabled,
+button[disabled] {
   border: 1px solid #999;
   background-color: #ccc;
   color: #666;
