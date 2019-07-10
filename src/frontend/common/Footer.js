@@ -12,18 +12,20 @@ export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
 
   return (
-    <NavLink to={`/privacy/`}> Privacy </NavLink>
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-    >
-      <BottomNavigationAction label="Home" icon={<FontAwesomeIcon icon={faHome} />} />
-      <BottomNavigationAction label="Help" icon={<FontAwesomeIcon icon={faQuestionCircle} />} />
-      <BottomNavigationAction label="Settings" icon={<FontAwesomeIcon icon={faCog} />} />
-      <BottomNavigationAction label="Account" icon={<FontAwesomeIcon icon={faUser} />} />
-    </BottomNavigation>
+    <React.Fragment>
+      <NavLink to="/privacy"> Privacy </NavLink>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+      >
+        <BottomNavigationAction label="Home" icon={<FontAwesomeIcon icon={faHome} />} />
+        <BottomNavigationAction label="Help" icon={<FontAwesomeIcon icon={faQuestionCircle} />} />
+        <BottomNavigationAction label="Settings" icon={<FontAwesomeIcon icon={faCog} />} />
+        <BottomNavigationAction label="Account" icon={<FontAwesomeIcon icon={faUser} />} />
+      </BottomNavigation>
+    </React.Fragment>
   );
 }
