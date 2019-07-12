@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 import { withTranslation } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
 // import { quiz } from '../../../backend/data/quizData';
@@ -66,7 +65,6 @@ class PreQuiz extends Component {
     if (task) {
       return (
         <>
-          <CssBaseline />
           <Container maxWidth="sm">
             <Quiz quiz={task.preQuiz} showInstantFeedback />
             <NavLink

@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import '@gctools-components/aurora-ds/css/aurora.min.css';
+import './App.css';
+
 import App from './App';
+
 // import i18n (needs to be bundled ;))
 import './i18n';
-
-import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 // const axe = require("react-axe");
 
@@ -14,8 +17,11 @@ import '@gctools-components/aurora-ds/css/aurora.min.css';
 // }
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <React.Fragment>
+    <CssBaseline />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.Fragment>,
   document.getElementById('app')
 );

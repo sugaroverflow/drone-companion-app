@@ -2,12 +2,11 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import withHeaderFooter from '../common/withHeaderFooter';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -29,7 +28,6 @@ function BridgeInPhase(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <h1>{t('Conducting Site Surveys')}</h1>
       <div className={classes.heroContent}>
         <Container maxWidth="sm">

@@ -46,14 +46,14 @@ function withHeaderAndFooter(WrappedComponent, pageName) {
             i18n={i18n}
             changeLanguage={this.changeLanguage}
           />
+          <main id="main-content" role="main" className="MuiContainer-root MuiContainer-maxWidthLg">
 
-          <div className="app-body">
             <WrappedComponent
               {...this.props}
               lang={i18n.language}
               onMounted={(callbacks) => { (this.callbacks = callbacks); }}
             />
-          </div>
+          </main>
           <Footer />
         </>
       );
