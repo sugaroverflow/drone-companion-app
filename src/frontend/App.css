@@ -1,3 +1,16 @@
+/* Font updates */
+h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+a {
+  color: #393768;
+  font-size: 1rem;
+}
 /* Main home styles */
 @media screen and (min-width: 800px) {
   .module-card,
@@ -5,8 +18,6 @@
     /* max-width: 18rem; */
   }
 }
-
-
 body {
   padding-top: 0; /* override */
   background-color: #ffffff; /* override */
@@ -21,7 +32,6 @@ main {
   padding: 0;
   background: none;
 }
-
 .homepage {
   color: #fff;
 }
@@ -71,24 +81,54 @@ header {
 }
 .btn-primary {
   width: 100%;
-  background-color: #0d467d;
-  border-color: #0d467d;
+  background-color: #393768;
+  border-color: #393768;
   box-shadow: none;
   color: #fff;
 }
+.btn-primary:hover {
+  color: #fff;
+  background-color: #272548;
+  border-color: #272548;
+}
+.btn-primary:active {
+  background-color: #141414;
+}
 .btn-secondary {
-  color: #002d42;
+  color: #393768;
   background-color: transparent;
   background-image: none;
-  border-color: #002d42;
+  border-color: #393768;
   width: 100%;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
-.btn-primary:hover {
+.btn-secondary:hover {
   color: #fff;
-  background-color: #002d42;
-  border-color: #002d42;
+  background-color: #393768;
+  background-image: none;
+  border-color: #393768;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+button:disabled,
+button[disabled] {
+  border: 1px solid #999;
+  background-color: #ccc;
+  color: #666;
+}
+.react-quiz-container .startQuizWrapper .startQuizBtn {
+  width: 100%;
+  background-color: #393768;
+  border-color: #393768;
+  box-shadow: none;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.15;
 }
 /* Card styles */
 .card-image-task {
@@ -145,7 +185,7 @@ details:not([open]) {
 details summary {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 5px 15px;
+  padding: 1rem;
   background: #ebebeb;
 }
 details > summary {
@@ -163,18 +203,16 @@ summary {
   font-size: 1rem;
   font-weight: normal;
   margin-top: 1rem;
-  background-color: #fff;
 }
-
 /* Phase Accordion Styles */
 .phase-card .phase-desc {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: normal;
 }
 .phase-caption {
   font-weight: normal;
-  color: #0d467d;
-  font-size: 12px;
+  color: #393768;
+  font-size: 0.95rem;
 }
 .phase-estimate {
   font-weight: 700;
@@ -183,6 +221,7 @@ summary {
   margin-left: 40px;
   margin-top: -20px;
 }
+
 /* Step Indicator Styles */
 .StepProgress {
   position: relative;
@@ -223,23 +262,23 @@ summary {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #2a7a92;
+  background-color: #393768;
   border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #2a7a92;
+  box-shadow: 0 0 0 3px #74b329;
 }
 .StepProgress-item.is-done::before {
-  border-left: 2px solid #2a7a92;
+  border-left: 3px solid #74b329;
 }
 .StepProgress-item.is-done::after {
   content: "✔";
   font-size: 10px;
   color: #fff;
   text-align: center;
-  border: 2px solid #2a7a92;
-  background-color: #2a7a92;
+  border: 3px solid #74b329;
+  background-color: #393768;
 }
 .StepProgress-item.current::before {
-  border-left: 2px solid #2a7a92;
+  border-left: 3px solid #393768;
 }
 .StepProgress-item.current::after {
   content: counter(list);
@@ -250,18 +289,27 @@ summary {
   left: -40px;
   font-size: 14px;
   text-align: center;
-  color: #2a7a92;
-  border: 2px solid #2a7a92;
+  color: #393768;
+  border: 3px solid #74b329;
   background-color: white;
 }
 .StepProgress strong {
   display: block;
 }
-button:disabled,
-button[disabled] {
-  border: 1px solid #999;
-  background-color: #ccc;
-  color: #666;
+/* One-off styles, aka white text for dark backgrounds */
+.white-text {
+  color: white;
+}
+.phase-title-h6 {
+  color: #393768;
+}
+.phase-desc {
+  color: #141414;
+}
+
+/* Grid padding */
+.MuiGrid-root .MuiGrid-item {
+  padding: 0.5rem;
 }
 
 .wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .wb-calevt-cal .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label {
