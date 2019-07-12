@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import GuidanceCard from './GuidanceCard';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 import Background from '../../../../public/images/burst-background.png';
 
 const useStyles = makeStyles(theme => ({

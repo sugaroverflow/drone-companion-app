@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
-
-import '@gctools-components/aurora-ds/css/aurora.min.css';
 
 
 class TaskSummary extends Component {
@@ -35,7 +32,6 @@ class TaskSummary extends Component {
 
     return (
       <React.Fragment>
-        <CssBaseline />
         <Container maxWidth="sm">
           <h2>Step-by-Step Complete!</h2>
           <p> Way to go! Check your knowledge with a quiz, or skip to go to the next section.</p>

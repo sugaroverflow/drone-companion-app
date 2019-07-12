@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 
 const ModuleCard = ({ module }) => (
   <div className="module-card">

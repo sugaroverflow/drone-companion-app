@@ -12,7 +12,6 @@ import { withTranslation } from 'react-i18next';
 
 import { NavLink } from 'react-router-dom';
 
-import CssBaseline from '@material-ui/core/CssBaseline';
 import GuidanceList from './GuidanceList';
 
 import withHeaderFooter from '../../common/withHeaderFooter';
@@ -108,7 +107,6 @@ class Guidances extends Component {
     if (guidances !== null) {
       return (
         <>
-          <CssBaseline />
 
           <GuidanceList params={match.params} guidances={guidances} />
           <p>{this.nextButton()}</p>

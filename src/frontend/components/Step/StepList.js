@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import StepCard from './StepCard';
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 
 import Background from '../../../../public/images/burst-background.png';
 
@@ -32,7 +31,6 @@ export default function getSteps(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <CssBaseline />
       <main className={classes.main}>
         <div className={classes.heroContent}>
           <div className={classes.heroButtons}>
