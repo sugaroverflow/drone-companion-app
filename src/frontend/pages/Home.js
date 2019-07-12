@@ -71,10 +71,10 @@ export default function Homepage() {
                 alignItems="center"
               >
                 <Grid item>
-                  <h5>Please select a language</h5>
+                  <h5 class="white-text">Please select a language</h5>
                 </Grid>
                 <Grid item>
-                  <h5>Veuillez sélectionner une langue</h5>
+                  <h5 class="white-text">Veuillez sélectionner une langue</h5>
                 </Grid>
               </Grid>
               <Grid container spacing={2} justify="center">
