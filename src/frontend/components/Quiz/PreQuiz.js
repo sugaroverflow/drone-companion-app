@@ -68,7 +68,7 @@ class PreQuiz extends Component {
           <Container maxWidth="sm">
             <Quiz quiz={task.preQuiz} showInstantFeedback />
             <NavLink
-              className="btn btn-primary"
+              className="btn btn-secondary"
               to={`/phases/${phaseOId}/tasks/${taskOId}/steps/`}
             >
               {t('Skip')}

@@ -10,7 +10,7 @@ const PhaseCard = (props) => {
       <details>
         <summary>
           <div className="phase-summary">
-            <h2 className="phase-title h6">{phase.title}</h2>
+            <h6 className="phase-title-h6">{phase.title}</h6>
             <p className="phase-desc">{phase.description}</p>
             <p className="phase-caption">
               {('Estimated time to complete')}
