@@ -88,7 +88,6 @@ header {
 }
 .btn-primary:active {
   background-color: #141414;
-
 }
 .btn-secondary {
   color: #393768;
@@ -107,8 +106,6 @@ header {
   width: 100%;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
-}
-
 }
 button:disabled,
 button[disabled] {
