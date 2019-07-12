@@ -1,12 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome, faQuestionCircle, faCog, faUser
-} from '@fortawesome/free-solid-svg-icons';
-// import { classes } from 'istanbul-lib-coverage';
 
 const useStyles = makeStyles(theme => ({
   actionList: {
@@ -38,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
   const classes = useStyles();
 
   return (

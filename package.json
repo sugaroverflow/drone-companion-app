@@ -50,9 +50,9 @@
     "snyk": "^1.192.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/plugin-proposal-class-properties": "7.4.4",
-    "@babel/preset-env": "7.4.5",
+    "@babel/core": "7.5.0",
+    "@babel/plugin-proposal-class-properties": "7.5.0",
+    "@babel/preset-env": "7.5.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.6",
@@ -70,13 +70,13 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "2.5.0",
     "jest": "24.7.1",
-    "lint-staged": "9.0.0",
+    "lint-staged": "9.1.0",
     "nodemon": "^1.18.11",
     "react-axe": "3.1.0",
     "react-helmet": "5.2.1",
     "style-loader": "0.23.1",
     "url-loader": "2.0.1",
-    "webpack": "4.32.2",
+    "webpack": "4.35.3",
     "webpack-cli": "3.3.5",
     "webpack-dev-server": "3.5.0"
   },

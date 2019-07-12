@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Home from './pages/Home';
 import About from './pages/About';
+import Privacy from './pages/Privacy';
 import BridgeInPhase from './pages/BridgeInPhase';
 import Phases from './components/Phase/Phases';
 import Steps from './components/Step/Steps';
