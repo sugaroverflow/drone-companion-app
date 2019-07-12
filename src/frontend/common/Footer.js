@@ -35,18 +35,36 @@ export default function SimpleBottomNavigation() {
 
   return (
     <div className={classes.actionList}>
-      <div>
-        <ul>
-          <li>
-            <a href="/en/transparency/terms.html">Terms and conditions</a>
-          </li>
-          <li>
-            <a href="/en/transparency/terms.html">Privacy</a>
-          </li>
-          <li>
-            <a href="/en/transparency/terms.html">Submit feedback</a>
-          </li>
-        </ul>
+      <div className="brand">
+        <div className="container">
+          <div className="row">
+            <nav className="col-md-10 ftr-urlt-lnk">
+              <h2 className="wb-inv">About this site</h2>
+              <ul>
+
+
+                <li><a href="/en/social.html">Social media</a></li>
+
+
+                <li><a href="/en/mobile.html">Mobile applications</a></li>
+
+
+                <li><a href="/en/government/about.html">About Canada.ca</a></li>
+
+
+                <li><a href="/en/transparency/terms.html">Terms and conditions</a></li>
+
+
+                <li><a href="/en/transparency/privacy.html">Privacy</a></li>
+
+
+              </ul>
+            </nav>
+            <div className="col-xs-6 col-md-2 text-right">
+              <object type="image/svg+xml" tabIndex="-1" role="img" data="/etc/designs/canada/wet-boew/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada" />
+            </div>
+          </div>
+        </div>
       </div>
       <div className={classes.bottomCaFlag}>
         <object type="image/svg+xml" tabIndex="-1" role="img" data="/images/wmms-blk.svg" aria-label="Symbol of the Government of Canada" className={classes.width30} />
