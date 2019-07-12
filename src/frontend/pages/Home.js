@@ -1,6 +1,5 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
@@ -39,7 +38,6 @@ export default function Homepage() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <img
@@ -73,10 +71,10 @@ export default function Homepage() {
                 alignItems="center"
               >
                 <Grid item>
-                  <h5>Please select a language</h5>
+                  <h5 class="white-text">Please select a language</h5>
                 </Grid>
                 <Grid item>
-                  <h5>Veuillez sélectionner une langue</h5>
+                  <h5 class="white-text">Veuillez sélectionner une langue</h5>
                 </Grid>
               </Grid>
               <Grid container spacing={2} justify="center">

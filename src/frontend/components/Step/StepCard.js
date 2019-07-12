@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import '@gctools-components/aurora-ds/css/aurora.min.css';
+
 
 const StepCard = (props) => {
   const {
