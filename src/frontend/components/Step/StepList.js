@@ -12,9 +12,6 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6),
-  },
   heroButtons: {
     marginTop: theme.spacing(4),
   },
@@ -31,22 +28,18 @@ export default function getSteps(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <main className={classes.main}>
-        <div className={classes.heroContent}>
-          <div className={classes.heroButtons}>
-            {steps.map(step => (
-              <StepCard
-                key={step.orderNum}
-                params={params}
-                currentStep={currentStep}
-                step={step}
-                nextStep={nextStep}
-                totalSteps={steps.length}
-              />
-            ))}
-          </div>
-        </div>
-      </main>
+      <div className={classes.heroButtons}>
+        {steps.map(step => (
+          <StepCard
+            key={step.orderNum}
+            params={params}
+            currentStep={currentStep}
+            step={step}
+            nextStep={nextStep}
+            totalSteps={steps.length}
+          />
+        ))}
+      </div>
     </React.Fragment>
   );
 }

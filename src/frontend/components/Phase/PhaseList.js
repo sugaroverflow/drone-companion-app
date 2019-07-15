@@ -11,9 +11,6 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
   },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6)
-  },
   heroButtons: {
     marginTop: theme.spacing(4)
   },
@@ -28,19 +25,17 @@ export default function getPhases(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <div className={classes.heroButtons}>
-            <Grid container spacing={2} justify="center">
-              <Grid item>
-                {phases.map(phase => (
-                  <PhaseCard key={phase.orderNum} phase={phase} />
-                ))}
-              </Grid>
+      <Container maxWidth="sm">
+        <div className={classes.heroButtons}>
+          <Grid container spacing={2} justify="center">
+            <Grid item>
+              {phases.map(phase => (
+                <PhaseCard key={phase.orderNum} phase={phase} />
+              ))}
             </Grid>
-          </div>
-        </Container>
-      </div>
+          </Grid>
+        </div>
+      </Container>
     </React.Fragment>
   );
 }

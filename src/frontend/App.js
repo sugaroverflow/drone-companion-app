@@ -39,6 +39,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/intro" component={BridgeInPhase} />
+          <Route exact path="/privacy" component={Privacy} />
           <Route exact path="/phases" component={Phases} />
           <Redirect exact from="/phases/:phaseOId/tasks/:taskOId/steps/" to="/phases/:phaseOId/tasks/:taskOId/steps/1" />
           <Route exact path="/phases/:phaseOId/tasks/:taskOId/steps/:stepOId" component={Steps} />

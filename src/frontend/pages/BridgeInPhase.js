@@ -12,10 +12,6 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
-  },
   heroButtons: {
     marginTop: theme.spacing(4)
   }
@@ -29,21 +25,19 @@ function BridgeInPhase(props) {
   return (
     <React.Fragment>
       <h1>{t('Conducting Site Surveys')}</h1>
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <h4>DronesEd</h4>
-          <h2>Conducting Site Surveys</h2>
-          <div className={classes.heroButtons}>
-            <Grid container spacing={2} justify="center">
-              <Grid item>
-                <NavLink className="btn btn-primary" to="/phases/">
+      <Container maxWidth="sm">
+        <h4>DronesEd</h4>
+        <h2>Conducting Site Surveys</h2>
+        <div className={classes.heroButtons}>
+          <Grid container spacing={2} justify="center">
+            <Grid item>
+              <NavLink className="btn btn-primary" to="/phases/">
                   Go to Phases
-                </NavLink>
-              </Grid>
+              </NavLink>
             </Grid>
-          </div>
-        </Container>
-      </div>
+          </Grid>
+        </div>
+      </Container>
     </React.Fragment>
   );
 }
