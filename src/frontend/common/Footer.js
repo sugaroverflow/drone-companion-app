@@ -43,19 +43,19 @@ export default function SimpleBottomNavigation() {
               <ul>
 
 
-                <li><a href="/en/social.html">Social media</a></li>
+                <li><a href="/social.html">Social media</a></li>
 
 
-                <li><a href="/en/mobile.html">Mobile applications</a></li>
+                <li><a href="/mobile.html">Mobile applications</a></li>
 
 
-                <li><a href="/en/government/about.html">About Canada.ca</a></li>
+                <li><a href="/government/about.html">About Canada.ca</a></li>
 
 
-                <li><a href="/en/transparency/terms.html">Terms and conditions</a></li>
+                <li><a href="/transparency/terms.html">Terms and conditions</a></li>
 
 
-                <li><a href="/en/transparency/privacy.html">Privacy</a></li>
+                <li><a href="/privacy">Privacy</a></li>
 
 
               </ul>

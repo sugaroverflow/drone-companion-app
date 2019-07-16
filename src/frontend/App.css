@@ -7,8 +7,8 @@ p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-a {
-  color: #393768;
+header a, header a:hover {
+  color: inherit;
   font-size: 1rem;
 }
 /* Main home styles */
@@ -26,6 +26,7 @@ body {
 main {
     background-color: #fff;
     background-image: url('/images/burst-background.png');
+    padding-bottom: 30px; 
 }
 
 .container {
@@ -144,12 +145,12 @@ button[disabled] {
 .task-card {
   display: inline-block;
   width: 100%;
-  /* max-width: 18rem; */
   background: #fff;
-  margin: 1rem;
   padding: 1rem;
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 30);
-  border-radius: 3px;
+  border: 2px solid #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+  border-radius: .6rem;
+  background: #fff;
 }
 .module-card .card-desc,
 .task-card .card-desc {

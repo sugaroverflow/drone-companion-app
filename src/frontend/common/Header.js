@@ -64,6 +64,7 @@ export default function HeaderAppBar(props) {
     }
     return '';
   }
+
   return (
     <div className={classes.root}>
 
@@ -89,12 +90,14 @@ export default function HeaderAppBar(props) {
             {title}
           </Typography>
           <IconButton
-            aria-label="Home"
+            aria-label="Help"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             color="inherit"
           >
-            <HomeButton />
+            <NavLink to="/phases">
+              <HomeButton />
+            </NavLink>
           </IconButton>
           <IconButton
             aria-label="Help"

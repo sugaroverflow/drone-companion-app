@@ -12,7 +12,6 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 
-
 const StepCard = (props) => {
   const {
     step, currentStep, params, nextStep, totalSteps
@@ -47,9 +46,6 @@ const StepCard = (props) => {
   return (
     <div className="task-card">
       {t('Step of', { currentStep, totalSteps })}
-      <h3 className="card-title h5">
-        {step.title}
-      </h3>
       <div className="card-image-step">
         <img className="card-step-img" src={`/images/${step.imageUrl}`} alt="Placeholder" />
       </div>
