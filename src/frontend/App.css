@@ -80,7 +80,7 @@ header {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .btn-primary {
-  width: 100%;
+  /* width: 100%; */
   background-color: #393768;
   border-color: #393768;
   box-shadow: none;
@@ -99,7 +99,7 @@ header {
   background-color: transparent;
   background-image: none;
   border-color: #393768;
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -108,7 +108,7 @@ header {
   background-color: #393768;
   background-image: none;
   border-color: #393768;
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -173,32 +173,54 @@ details {
   display: block;
   padding-left: 1.1em;
   padding-right: 1.1em;
+  border: 2px solid #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+  border-radius: .6rem;
+  background: #fff;
 }
 details[open] {
-  border: 1px solid #ddd;
-  border-radius: 4px;
   padding-bottom: 1em;
 }
-details:not([open]) {
-  visibility: hidden;
-}
-details summary {
-  border: 1px solid #ddd;
-  border-radius: 4px;
+
+details > summary {
   padding: 1rem;
   background: #ebebeb;
+  border-radius: .5rem .5rem 0 0;
 }
 details > summary {
   margin-left: -1.1em;
   margin-right: -1.1em;
 }
-summary {
+details > summary {
   display: list-item !important;
   list-style-type: none;
   list-style-type: disclosure-closed;
   visibility: visible !important;
   cursor: pointer;
 }
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary:before {
+  content: "\e080";  /*glyphicon-chevron-right*/
+  color: #000000;
+  margin-right: 5px;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+details[open] > summary:before{
+  content: "\e113";  /*glyphicon-chevron-up*/
+}
+
 .tgl-panel {
   font-size: 1rem;
   font-weight: normal;
@@ -208,6 +230,9 @@ summary {
 .phase-card .phase-desc {
   font-size: 1rem;
   font-weight: normal;
+}
+.phase-card{
+  margin-bottom:10px;
 }
 .phase-caption {
   font-weight: normal;
@@ -320,3 +345,90 @@ summary {
   position: absolute;
   width: 1px;
 }
+
+#pointer {
+  min-width:100px;
+  height: 40px;
+  position: relative;
+  background: #E8E8E8;
+  padding-top:10px;
+  padding-left: 40px;
+  padding-right: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+#pointer:before {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 15px solid #E8E8E8;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+#pointer:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  top:10px;
+  border-radius: 50%;
+  background-color: #393768;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px #74b329;
+}
+/* Start Customize Aurora Step Indicator */
+.step-indicator {
+  margin: 0px auto;
+  padding-top: 20px;
+}
+
+.step-indicator .steps li a {
+  padding-top: 4rem
+}
+
+.step-indicator .steps li:before {
+  position: relative;
+  z-index:1;
+}
+
+.step-indicator .steps li:after {
+  z-index: 0;
+}
+
+.step-indicator .steps li.complete {
+  color: #393768
+}
+
+.step-indicator .steps li.complete:before {
+  border-color: #393768;
+  content: "\2713"
+}
+
+.step-indicator .steps li.complete+li:after {
+  background-color: #393768;
+}
+
+.step-indicator .steps li.active {
+  color: #393768
+}
+
+.step-indicator .steps li.active:before {
+  border-color: #393768;
+  box-shadow: 0 0 0 0.15rem #75B329
+}
+/* End Customize Aurora Step Indicator */
+h1, .h4{
+  padding-top: 1em;
+  font-weight: bold;
+}
+/* Start changing detail summary icon */
+
+/* End changing detail summary icon */

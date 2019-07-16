@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import StepList from './StepList';
+import ProgressIndicator from '../../common/ProgressIndicator';
 import withHeaderFooter from '../../common/withHeaderFooter';
 
 class Steps extends Component {
@@ -80,6 +81,7 @@ class Steps extends Component {
     if (task !== null) {
       return (
         <>
+          <ProgressIndicator />
           <DisplayTaskInfo task={task} />
           <StepList
             params={match.params}
@@ -97,9 +99,9 @@ class Steps extends Component {
 function DisplayTaskInfo({ task }) {
   return (
     <div>
-      <h1 className="h6">
+      <div id="pointer">
         {`${task.title}`}
-      </h1>
+      </div>
     </div>
   );
 }

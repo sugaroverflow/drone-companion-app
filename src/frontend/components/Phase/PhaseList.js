@@ -22,20 +22,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function getPhases(props) {
   const { phases } = props;
-  const classes = useStyles();
   return (
     <React.Fragment>
-      <Container maxWidth="sm">
-        <div className={classes.heroButtons}>
-          <Grid container spacing={2} justify="center">
-            <Grid item>
-              {phases.map(phase => (
-                <PhaseCard key={phase.orderNum} phase={phase} />
-              ))}
-            </Grid>
-          </Grid>
-        </div>
-      </Container>
+      {phases.map(phase => (
+        <PhaseCard key={phase.orderNum} phase={phase} />
+      ))}
     </React.Fragment>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -46,13 +47,15 @@ function withHeaderAndFooter(WrappedComponent, pageName) {
             i18n={i18n}
             changeLanguage={this.changeLanguage}
           />
-          <main id="main-content" role="main" className="MuiContainer-root MuiContainer-maxWidthLg">
+          <main id="main-content" role="main">
+            <Container maxWidth="sm">
 
-            <WrappedComponent
-              {...this.props}
-              lang={i18n.language}
-              onMounted={(callbacks) => { (this.callbacks = callbacks); }}
-            />
+              <WrappedComponent
+                {...this.props}
+                lang={i18n.language}
+                onMounted={(callbacks) => { (this.callbacks = callbacks); }}
+              />
+            </Container>
           </main>
           <Footer />
         </>
