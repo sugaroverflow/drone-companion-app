@@ -60,9 +60,6 @@ export default function SimpleBottomNavigation() {
 
               </ul>
             </nav>
-            <div className="col-xs-6 col-md-2 text-right">
-              <object type="image/svg+xml" tabIndex="-1" role="img" data="/etc/designs/canada/wet-boew/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada" />
-            </div>
           </div>
         </div>
       </div>
