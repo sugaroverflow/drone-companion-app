@@ -7,7 +7,8 @@ p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-header a, header a:hover {
+header a,
+header a:hover {
   color: inherit;
   font-size: 1rem;
 }
@@ -24,9 +25,9 @@ body {
 }
 
 main {
-    background-color: #fff;
-    background-image: url('/images/burst-background.png');
-    padding-bottom: 30px; 
+  background-color: #fff;
+  background-image: url("/images/burst-background.png");
+  padding-bottom: 30px;
 }
 
 .container {
@@ -148,8 +149,8 @@ button[disabled] {
   background: #fff;
   padding: 1rem;
   border: 2px solid #ddd;
-  box-shadow: 0 0 5px rgba(0,0,0,.15);
-  border-radius: .6rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 0.6rem;
   background: #fff;
 }
 .module-card .card-desc,
@@ -175,8 +176,8 @@ details {
   padding-left: 1.1em;
   padding-right: 1.1em;
   border: 2px solid #ddd;
-  box-shadow: 0 0 5px rgba(0,0,0,.15);
-  border-radius: .6rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 0.6rem;
   background: #fff;
 }
 details[open] {
@@ -186,40 +187,9 @@ details[open] {
 details > summary {
   padding: 1rem;
   background: #ebebeb;
-  border-radius: .5rem .5rem 0 0;
-}
-details > summary {
+  border-radius: 0.5rem 0.5rem 0 0;
   margin-left: -1.1em;
   margin-right: -1.1em;
-}
-details > summary {
-  display: list-item !important;
-  list-style-type: none;
-  list-style-type: disclosure-closed;
-  visibility: visible !important;
-  cursor: pointer;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
-details > summary:before {
-  content: "\e080";  /*glyphicon-chevron-right*/
-  color: #000000;
-  margin-right: 5px;
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-details[open] > summary:before{
-  content: "\e113";  /*glyphicon-chevron-up*/
 }
 
 .tgl-panel {
@@ -232,8 +202,8 @@ details[open] > summary:before{
   font-size: 1rem;
   font-weight: normal;
 }
-.phase-card{
-  margin-bottom:10px;
+.phase-card {
+  margin-bottom: 10px;
 }
 .phase-caption {
   font-weight: normal;
@@ -338,8 +308,23 @@ details[open] > summary:before{
   padding: 0.5rem;
 }
 
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .wb-calevt-cal .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label {
-  clip: rect(1px,1px,1px,1px);
+.wb-invisible,
+.wb-inv,
+.wb-show-onfocus,
+.wb-sl,
+#wb-lng h2,
+#wb-glb-mn h2,
+#wb-srch h2,
+#wb-srch label,
+#wb-sm h2,
+#wb-bc h2,
+#wb-sec h2,
+#wb-info h2,
+#mb-pnl h3,
+.wb-calevt-cal .cal-days td ul,
+.wb-fnote dt,
+#mb-pnl .srch-pnl label {
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   margin: 0;
   overflow: hidden;
@@ -348,11 +333,11 @@ details[open] > summary:before{
 }
 
 #pointer {
-  min-width:100px;
+  min-width: 100px;
   height: 40px;
   position: relative;
-  background: #E8E8E8;
-  padding-top:10px;
+  background: #e8e8e8;
+  padding-top: 10px;
   padding-left: 40px;
   padding-right: 20px;
   font-weight: bold;
@@ -367,7 +352,7 @@ details[open] > summary:before{
   bottom: 0;
   width: 0;
   height: 0;
-  border-left: 15px solid #E8E8E8;
+  border-left: 15px solid #e8e8e8;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
 }
@@ -379,7 +364,7 @@ details[open] > summary:before{
   left: 10px;
   width: 20px;
   height: 20px;
-  top:10px;
+  top: 10px;
   border-radius: 50%;
   background-color: #393768;
   border: 2px solid #fff;
@@ -392,12 +377,12 @@ details[open] > summary:before{
 }
 
 .step-indicator .steps li a {
-  padding-top: 4rem
+  padding-top: 4rem;
 }
 
 .step-indicator .steps li:before {
   position: relative;
-  z-index:1;
+  z-index: 1;
 }
 
 .step-indicator .steps li:after {
@@ -405,28 +390,29 @@ details[open] > summary:before{
 }
 
 .step-indicator .steps li.complete {
-  color: #393768
+  color: #393768;
 }
 
 .step-indicator .steps li.complete:before {
   border-color: #393768;
-  content: "\2713"
+  content: "\2713";
 }
 
-.step-indicator .steps li.complete+li:after {
+.step-indicator .steps li.complete + li:after {
   background-color: #393768;
 }
 
 .step-indicator .steps li.active {
-  color: #393768
+  color: #393768;
 }
 
 .step-indicator .steps li.active:before {
   border-color: #393768;
-  box-shadow: 0 0 0 0.15rem #75B329
+  box-shadow: 0 0 0 0.15rem #75b329;
 }
 /* End Customize Aurora Step Indicator */
-h1, .h4{
+h1,
+.h4 {
   padding-top: 1em;
   font-weight: bold;
 }
