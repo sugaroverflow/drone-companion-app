@@ -192,35 +192,7 @@ details > summary {
   margin-left: -1.1em;
   margin-right: -1.1em;
 }
-details > summary {
-  display: list-item !important;
-  list-style-type: none;
-  list-style-type: disclosure-closed;
-  visibility: visible !important;
-  cursor: pointer;
-}
 
-details > summary::-webkit-details-marker {
-  display: none;
-}
-details > summary:before {
-  content: "\e080";  /*glyphicon-chevron-right*/
-  color: #000000;
-  margin-right: 5px;
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-details[open] > summary:before{
-  content: "\e113";  /*glyphicon-chevron-up*/
-}
 
 .tgl-panel {
   font-size: 1rem;
