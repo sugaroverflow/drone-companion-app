@@ -5,9 +5,12 @@ import Task from '../Task/Task';
 
 const PhaseCard = (props) => {
   const { phase } = props;
+  const currentPhase = 1;
+  const currentTask = 2;
+  const open = (phase.orderNum === currentPhase);
   return (
     <div className="accordion phase-card">
-      <details>
+      <details open={open}>
         <summary>
           <div className="phase-summary">
             <h6 className="phase-title-h6">{phase.title}</h6>
@@ -30,6 +33,8 @@ const PhaseCard = (props) => {
                   key={task.orderNum}
                   task={task}
                   phaseOId={phase.orderNum}
+                  currentTask={currentTask}
+                  currentPhase={currentPhase}
                 />
               ))
               : ''}

@@ -5,7 +5,8 @@ import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import withHeaderFooter from '../../common/withHeaderFooter';
-
+import ProgressIndicator from '../../common/ProgressIndicator';
+import TaskTitle from '../Task/TaskTitle';
 
 class PostQuiz extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class PostQuiz extends Component {
   }
 
 
-  getPreQuiz(lang, phaseOId, taskOId) {
+  getPostQuiz(lang, phaseOId, taskOId) {
     fetch(`/api/phases/${phaseOId}/tasks/${taskOId}?lang=${lang}`)
       .then(res => res.json())
       .then((task) => {
@@ -48,7 +49,7 @@ class PostQuiz extends Component {
     } = match.params;
 
     if (phaseOId && taskOId) {
-      this.getPreQuiz(lang, phaseOId, taskOId);
+      this.getPostQuiz(lang, phaseOId, taskOId);
     }
   }
 
@@ -62,15 +63,17 @@ class PostQuiz extends Component {
     if (task) {
       return (
         <>
-          <Container maxWidth="sm">
-            <Quiz quiz={task.preQuiz} showInstantFeedback />
+          <ProgressIndicator currentProgress={2} />
+          <TaskTitle title={task.title} />
+          <div className="card-image-task">
+            <Quiz quiz={task.postQuiz} showInstantFeedback />
             <NavLink
               className="btn btn-secondary"
               to="/phases/"
             >
               {t('Skip')}
             </NavLink>
-          </Container>
+          </div>
         </>
       );
     }

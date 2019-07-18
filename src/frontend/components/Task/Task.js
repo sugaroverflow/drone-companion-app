@@ -2,19 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-const Task = ({ task, phaseOId }) => (
+const Task = ({
+  task, phaseOId, currentTask, currentPhase
+}) => {
+  function StartButton({ isActive }) {
+    if (isActive) {
+      return (
+        <NavLink
+          className="btn btn-primary"
+          to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
+        >
+          {('Start')}
+        </NavLink>
+      );
+    }
+    return '';
+  }
 
-  <li className="StepProgress-item">
-    {' '}
-    {task.title}
-    <NavLink
-      className="btn btn-primary"
-      to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
-    >
-      {('Start')}
-    </NavLink>
-  </li>
-);
+  return (
+
+    <li className="StepProgress-item">
+      {' '}
+      {task.title}
+      <StartButton isActive={(task.orderNum === currentTask) && (phaseOId === currentPhase)} />
+
+    </li>
+
+  );
+};
 
 
 Task.propTypes = {
@@ -22,6 +37,8 @@ Task.propTypes = {
     title: PropTypes.string.isRequired,
     orderNum: PropTypes.number.isRequired
   }).isRequired,
-  phaseOId: PropTypes.number.isRequired
+  phaseOId: PropTypes.number.isRequired,
+  currentTask: PropTypes.number.isRequired,
+  currentPhase: PropTypes.number.isRequired
 };
 export default Task;

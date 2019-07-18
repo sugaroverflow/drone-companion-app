@@ -27,7 +27,7 @@
     "imageUrlEng": "placeholder-2.png",
     "imageUrlFra": "placeholder-2.png",
     "estimate": "30",
-    "orderNum": "3"
+    "orderNum": "1"
   },
   {
     "taskId": "4",
@@ -37,7 +37,7 @@
     "imageUrlEng": "placeholder-2.png",
     "imageUrlFra": "placeholder-2.png",
     "estimate": "30",
-    "orderNum": "4"
+    "orderNum": "2"
   },
   {
     "taskId": "5",
@@ -47,6 +47,6 @@
     "imageUrlEng": "placeholder-2.png",
     "imageUrlFra": "placeholder-2.png",
     "estimate": "30",
-    "orderNum": "5"
+    "orderNum": "3"
   }
 ]

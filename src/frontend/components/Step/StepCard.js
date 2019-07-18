@@ -47,7 +47,7 @@ const StepCard = (props) => {
     <div className="task-card">
       {t('Step of', { currentStep, totalSteps })}
       <div className="card-image-step">
-        <img className="card-step-img" src={`/images/${step.imageUrl}`} alt="Placeholder" />
+        <img className="card-step-img" src={`/images/product-images/Phase ${params.phaseOId}/Task ${params.taskOId}/Step ${step.orderNum}/P${params.phaseOId}.T${params.taskOId}.S${step.orderNum}.png`} alt="Placeholder" />
       </div>
       <div dangerouslySetInnerHTML={{ __html: step.description }} />
       <hr />

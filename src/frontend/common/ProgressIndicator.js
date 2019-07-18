@@ -1,23 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ProgressIndicator = props => (
-  <div aria-label="progress" className="step-indicator">
-    <ul className="steps">
-      <li className="complete">
-Prepare
-        <span className="sr-only">completed</span>
+const ProgressIndicator = (props) => {
+  const { currentProgress } = props;
+  const progresses = ['Prepare', 'Step-by-Step', 'Challenge', 'Result'];
+
+  function StepListItem({ progName, progOId }) {
+    let classname = '';
+    let srText = '';
+    if (progOId < currentProgress) {
+      classname = 'complete';
+      srText = 'srText';
+    } else if (progOId === currentProgress) {
+      classname = 'active';
+      srText = '';
+    } else {
+      srText = 'not completed';
+    }
+    return (
+      <li className={classname}>
+        <a href="#">{progName}</a>
+        <span className="sr-only">{srText}</span>
       </li>
-      <li className="active" aria-current="true">Step-by-Step</li>
-      <li>
-Challenge
-        <span className="sr-only">not completed</span>
-      </li>
-      <li>
-Result
-        <span className="sr-only">not completed</span>
-      </li>
-    </ul>
-  </div>
-);
+    );
+  }
+  return (
+    <div aria-label="progress" className="step-indicator">
+      <ul className="steps">
+
+        {progresses.map(prog => (
+          <StepListItem
+            key={progresses.indexOf(prog)}
+            progName={prog}
+            progOId={progresses.indexOf(prog)}
+          />
+        ))}
+
+      </ul>
+    </div>
+  );
+};
 export default ProgressIndicator;

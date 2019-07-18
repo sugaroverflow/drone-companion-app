@@ -8,6 +8,7 @@ import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import StepList from './StepList';
 import ProgressIndicator from '../../common/ProgressIndicator';
+import TaskTitle from '../Task/TaskTitle';
 import withHeaderFooter from '../../common/withHeaderFooter';
 
 class Steps extends Component {
@@ -81,8 +82,8 @@ class Steps extends Component {
     if (task !== null) {
       return (
         <>
-          <ProgressIndicator />
-          <DisplayTaskInfo task={task} />
+          <ProgressIndicator currentProgress={1} />
+          <TaskTitle title={task.title} />
           <StepList
             params={match.params}
             currentStep={currentStep}
@@ -96,15 +97,6 @@ class Steps extends Component {
   }
 }
 
-function DisplayTaskInfo({ task }) {
-  return (
-    <div>
-      <div id="pointer">
-        {`${task.title}`}
-      </div>
-    </div>
-  );
-}
 
 Steps.defaultProps = {
   match: PropTypes.shape({
@@ -126,15 +118,6 @@ Steps.propTypes = {
   }),
   lang: PropTypes.string.isRequired,
   onMounted: PropTypes.func.isRequired
-};
-
-DisplayTaskInfo.propTypes = {
-  task: PropTypes.shape(
-    {
-      title: PropTypes.string.isRequired,
-      orderNum: PropTypes.number.isRequired,
-    }
-  ).isRequired
 };
 
 export default withTranslation('step')(withHeaderFooter(Steps, 'Steps'));

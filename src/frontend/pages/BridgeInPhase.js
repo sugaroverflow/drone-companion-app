@@ -2,42 +2,23 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import withHeaderFooter from '../common/withHeaderFooter';
-
-
-const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  }
-}));
+import IntroImg1 from '../../../public/images/intro-Images/tutorial-1.png';
+import IntroImg2 from '../../../public/images/intro-Images/tutorial-2.png';
+import IntroImg3 from '../../../public/images/intro-Images/tutorial-3.png';
 
 function BridgeInPhase(props) {
   const { t } = props;
-
-  const classes = useStyles();
-
   return (
     <React.Fragment>
-      <h1>{t('Conducting Site Surveys')}</h1>
-      <Container maxWidth="sm">
-        <h4>DronesEd</h4>
-        <h2>Conducting Site Surveys</h2>
-        <div className={classes.heroButtons}>
-          <Grid container spacing={2} justify="center">
-            <Grid item>
-              <NavLink className="btn btn-primary" to="/phases/">
-                  Go to Phases
-              </NavLink>
-            </Grid>
-          </Grid>
-        </div>
-      </Container>
+      <h1 className="h4">{t('Tool introduction')}</h1>
+      <p>This tool will teach you how to do a site survey through step-by-step instructions and guidance.</p>
+      <div>
+        <img src={IntroImg1} alt="" className="card-image-task" />
+      </div>
+      <NavLink className="btn btn-primary" to="/phases/">
+                  Skip Introduction
+      </NavLink>
     </React.Fragment>
   );
 }
@@ -47,5 +28,5 @@ BridgeInPhase.propTypes = {
 };
 
 export default withTranslation('home')(
-  withHeaderFooter(BridgeInPhase, 'Conducting Site Surveys')
+  withHeaderFooter(BridgeInPhase, 'Tool introduction')
 );

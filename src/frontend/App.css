@@ -26,27 +26,56 @@ body {
 
 main {
   background-color: #fff;
-  background-image: url("/images/burst-background.png");
+  background-image: url("/images/background-img/default-bg.png");
+  background-size: cover;
+  background-position: center; 
   padding-bottom: 30px;
 }
 
 .container {
-  padding: 0;
-  background: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px, 16px
 }
-.homepage {
-  color: #fff;
+main.homepage  {
+  background: url("/images/background-img/splash-bg.png");
+  background-color: #fff;
+  background-size: cover;
+  background-position: center; 
+  padding-top: 20px;
 }
 
-.homepage .droneRectangle {
-  height: 50px;
-  width: 30px;
-  background-color: #fff10f;
+.homepage .tcLog, .homepage .langBtn{
+  width:50%
+}
+
+.homepage .caLogContainer {
+  text-align: right;
+}
+
+.homepage .droneSloganTop {
+  height: 100px;
   display: inline-block;
+  padding: 16px 0;
+  text-align: right;
+}
+.homepage .droneSloganBtm {
+  height: 100px;
+  display: inline-block;
+  padding: 16px 0;
+  text-align: right;
+}
+
+.homepage .caLogo{
+  width: 35%;
 }
 
 .homepage .btn {
-  padding: 0.5rem 2rem;
+  display: inline-block;
+  width: 40%;
+  margin: 5px;
 }
 .homepage .subtitle {
   color: #fff10f;
@@ -54,6 +83,7 @@ main {
 
 .homepage .langSelection {
   padding: 5rem 0;
+  text-align: center;
 }
 
 #app {
@@ -133,11 +163,10 @@ button[disabled] {
   line-height: 1.15;
 }
 /* Card styles */
-.card-image-task {
-  display: block;
+.card-image-task, .react-quiz-container {
+  display: inline-block;
   width: 100%;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  background: #fff;
 }
 .card-task-img {
   width: 100%;
@@ -165,6 +194,7 @@ button[disabled] {
 }
 .card-step-img {
   width: -webkit-fill-available;
+  max-width:100%; 
 }
 .card-title {
   margin-bottom: 1rem;
@@ -416,4 +446,20 @@ h1,
   padding-top: 1em;
   font-weight: bold;
 }
+
+.questionWrapper{
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 0.6rem;
+  background: #fff;
+}
+.questionWrapper h3 {
+/* //background-color:red; */
+font-size: 1rem;
+}
+
 

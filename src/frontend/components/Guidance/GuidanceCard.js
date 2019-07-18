@@ -17,9 +17,7 @@ const GuidanceCard = (props) => {
           <h2 className="phase-title h6">{guidance.title}</h2>
         </summary>
         <div className="tgl-panel">
-          <img className="card-task-img" src={`/images/${guidance.imageUrl}`} alt="Placeholder" />
           <div dangerouslySetInnerHTML={{ __html: guidance.content }} />
-
         </div>
       </details>
     </div>

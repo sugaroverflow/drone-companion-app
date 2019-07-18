@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Quiz from 'react-quiz-component';
 import { NavLink } from 'react-router-dom';
-
 import { withTranslation } from 'react-i18next';
+import ProgressIndicator from '../../common/ProgressIndicator';
+import TaskTitle from '../Task/TaskTitle';
+
+
 import withHeaderFooter from '../../common/withHeaderFooter';
 // import { quiz } from '../../../backend/data/quizData';
 
@@ -65,16 +68,21 @@ class PreQuiz extends Component {
     if (task) {
       return (
         <>
-          <Container maxWidth="sm">
-            <Quiz quiz={task.preQuiz} showInstantFeedback />
-            <NavLink
-              className="btn btn-secondary"
-              to={`/phases/${phaseOId}/tasks/${taskOId}/steps/`}
-            >
-              {t('Skip')}
+          <ProgressIndicator currentProgress={0} />
+          <TaskTitle title={task.title} />
+          <div className="card-image-task">
+            <Quiz quiz={task.preQuiz} showInstantFeedback showDefaultResult={false} />
+            <div className="card-footer">
+              <NavLink
+                className="btn btn-secondary"
+                to={`/phases/${phaseOId}/tasks/${taskOId}/steps/`}
+              >
+                {t('Skip')}
 
-            </NavLink>
-          </Container>
+              </NavLink>
+
+            </div>
+          </div>
         </>
       );
     }

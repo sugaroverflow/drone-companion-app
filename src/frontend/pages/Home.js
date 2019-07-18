@@ -1,112 +1,71 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import { NavLink } from 'react-router-dom';
 import i18n from '../i18n';
 
-import Background from '../../../public/images/splash-background.png';
-import GOCLogo from '../../../public/images/goc-logo-en.svg';
-
-const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2)
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    backgroundImage: `url(${Background})`,
-    padding: theme.spacing(8, 0, 6)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
-  }
-}));
-
+import TCLogo from '../../../public/images/official-logos/transport-canada/TC-logo-eng-white.png';
+import CanadaLog from '../../../public/images/official-logos/canada-wordmark/CanadaWordmark_white.png';
+import DroneSloganEn from '../../../public/images/official-logos/DRONE-slogan-EN.png';
+import DroneSloganFr from '../../../public/images/official-logos/DRONE-slogan-FR.png';
 
 export default function Homepage() {
-  const classes = useStyles();
-  // const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
   return (
     <React.Fragment>
-      <AppBar position="relative">
-        <Toolbar>
-          <img
-            src={GOCLogo}
-            alt="Government of Canada / Gouvernement du Canada"
-            className="logo"
-          />
-        </Toolbar>
-      </AppBar>
       <main className="homepage">
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Grid container spacing={2}>
-              <Grid item>
-                <div className="droneRectangle" />
-              </Grid>
-              <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={2}>
-                  <span className="titleInfo">
-                    <h6 className="subtitle">DRONE SAFETY </h6>
-                    <h4 className="title">KNOW BEFORE YOU GO!</h4>
-                  </span>
-                </Grid>
-              </Grid>
-            </Grid>
-            <div className="langSelection">
-              <Grid
-                container
-                spacing={2}
-                direction="column"
-                alignItems="center"
-              >
-                <Grid item>
-                  <h5 class="white-text">Please select a language</h5>
-                </Grid>
-                <Grid item>
-                  <h5 class="white-text">Veuillez sélectionner une langue</h5>
-                </Grid>
-              </Grid>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('en')}>
-                    English
-                  </NavLink>
-                </Grid>
-                <Grid item>
-                  <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('fr')}>
-                    Français
-                  </NavLink>
-                </Grid>
-              </Grid>
+        <div className="container">
+          <div>
+            <img
+              src={TCLogo}
+              alt="Government of Canada / Gouvernement du Canada"
+              className="tcLog"
+            />
+          </div>
+          <div>
+            <img
+              src={DroneSloganEn}
+              alt="Drone safety Know before you go!"
+              className="droneSloganBtm"
+            />
+          </div>
+
+          <div className="langSelection">
+            <div className="h5 white-text">
+              Please select a language
             </div>
-            <Grid container spacing={2}>
-              <Grid item>
-                <div className="droneRectangle" />
-              </Grid>
-              <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={2}>
-                  <span className="titleInfo">
-                    <h6 className="subtitle">SÉCURITÉ DES DRONES </h6>
-                    <h4 className="title">RENSEIGNEZ-VOUS AVANT TOUT!</h4>
-                  </span>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Container>
+            <div className="h5 white-text">
+              Veuillez sélectionner une langue
+            </div>
+            <div>
+              <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('en')}>
+                    English
+              </NavLink>
+
+              <NavLink className="btn btn-primary" to="/intro" onClick={() => changeLanguage('fr')}>
+                    Français
+              </NavLink>
+            </div>
+          </div>
+          <div className="droneRectangleBtm">
+            <div>
+              <img
+                src={DroneSloganFr}
+                alt="SÉCURITÉ DES DRONES RENSEIGNEZ-VOUS AVANT TOUT!"
+                className="droneSloganBtm"
+              />
+            </div>
+          </div>
+          <div className="caLogContainer">
+            <img
+              src={CanadaLog}
+              alt="Government of Canada / Gouvernement du Canada"
+              className="caLogo"
+            />
+          </div>
         </div>
       </main>
-      {/* End footer */}
     </React.Fragment>
   );
 }
