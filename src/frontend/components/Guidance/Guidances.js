@@ -74,7 +74,7 @@ class Guidances extends Component {
         className="btn btn-primary"
         to={`/phases/${phaseOId}/tasks/${taskOId}/summary`}
       >
-        {t('Next')}
+        {t('Next Step')}
       </NavLink>
     );
   };

@@ -163,10 +163,19 @@ button[disabled] {
   line-height: 1.15;
 }
 /* Card styles */
-.card-image-task, .react-quiz-container {
+.card-image-task {
   display: inline-block;
   width: 100%;
   background: #fff;
+}
+
+.react-quiz-container{
+  display: inline-block;
+  width: 100% !important;
+  background: #fff;
+  margin:0 !important;
+  padding:15px;
+
 }
 .card-task-img {
   width: 100%;
