@@ -14,7 +14,9 @@ const GuidanceCard = (props) => {
     <div className="accordion phase-card">
       <details>
         <summary>
-          <h2 className="phase-title h6">{guidance.title}</h2>
+          <div className="phase-summary">
+            <h2 className="phase-title h6">{guidance.title}</h2>
+          </div>
         </summary>
         <div className="tgl-panel">
           <div dangerouslySetInnerHTML={{ __html: guidance.content }} />

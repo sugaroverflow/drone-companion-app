@@ -15,12 +15,15 @@ import { NavLink } from 'react-router-dom';
 import GuidanceList from './GuidanceList';
 
 import withHeaderFooter from '../../common/withHeaderFooter';
+import ProgressIndicator from '../../common/ProgressIndicator';
+import TaskTitle from '../Task/TaskTitle';
+
 
 class Guidances extends Component {
   constructor() {
     super();
     this.state = {
-      guidances: null
+      step: null
     };
   }
 
@@ -41,7 +44,7 @@ class Guidances extends Component {
     )
       .then(res => res.json())
       .then((step) => {
-        this.setState({ guidances: step.Guidances });
+        this.setState({ step });
       })
       .catch((error) => {
         console.log(error);
@@ -103,13 +106,14 @@ class Guidances extends Component {
   }
 
   render() {
-    const { guidances } = this.state;
+    const { step } = this.state;
     const { match } = this.props;
-    if (guidances !== null) {
+    if (step) {
       return (
         <>
-
-          <GuidanceList params={match.params} guidances={guidances} />
+          <ProgressIndicator currentProgress={1} />
+          <TaskTitle title={step.title} />
+          <GuidanceList params={match.params} guidances={step.Guidances} />
           <p>{this.nextButton()}</p>
           <p>{this.backButton()}</p>
         </>
