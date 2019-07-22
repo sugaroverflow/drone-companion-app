@@ -199,6 +199,13 @@ button[disabled] {
   padding:1em 1em 0;
 
 }
+
+.react-quiz-container .questionWrapper .btn{
+  word-break: break-word;
+  white-space: normal;
+  text-align: left;
+}
+
 .card-task-img {
   width: 100%;
   padding-bottom:1em;
