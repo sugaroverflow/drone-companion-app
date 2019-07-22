@@ -67,12 +67,14 @@ class PostQuiz extends Component {
           <TaskTitle title={task.title} />
           <div className="card-image-task">
             <Quiz quiz={task.postQuiz} showInstantFeedback />
-            <NavLink
-              className="btn btn-secondary"
-              to="/phases/"
-            >
-              {t('Skip')}
-            </NavLink>
+            <div className="card-footer">
+              <NavLink
+                className="btn btn-secondary"
+                to="/phases/?"
+              >
+                {t('Skip')}
+              </NavLink>
+            </div>
           </div>
         </>
       );

@@ -5,29 +5,39 @@ import { NavLink } from 'react-router-dom';
 const Task = ({
   task, phaseOId, currentTask, currentPhase
 }) => {
-  function StartButton({ isActive }) {
-    if (isActive) {
-      return (
+  const isActive = (task.orderNum === currentTask) && (phaseOId === currentPhase);
+  const isDone = (phaseOId < currentPhase)
+  || ((phaseOId === currentPhase) && (task.orderNum < currentTask));
+
+  if (isDone) {
+    return (
+      <li className="StepProgress-item is-done">
+        <NavLink
+          to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
+        >
+          {task.title}
+        </NavLink>
+      </li>
+    );
+  }
+  if (isActive) {
+    return (
+      <li className="StepProgress-item current">
+
+        {task.title}
         <NavLink
           className="btn btn-primary"
           to={`/phases/${phaseOId}/tasks/${task.orderNum}/preQuiz/`}
         >
           {('Start')}
         </NavLink>
-      );
-    }
-    return '';
+      </li>
+    );
   }
-
   return (
-
     <li className="StepProgress-item">
-      {' '}
       {task.title}
-      <StartButton isActive={(task.orderNum === currentTask) && (phaseOId === currentPhase)} />
-
     </li>
-
   );
 };
 

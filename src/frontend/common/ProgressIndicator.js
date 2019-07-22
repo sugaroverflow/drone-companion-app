@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ProgressIndicator = (props) => {
   const { currentProgress } = props;
-  const progresses = ['Prepare', 'Step-by-Step', 'Challenge', 'Result'];
+  const progresses = ['Prepare', 'Step-by-Step', 'Challenge'];
 
   function StepListItem({ progName, progOId }) {
     let classname = '';

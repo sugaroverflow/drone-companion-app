@@ -62,28 +62,28 @@ class TaskSummary extends Component {
     const { task } = this.state;
     if (task) {
       return (
-      <React.Fragment>
-        <ProgressIndicator currentProgress={1} />
-        <TaskTitle title={task.title} />
-        <div className="task-card">
-          <h2 className="h4">Step-by-Step Complete!</h2>
-          <p> Way to go! Check your knowledge with a quiz, or skip to go to the next section.</p>
-          <div className="card-footer">
-            <NavLink
-              className="btn btn-primary"
-              to={`/phases/${phaseOId}/tasks/${taskOId}/postQuiz/`}
-            >
+        <React.Fragment>
+          <ProgressIndicator currentProgress={1} />
+          <TaskTitle title={task.title} />
+          <div className="task-card">
+            <h2 className="h4">Step-by-Step Complete!</h2>
+            <p> Way to go! Check your knowledge with a quiz, or skip to go to the next section.</p>
+            <div className="card-footer">
+              <NavLink
+                className="btn btn-primary"
+                to={`/phases/${phaseOId}/tasks/${taskOId}/postQuiz/`}
+              >
                 Challenge
-            </NavLink>
-            <NavLink
-              className="btn btn-secondary"
-              to="/phases/"
-            >
+              </NavLink>
+              <NavLink
+                className="btn btn-secondary"
+                to="/phases/?"
+              >
                 Skip
-            </NavLink>
+              </NavLink>
+            </div>
           </div>
-        </div>
-      </React.Fragment>
+        </React.Fragment>
       );
     }
     return '';

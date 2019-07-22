@@ -10,9 +10,10 @@ function formatQuiz(quizObj) {
         correctAnswer = k + 1;
       }
     }
-    quiz.Questions[j].questionType = 'text';
+    quiz.Questions[j].questionType = (quiz.Questions[j].questionTypeId === 1 ? 'photo' : 'text');
     quiz.Questions[j].answers = quiz.Questions[j].Answers.map(x => x.answer);
     quiz.Questions[j].correctAnswer = correctAnswer;
+    delete quiz.Questions[j].questionTypeId;
     delete quiz.Questions[j].Answers;
   }
   quiz.questions = quiz.Questions;
@@ -69,11 +70,11 @@ function controller() {
             },
             {
               model: models.Quiz,
-              attributes: [[`quiz_title_${dbLang}txt`, 'quizTitle'], 'quizTypeId', [`quiz_description_${dbLang}txt`, 'description'],
+              attributes: [[`quiz_title_${dbLang}txt`, 'quizTitle'], 'quizTypeId', [`quiz_description_${dbLang}txt`, 'quizSynopsis'],
                 'orderNum'],
               include: [{
                 model: models.Question,
-                attributes: [[`question_${dbLang}txt`, 'question'], [`explanation_${dbLang}txt`, 'messageForCorrectAnswer'], [`explanation_${dbLang}txt`, 'messageForInorrectAnswer']],
+                attributes: [[`question_${dbLang}txt`, 'question'], [`explanation_${dbLang}txt`, 'messageForCorrectAnswer'], 'questionTypeId', [`explanation_${dbLang}txt`, 'messageForInorrectAnswer']],
                 include: [{
                   model: models.Alternative,
                   as: 'Answers',

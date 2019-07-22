@@ -71,7 +71,7 @@ class PreQuiz extends Component {
           <ProgressIndicator currentProgress={0} />
           <TaskTitle title={task.title} />
           <div className="card-image-task">
-            <Quiz quiz={task.preQuiz} showInstantFeedback showDefaultResult={false} />
+            <Quiz quiz={task.preQuiz} showInstantFeedback />
             <div className="card-footer">
               <NavLink
                 className="btn btn-secondary"
