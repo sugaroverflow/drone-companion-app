@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const ProgressIndicator = (props) => {
   const { currentProgress } = props;
-  const progresses = ['Prepare', 'Step-by-Step', 'Challenge'];
+  const { t } = useTranslation('ProgressIndicator');
+
+  const progresses = [t('Prepare'), t('Step-by-Step'), t('Challenge')];
 
   function StepListItem({ progName, progOId }) {
     let classname = '';
