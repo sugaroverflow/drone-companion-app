@@ -42,7 +42,6 @@ PhaseCard.propTypes = {
   phase: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    estimate: PropTypes.number.isRequired,
     Tasks: PropTypes.arrayOf(object).isRequired,
     orderNum: PropTypes.number.isRequired
   }).isRequired

@@ -16,14 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       titleEng: { type: DataTypes.STRING, unique: true, field: 'task_title_etxt' },
       titleFra: { type: DataTypes.STRING, unique: true, field: 'task_title_ftxt' },
-      imageUrlEng: { type: DataTypes.STRING(4000), field: 'task_image_url_etxt' },
-      imageUrlFra: { type: DataTypes.STRING(4000), field: 'task_image_url_ftxt' },
-      estimate: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
-        field: 'estimated_time_num'
-      },
       orderNum: {
         type: DataTypes.INTEGER,
         allowNull: false,

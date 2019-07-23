@@ -24,7 +24,7 @@ function controller() {
       .then((module) => {
         models.Phase.findOne({
           attributes: ['phaseId', [`phase_title_${dbLang}txt`, 'title'], [`phase_description_${dbLang}txt`, 'description'],
-            'estimate', 'orderNum'],
+            'orderNum'],
           where: {
             orderNum: Number(phaseOId),
             moduleId: module.moduleId
@@ -32,7 +32,7 @@ function controller() {
         }).then((phase) => {
           models.Task.findOne({
             attributes: ['taskId', [`task_title_${dbLang}txt`, 'title'],
-              'estimate', 'orderNum'],
+              'orderNum'],
             where: {
               orderNum: Number(taskOId),
               phaseId: phase.phaseId

@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         field: 'task_cd'
       },
       quizTypeId: { type: DataTypes.INTEGER, unique: 'sa001_ak2', field: 'quiz_type_cd' },
-      quizTitleEng: { type: DataTypes.STRING, unique: true, field: 'quiz_title_etxt' },
-      quizTitleFra: { type: DataTypes.STRING, unique: true, field: 'quiz_title_ftxt' },
+      quizTitleEng: { type: DataTypes.STRING, field: 'quiz_title_etxt' },
+      quizTitleFra: { type: DataTypes.STRING, field: 'quiz_title_ftxt' },
       quizDescEng: { type: DataTypes.STRING(4000), field: 'quiz_description_etxt' },
       quizDescFra: { type: DataTypes.STRING(4000), field: 'quiz_description_ftxt' },
       orderNum: {

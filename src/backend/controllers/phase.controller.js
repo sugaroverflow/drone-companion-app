@@ -29,12 +29,12 @@ function controller() {
         {
           model: models.Phase,
           attributes: [[`phase_title_${dbLang}txt`, 'title'], [`phase_description_${dbLang}txt`, 'description'],
-            'estimate', 'orderNum'],
+            'orderNum'],
           include: [
             {
               model: models.Task,
               attributes: [[`task_title_${dbLang}txt`, 'title'],
-                'estimate', 'orderNum'],
+                'orderNum'],
 
             }
           ]
@@ -59,7 +59,7 @@ function controller() {
       .then((module) => {
         models.Phase.findOne({
           attributes: [[`phase_title_${dbLang}txt`, 'title'], [`phase_description_${dbLang}txt`, 'description'],
-            'estimate', 'orderNum'],
+            'orderNum'],
           where: {
             orderNum: Number(phaseOId),
             moduleId: module.moduleId
@@ -68,7 +68,7 @@ function controller() {
             {
               model: models.Task,
               attributes: [[`task_title_${dbLang}txt`, 'title'],
-                'estimate', 'orderNum'],
+                'orderNum'],
 
             }
           ]

@@ -1,62 +1,244 @@
 [
   {
-    "questionId": 1,
-    "answerEng": "Yes",
-    "answerFra": "Oui",
-    "correctAnswerIndicator": true
+    "alternative_cd": 1,
+    "question_cd": 1,
+    "alternative_etxt": "Yes",
+    "alternative_ftxt": "Oui",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 1,
-    "answerEng": "No",
-    "answerFra": "Non",
-    "correctAnswerIndicator": false
+    "alternative_cd": 2,
+    "question_cd": 1,
+    "alternative_etxt": "No",
+    "alternative_ftxt": "Non",
+    "correct_alternative_ind": false,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 2,
-    "answerEng": "Yes",
-    "answerFra": "Oui",
-    "correctAnswerIndicator": true
+    "alternative_cd": 3,
+    "question_cd": 2,
+    "alternative_etxt": "Yes",
+    "alternative_ftxt": "Oui",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 2,
-    "answerEng": "No",
-    "answerFra": "Non",
-    "correctAnswerIndicator": false
+    "alternative_cd": 4,
+    "question_cd": 2,
+    "alternative_etxt": "No",
+    "alternative_ftxt": "Non",
+    "correct_alternative_ind": false,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 3,
-    "answerEng": "Yes",
-    "answerFra": "Oui",
-    "correctAnswerIndicator": true
+    "alternative_cd": 5,
+    "question_cd": 3,
+    "alternative_etxt": "Yes",
+    "alternative_ftxt": "Oui",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 3,
-    "answerEng": "No",
-    "answerFra": "Non",
-    "correctAnswerIndicator": false
+    "alternative_cd": 6,
+    "question_cd": 3,
+    "alternative_etxt": "No",
+    "alternative_ftxt": "Non",
+    "correct_alternative_ind": false,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 4,
-    "answerEng": "Yes",
-    "answerFra": "Oui",
-    "correctAnswerIndicator": true
+    "alternative_cd": 7,
+    "question_cd": 4,
+    "alternative_etxt": "Yes",
+    "alternative_ftxt": "Oui",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 4,
-    "answerEng": "No",
-    "answerFra": "Non",
-    "correctAnswerIndicator": false
+    "alternative_cd": 8,
+    "question_cd": 4,
+    "alternative_etxt": "No",
+    "alternative_ftxt": "Non",
+    "correct_alternative_ind": false,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 5,
-    "answerEng": "Yes",
-    "answerFra": "Oui",
-    "correctAnswerIndicator": true
+    "alternative_cd": 9,
+    "question_cd": 5,
+    "alternative_etxt": "Yes",
+    "alternative_ftxt": "Oui",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "questionId": 5,
-    "answerEng": "No",
-    "answerFra": "Non",
-    "correctAnswerIndicator": false
+    "alternative_cd": 10,
+    "question_cd": 5,
+    "alternative_etxt": "No",
+    "alternative_ftxt": "Non",
+    "correct_alternative_ind": false,
+    "date_created_dte": "2019-07-17T16:36:54.019729+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:54.019729+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 11,
+    "question_cd": 9,
+    "alternative_etxt": "True",
+    "alternative_ftxt": "True(fr)",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:07:59.440487+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:07:59.440487+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 12,
+    "question_cd": 9,
+    "alternative_etxt": "False",
+    "alternative_ftxt": "False(fr)",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-19T19:08:26.550087+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:08:26.550087+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 13,
+    "question_cd": 10,
+    "alternative_etxt": "True",
+    "alternative_ftxt": "True(fr)",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:09:45.269303+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:09:45.269303+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 14,
+    "question_cd": 10,
+    "alternative_etxt": "False",
+    "alternative_ftxt": "False(fr)",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-19T19:09:45.269303+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:09:45.269303+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 15,
+    "question_cd": 11,
+    "alternative_etxt": "More confidence with flying your drone.",
+    "alternative_ftxt": "More confidence with flying your drone.",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:16:12.226248+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:16:12.226248+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 16,
+    "question_cd": 11,
+    "alternative_etxt": "Flying your drone safely.",
+    "alternative_ftxt": "Flying your drone safely.",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:16:12.226248+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:16:12.226248+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 17,
+    "question_cd": 11,
+    "alternative_etxt": "Your drone can last longer with proper maintenance.",
+    "alternative_ftxt": "Your drone can last longer with proper maintenance.",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:16:12.226248+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:16:12.226248+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 18,
+    "question_cd": 11,
+    "alternative_etxt": "Better birthday cakes.",
+    "alternative_ftxt": "Better birthday cakes.",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-19T19:16:12.226248+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:16:12.226248+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 19,
+    "question_cd": 12,
+    "alternative_etxt": "Weather will unlikely impact your ability to see your drone in flight.",
+    "alternative_ftxt": "Weather will unlikely impact your ability to see your drone in flight. (fr)",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:17:07.961341+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:17:07.961341+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 20,
+    "question_cd": 12,
+    "alternative_etxt": "Weather may impact your ability to control your drone in flight. ",
+    "alternative_ftxt": "Weather may impact your ability to control your drone in flight. (fr)",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:17:07.961341+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:17:07.961341+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 21,
+    "question_cd": 12,
+    "alternative_etxt": "Weather cannot impact your drone's battery performance.",
+    "alternative_ftxt": "Weather cannot impact your drone's battery performance. (fr)",
+    "correct_alternative_ind": null,
+    "date_created_dte": "2019-07-19T19:17:07.961341+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:17:07.961341+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "alternative_cd": 22,
+    "question_cd": 12,
+    "alternative_etxt": "Weather can impact all of the following: seeing your drone in flight, controlling your drone in flight, and your drone's battery performance.",
+    "alternative_ftxt": "Weather can impact all of the following:\n<ul><li>seeing your drone in flight</li>\n<li>controlling your drone in flight</li>\n<li>your drone's battery performance</li><ul> (fr)",
+    "correct_alternative_ind": true,
+    "date_created_dte": "2019-07-19T19:17:07.961341+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T19:17:07.961341+00:00",
+    "user_last_update_id": -9999
   }
 ]

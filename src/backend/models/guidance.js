@@ -19,8 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       titleEng: { type: DataTypes.STRING, field: 'guidance_title_etxt' },
       titleFra: { type: DataTypes.STRING, field: 'guidance_title_ftxt' },
-      imageUrlEng: { type: DataTypes.STRING, field: 'guidance_image_url_etxt' },
-      imageUrlFra: { type: DataTypes.STRING, field: 'guidance_image_url_ftxt' },
       contentEng: { type: DataTypes.STRING(4000), field: 'guidance_content_etxt' },
       contentFra: { type: DataTypes.STRING(4000), field: 'guidance_content_ftxt' },
       orderNum: {

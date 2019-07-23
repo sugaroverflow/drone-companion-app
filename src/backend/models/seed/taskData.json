@@ -1,52 +1,68 @@
 [
   {
-    "taskId": "1",
-    "phaseId": "1",
-    "titleEng": "Register your drone",
-    "titleFra": "Register your drone (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "estimate": "30",
-    "orderNum": "1"
+    "task_cd": 1,
+    "phase_cd": 1,
+    "task_title_etxt": "Register your drone",
+    "task_title_ftxt": "Register your drone (fr)",
+    "display_order_srt": 1,
+    "date_created_dte": "2019-07-17T16:36:52.691604+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.691604+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "taskId": "2",
-    "phaseId": "1",
-    "titleEng": "Mark your drone",
-    "titleFra": "Mark your drone (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "estimate": "30",
-    "orderNum": "2"
+    "task_cd": 2,
+    "phase_cd": 1,
+    "task_title_etxt": "Mark your drone",
+    "task_title_ftxt": "Mark your drone (fr)",
+    "display_order_srt": 2,
+    "date_created_dte": "2019-07-17T16:36:52.691604+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.691604+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "taskId": "3",
-    "phaseId": "2",
-    "titleEng": "Learn about the make and model of your drone.",
-    "titleFra": "Learn about the make and model of your drone. (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "estimate": "30",
-    "orderNum": "1"
+    "task_cd": 3,
+    "phase_cd": 2,
+    "task_title_etxt": "Learn about the make and model of your drone.",
+    "task_title_ftxt": "Découvrez la marque et le modèle de votre drone\n",
+    "display_order_srt": 1,
+    "date_created_dte": "2019-07-17T16:36:52.691604+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.691604+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "taskId": "4",
-    "phaseId": "2",
-    "titleEng": "Learn about your drone's remote control or software",
-    "titleFra": "Learn about your drone's remote control or software (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "estimate": "30",
-    "orderNum": "2"
+    "task_cd": 4,
+    "phase_cd": 2,
+    "task_title_etxt": "Learn about your drone's remote control or software",
+    "task_title_ftxt": "En savoir plus sur la télécommande ou le logiciel de votre drone.\n",
+    "display_order_srt": 2,
+    "date_created_dte": "2019-07-17T16:36:52.691604+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.691604+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "taskId": "5",
-    "phaseId": "2",
-    "titleEng": "Know your level of experience",
-    "titleFra": "Know your level of experience (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "estimate": "30",
-    "orderNum": "3"
+    "task_cd": 5,
+    "phase_cd": 2,
+    "task_title_etxt": "Know your level of experience",
+    "task_title_ftxt": "Soyez conscient de votre niveau d’expérience.\n",
+    "display_order_srt": 3,
+    "date_created_dte": "2019-07-17T16:36:52.691604+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.691604+00:00",
+    "user_last_update_id": -9999
+  },
+  {
+    "task_cd": 6,
+    "phase_cd": 1,
+    "task_title_etxt": "Get your Drone Pilot Certificate",
+    "task_title_ftxt": "Get your Drone Pilot Certificate (fr)",
+    "display_order_srt": 3,
+    "date_created_dte": "2019-07-19T01:35:53.569809+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-19T01:35:53.569809+00:00",
+    "user_last_update_id": -9999
   }
 ]

@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       quizId: { type: DataTypes.INTEGER, field: 'quiz_cd' },
       questionTypeId: { type: DataTypes.INTEGER, field: 'question_type_cd' },
-      questionEng: { type: DataTypes.STRING, unique: true, field: 'question_etxt' },
-      questionFra: { type: DataTypes.STRING, unique: true, field: 'question_ftxt' },
+      questionEng: { type: DataTypes.STRING, field: 'question_etxt' },
+      questionFra: { type: DataTypes.STRING, field: 'question_ftxt' },
       questionDescEng: { type: DataTypes.STRING(4000), field: 'explanation_etxt' },
       questionDescFra: { type: DataTypes.STRING(4000), field: 'explanation_ftxt' },
       createdAt: {

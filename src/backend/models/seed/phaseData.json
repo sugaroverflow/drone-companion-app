@@ -1,22 +1,28 @@
 [
   {
-    "phaseId": 1,
-    "moduleId": 1,
-    "titleEng": "Register and get your pilot certificates.",
-    "titleFra": "Register and get your pilot certificates. (fr)",
-    "descEng": "In this phase you will learn what you need before you fly your drone.",
-    "descFra": "In this phase you will learn what you need before you fly your drone. (fr)",
-    "estimate": 30,
-    "orderNum": 1
+    "phase_cd": 1,
+    "module_cd": 1,
+    "phase_title_etxt": "Register and get your pilot certificates.",
+    "phase_title_ftxt": "Register and get your pilot certificates. (fr)",
+    "phase_description_etxt": "In this phase you will learn what you need before you fly your drone.",
+    "phase_description_ftxt": "In this phase you will learn what you need before you fly your drone. (fr)",
+    "display_order_srt": 1,
+    "date_created_dte": "2019-07-17T16:36:52.504081+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.504081+00:00",
+    "user_last_update_id": -9999
   },
   {
-    "phaseId": 2,
-    "moduleId": 1,
-    "titleEng": "Get to know your drone",
-    "titleFra": "Get to know your drone (fr)",
-    "descEng": "In this phase, you will learn things you should know about your drone for safety.",
-    "descFra": "In this phase, you will learn things you should know about your drone for safety. (fr)",
-    "estimate": 30,
-    "orderNum": 2
+    "phase_cd": 2,
+    "module_cd": 1,
+    "phase_title_etxt": "Get to know your drone",
+    "phase_title_ftxt": "Faites connaissance avec votre drone\n",
+    "phase_description_etxt": "In this phase, you will learn things you should know about your drone for safety.",
+    "phase_description_ftxt": "Dans cette phase, vous apprendrez des choses que vous devriez savoir sur votre drone pour des raisons de sécurité.\n",
+    "display_order_srt": 2,
+    "date_created_dte": "2019-07-17T16:36:52.504081+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:52.504081+00:00",
+    "user_last_update_id": -9999
   }
 ]

@@ -14,8 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         references: { model: 'ta003_task', key: 'task_cd' },
         field: 'task_cd'
       },
-      titleEng: { type: DataTypes.STRING, unique: true, field: 'step_title_etxt' },
-      titleFra: { type: DataTypes.STRING, unique: true, field: 'step_title_ftxt' },
       descEng: { type: DataTypes.STRING(4000), field: 'step_description_etxt' },
       descFra: { type: DataTypes.STRING(4000), field: 'step_description_ftxt' },
       imageUrlEng: { type: DataTypes.STRING, field: 'step_image_url_etxt' },

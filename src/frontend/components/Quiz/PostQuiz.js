@@ -65,7 +65,7 @@ class PostQuiz extends Component {
         <>
           <ProgressIndicator currentProgress={2} />
           <TaskTitle title={task.title} />
-          <div className="card-image-task">
+          <div className="task-card">
             <Quiz quiz={task.postQuiz} showInstantFeedback />
             <div className="card-footer">
               <NavLink

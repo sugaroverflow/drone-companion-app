@@ -20,12 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       titleFra: { type: DataTypes.STRING, unique: true, field: 'phase_title_ftxt' },
       descEng: { type: DataTypes.STRING(4000), field: 'phase_description_etxt' },
       descFra: { type: DataTypes.STRING(4000), field: 'phase_description_ftxt' },
-      estimate: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
-        field: 'estimated_time_num'
-      },
       orderNum: {
         type: DataTypes.INTEGER,
         allowNull: false,

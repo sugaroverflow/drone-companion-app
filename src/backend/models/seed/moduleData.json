@@ -1,15 +1,18 @@
 [
   {
-    "moduleId": 1,
-    "titleEng": "Conducting a Site Survey",
-    "titleFra": "Conducting a Site Survey (fr)",
-    "descEng": "This set of tasks will guide you through completing a site survey",
-    "descFra": "This set of tasks will guide you through completing a site survey (fr)",
-    "imageUrlEng": "placeholder-2.png",
-    "imageUrlFra": "placeholder-2.png",
-    "iconUrlEng": null,
-    "iconUrlFra": null,
-    "orderNum": 1,
-    "moduleStatus": "active"
+    "module_cd": 1,
+    "module_title_etxt": "Conducting a Site Survey",
+    "module_title_ftxt": "Conducting a Site Survey (fr)",
+    "module_description_etxt": "This set of tasks will guide you through completing a site survey",
+    "module_description_ftxt": "This set of tasks will guide you through completing a site survey (fr)",
+    "module_image_url_etxt": "placeholder-2.png",
+    "module_image_url_ftxt": "placeholder-2.png",
+    "icon_url_etxt": null,
+    "icon_url_ftxt": null,
+    "display_order_srt": 1,
+    "date_created_dte": "2019-07-17T16:36:51.988441+00:00",
+    "date_deleted_dte": null,
+    "date_last_update_dte": "2019-07-17T16:36:51.988441+00:00",
+    "user_last_update_id": -9999
   }
 ]
