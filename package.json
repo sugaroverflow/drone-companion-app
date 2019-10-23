@@ -41,7 +41,7 @@
     "pg-hstore": "^2.3.3",
     "prop-types": "15.7.2",
     "react": "16.11.0",
-    "react-dom": "16.8.6",
+    "react-dom": "16.11.0",
     "react-i18next": "^10.11.4",
     "react-quiz-component": "0.2.6",
     "react-router-dom": "5.0.0",
