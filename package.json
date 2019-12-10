@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.19",
+    "@fortawesome/fontawesome-svg-core": "1.2.26",
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/react-fontawesome": "0.1.4",
     "@gctools-components/aurora-ds": "0.3.3",
